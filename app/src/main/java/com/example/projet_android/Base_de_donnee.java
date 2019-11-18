@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Base_de_donnee extends SQLiteOpenHelper {
 
-    public final static int VERSION = 4;
+    public final static int VERSION = 5;
     public final static String DB_NAME = "Base de donnee Projet Mobile";
     public final static String TAG = "d" ;
 
@@ -165,10 +165,10 @@ public class Base_de_donnee extends SQLiteOpenHelper {
 
         affiche_res_requette(new String []{"*"}, new String[]{TABLE_MOT},null);
         */
+        SQLiteDatabase bd = this.getWritableDatabase();
 
         ContentValues row = new ContentValues();
         row.put(NOM_CATGEORIE, "Mot Usuel");
-        SQLiteDatabase bd = this.getWritableDatabase();
         long res = bd.insertOrThrow(TABLE_CATGEORIE, null, row);
 
         row = new ContentValues();
@@ -192,7 +192,75 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         res = bd.insertOrThrow(TABLE_CATGEORIE, null, row);
 
 
-        affiche_res_requette(new String []{"*"}, new String[]{TABLE_CATGEORIE},null);
+        /**
+         * Langue
+         */
+        row = new ContentValues();
+        row.put(LANGUE_NOM, "Francais");
+        res = bd.insertOrThrow(TABLE_LANGUE, null, row);
+        row = new ContentValues();
+        row.put(LANGUE_NOM, "Anglais");
+        res = bd.insertOrThrow(TABLE_LANGUE, null, row);
+        row = new ContentValues();
+        row.put(LANGUE_NOM, "Espagnol");
+        res = bd.insertOrThrow(TABLE_LANGUE, null, row);
+        row = new ContentValues();
+        row.put(LANGUE_NOM, "Allemands");
+        res = bd.insertOrThrow(TABLE_LANGUE, null, row);
+
+        /**
+         * MOT
+         */
+        row = new ContentValues();
+        row.put(CONTENU, "Bonjour");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Salut");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Cacahuete");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+        row = new ContentValues();
+        row.put(CONTENU, "Elephant");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Animaux" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+        row = new ContentValues();
+        row.put(CONTENU, "Pigeon");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+        row = new ContentValues();
+        row.put(CONTENU, "Stylo");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+        row = new ContentValues();
+        row.put(CONTENU, "Crayon");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+        row = new ContentValues();
+        row.put(CONTENU, "Ordinateur");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+        row = new ContentValues();
+        row.put(CONTENU, "Master");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        affiche_res_requette(new String []{"*"}, new String[]{TABLE_LANGUE},null);
 
         }
 

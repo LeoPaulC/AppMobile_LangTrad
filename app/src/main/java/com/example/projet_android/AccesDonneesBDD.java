@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +27,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static com.example.projet_android.MainActivity.frag_accesBDD;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -91,8 +95,8 @@ public class AccesDonneesBDD extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
+                             final Bundle savedInstanceState) {
 
         vue_du_fragment = inflater.inflate(R.layout.fragment_acces_donnees_bdd, container, false);
         Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnCreateView .");
@@ -122,6 +126,69 @@ public class AccesDonneesBDD extends Fragment {
             sca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             lv.setAdapter(sca);
             Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnCreateView terminé , liste en place .");
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(parent.getContext(),
+                            ">> : " + ((Cursor) parent.getItemAtPosition(position)).getString(1),
+                            Toast.LENGTH_SHORT).show();
+                    // on met la categorie choisie dans le bundle de session
+                    MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_CATEGORIE,((Cursor) parent.getItemAtPosition(position)).getString(1));
+
+                    //MainActivity.frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+                    Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnClickListener Categorie.");
+                    MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE));
+
+
+                }
+            });
+
+
+        }
+        if ( mParam1 != null & mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_LANGUE){
+            /**
+             * on va construire l'URI pour recuperer les categories .
+             */
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_LANGUE);
+            Uri uri = builder.build();
+            cursor = moncontentprovider.query(uri,
+                    null
+                    ,null,
+                    null,
+                    null);
+            en_tete_list = vue_du_fragment.findViewById(R.id.textView_en_tete_list);
+            en_tete_list.setText("Choisir Votre Langue : ");
+            Log.d(Base_de_donnee.TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+            lv = vue_du_fragment.findViewById(R.id.ma_liste_view);
+            cursor.moveToFirst();
+            String[] fromColumns = new String[] {Base_de_donnee.LANGUE_NOM};
+            int[] toControlIDs = new int[] {android.R.id.text1};
+            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor,
+                    fromColumns,
+                    toControlIDs);
+            sca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            lv.setAdapter(sca);
+            Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnCreateView terminé , liste en place .");
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(parent.getContext(),
+                            ">> : " + ((Cursor) parent.getItemAtPosition(position)).getString(1),
+                            Toast.LENGTH_SHORT).show();
+                    // on met la categorie choisie dans le bundle de session
+                    String pos = String.valueOf(position+1);
+                    Log.d(Base_de_donnee.TAG, "POSITION de la langue :::::::::::: " + pos);
+
+                    MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE2,pos);
+
+                    Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnClickListener Langue .");
+                    MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_question.newInstance("affiche",Base_de_donnee.TABLE_MOT));
+
+                }
+            });
 
         }
 

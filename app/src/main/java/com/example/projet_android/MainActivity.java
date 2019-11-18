@@ -1,6 +1,7 @@
 package com.example.projet_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -37,6 +38,16 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     static FragmentManager fm ;
     static FragmentTransaction transaction ;
 
+    static final String BUNDLE_CATEGORIE ="categorie" ;
+    static final String BUNDLE_LANGUE1 ="langue1" ;
+    static final String BUNDLE_LANGUE2 ="langue2" ;
+    static final String BUNDLE_SCORE ="score" ;
+    static final String BUNDLE_NIVEAU ="niveau" ;
+
+    static Bundle bundle_de_la_session_en_cours ;
+
+
+
 
     /**
      * Fin attributs
@@ -52,11 +63,15 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // init BDD
         bdd = new Base_de_donnee(this);
-
+        // init bundle de session .
+        bundle_de_la_session_en_cours = new Bundle();
 
         fm = getSupportFragmentManager();
         transaction = fm.beginTransaction();
+
+        Log.d("d","Coucouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
 
         ma_liste_view = findViewById(R.id.ma_liste_view);
 
@@ -77,23 +92,15 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         // Fragment Question Graphique
 
         /**
-         * pour le demarage on choisie la Categorie ...................
+         * pour le demarage on choisie la Langues ...................
          */
 
-        /*
-        fragment_question = Fragment_question.newInstance("Question : ....................................................................",""); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
-
-        transaction
-                .add(R.id.emplacement_fragment_question, fragment_question, "frag_question")
-                .addToBackStack("frag_question");
-
-
-         */
-        frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.CATEGORIE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+        frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_CATGEORIE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
 
         transaction
                 .add(R.id.emplacement_fragment_question, frag_accesBDD, "frag_question")
                 .addToBackStack("frag_question");
+
 
 
         /**
@@ -118,15 +125,15 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
 
 
          */
-        //Log.d("LOG", "premier fragment ajouté ok");
+                //Log.d("LOG", "premier fragment ajouté ok");
 
-        // Fragment du bas de l'ecran graphique
+                // Fragment du bas de l'ecran graphique
 
-        /**
-         * Gestion de la creation du Pré-Remplissage de la BDD ( partiel pour l'instant ) .
-         */
-        fragment_bas = Fragment_bas.newInstance("init" , "bdd"); // permet de passer des paramettre et donc effecturer des actions specifiques .
+                /**
+                 * Gestion de la creation du Pré-Remplissage de la BDD ( partiel pour l'instant ) .
+                 */
 
+                fragment_bas = Fragment_bas.newInstance("init" , "bdd"); // permet de passer des paramettre et donc effecturer des actions specifiques .
         transaction.add(R.id.emplacement_fragment_bas,fragment_bas,"Button_du_bas")
                 .addToBackStack("Button_du_bas") ;
 
@@ -143,6 +150,16 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         super.onStop();
         bdd.close();
         Log.d("d","STOOOOOOOOOOOOP , l'activité a quitté et la bdd a été fermé  : bdd - " + bdd.toString());
+    }
+
+    public static void ChargeFragmentDansEmplacement_Question(Fragment le_nouveau_frag){
+
+        transaction = fm.beginTransaction();
+
+        Log.d("d","ChargeFragmentDasnEmplacementQuestion ... " + le_nouveau_frag.toString());
+        transaction.replace(R.id.emplacement_fragment_question,le_nouveau_frag).
+                addToBackStack(le_nouveau_frag.getTag()) ;
+        transaction.commit();
     }
 
     protected int getOrientation(){

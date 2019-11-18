@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/cadiou/Documents/Android/Projet_Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml",
             "map": [
                 {
                     "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-sv/values-sv.xml",

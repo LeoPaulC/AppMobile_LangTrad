@@ -20,6 +20,8 @@ public class MyContentProvider extends ContentProvider {
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
     {
         matcher.addURI(authority,Base_de_donnee.CATEGORIE,1); // pour recuperer toutes les categories de dispo .
+        matcher.addURI(authority,Base_de_donnee.TABLE_LANGUE,2); // pour recuperer toutes les categories de dispo .
+        matcher.addURI(authority,Base_de_donnee.TABLE_MOT,3); // pour recuperer toutes les categories de dispo .
 
     }
     public MyContentProvider() {}
@@ -45,6 +47,17 @@ public class MyContentProvider extends ContentProvider {
                 Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas RECHERCHE DE CATEGRORIE : ");
                 cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.CATEGORIE, null);
                 Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1));
+                break;
+                case 2:
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas RECHERCHE DE Langues : ");
+                cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_LANGUE, null);
+                Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1));
+                break;
+            case 3:
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas RECHERCHE DE Mot d'apres une langue et une catgeorie : ");
+                cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_MOT + " where " + Base_de_donnee.CATEGORIE + " = ? and "+ Base_de_donnee.ID_LANGUE + " = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) , MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)});
+
+                Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3));
                 break;
             default:
                 Log.d("Query", "Not implemented yet");

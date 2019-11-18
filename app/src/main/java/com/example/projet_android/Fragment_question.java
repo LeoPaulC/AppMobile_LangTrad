@@ -1,10 +1,13 @@
 package com.example.projet_android;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
+import androidx.loader.content.CursorLoader;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -12,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,12 +38,21 @@ public class Fragment_question extends Fragment {
     private String mParam1; // on va se servir de ce paramettre pour stocker la question
     private String mParam2;
 
+    MyContentProvider moncontentprovider ;
+
+    CursorLoader mycursorLoad;
+
+    Cursor cursor ;
+
+    TextView texview_question ;
+
 
 
 
     private OnFragmentInteractionListener mListener;
 
     TextView text_view_de_la_question ;
+    Button button_passer_la_question ;
     private View vue_du_frag;
     public static ListView mon_recycler_view ;
 
@@ -72,6 +85,7 @@ public class Fragment_question extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        moncontentprovider = new MyContentProvider();
     }
 
     @Override
@@ -84,13 +98,60 @@ public class Fragment_question extends Fragment {
         vue_du_frag = inflater.inflate(R.layout.fragment_question, container, false);
         text_view_de_la_question = vue_du_frag.findViewById(R.id.Textview_question) ;
         text_view_de_la_question.setText(mParam1);
+        Log.d(Base_de_donnee.TAG, "Fragment Question : OnCreateView .");
 
 
         /**
-         * On affiche la liste des categories dispo .
+         * On affiche un mot au hasard parmis la liste de dispo pour la categorie  .
          */
+        if ( mParam1 != null & mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_MOT){
+            String catgeorie_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) ;
+            String langue_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2) ;
 
-        Log.d(Base_de_donnee.TAG, "Fragment Question : OnCreateView .");
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT);
+            Uri uri = builder.build();
+            cursor = moncontentprovider.query(uri,
+                    null
+                    ,null,
+                    null,
+                    null);
+            texview_question = vue_du_frag.findViewById(R.id.Textview_question);
+            texview_question.setText("Traduire ce mot : ");
+            Log.d(Base_de_donnee.TAG,"Dans Fragment Question : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3)) ;
+
+            cursor.moveToFirst();
+            /*String[] fromColumns = new String[] {Base_de_donnee.CONTENU};
+            int[] toControlIDs = new int[] {android.R.id.text1};
+            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor,
+                    fromColumns,
+                    toControlIDs);
+            sca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            lv.setAdapter(sca);
+            */
+            //cursor.getString(cursor.getColumnIndex(Base_de_donnee.CONTENU)); // pour recuperer le contenu du premier resultat .
+            texview_question.setText("Traduire ce mot : " + cursor.getString(2));
+
+            button_passer_la_question = vue_du_frag.findViewById(R.id.button_passer_question);
+            button_passer_la_question.setVisibility(View.VISIBLE);
+            button_passer_la_question.setText("Passer cette Question");
+            button_passer_la_question.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if ( cursor.moveToNext() ){
+                        texview_question.setText("Traduire ce mot : " + cursor.getString(2));
+
+                    }
+                }
+            });
+
+            /*while ( cursor.moveToNext() ){
+                Log.d(Base_de_donnee.TAG , "Res question :: " + cursor.getString(2)) ;
+            }*/
+
+            Log.d(Base_de_donnee.TAG, "Fragment Question: OnCreateView terminé , Question en place .");
+        }
+
         return vue_du_frag;
 
     }

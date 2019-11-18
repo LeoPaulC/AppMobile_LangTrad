@@ -11,7 +11,7 @@
 
         <TextView
             android:id="@+id/Textview_question"
-            android:layout_width="match_parent"
+            android:layout_width="264dp"
             android:layout_height="wrap_content"
             android:isScrollContainer="true"
             android:keepScreenOn="false"
@@ -20,6 +20,14 @@
             android:overScrollMode="ifContentScrolls"
             android:scrollbarStyle="insideInset"
             android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/button_passer_question"
+            android:layout_width="147dp"
+            android:layout_height="103dp"
+            android:layout_toRightOf="@id/Textview_question"
+            android:text="Button"
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

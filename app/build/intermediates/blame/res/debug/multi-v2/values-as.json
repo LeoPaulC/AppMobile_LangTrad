@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/cadiou/Documents/Android/Projet_Android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml",
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml",
             "map": [
                 {
                     "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/res/values-as/values.xml",
