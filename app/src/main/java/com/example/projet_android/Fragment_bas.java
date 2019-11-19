@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class Fragment_bas extends Fragment {
 
     Button button_valider ;
     Button button_effacer ;
+    Button trad ;
 
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
@@ -89,6 +91,7 @@ public class Fragment_bas extends Fragment {
         vue_du_fragment = inflater.inflate(R.layout.fragment_fragment_bas, container, false);
         button_valider = vue_du_fragment.findViewById(R.id.button);
         button_effacer = vue_du_fragment.findViewById(R.id.button_effacer);
+        trad = vue_du_fragment.findViewById(R.id.button_valider);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -114,6 +117,27 @@ public class Fragment_bas extends Fragment {
                     MainActivity.bdd.effacer_bdd();
                 }
             });
+        }
+
+        if ( mParam1 != null && mParam1.equals("valide") && mParam2.equals("traduction")){ // partie correpsondant a l'initailisation de la base de donnée
+            Log.d("d" ,"Fragment BAS : valide - trad" ); // creation Table OK
+
+            button_valider.setVisibility(View.INVISIBLE);
+
+            button_effacer.setVisibility(View.INVISIBLE);
+
+            trad.setVisibility(View.VISIBLE);
+            trad.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getContext(),
+                            ">> : " + MainActivity.fragment_question.text_view_de_la_question.getText(),
+                            Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -144,6 +168,8 @@ public class Fragment_bas extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        if ( mParam1 != null && mParam1 == "valide" && mParam2 == "traduction"){
+        }
         mListener = null;
     }
 

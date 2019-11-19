@@ -141,6 +141,7 @@ public class AccesDonneesBDD extends Fragment {
                     MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE));
 
 
+
                 }
             });
 

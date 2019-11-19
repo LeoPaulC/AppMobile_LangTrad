@@ -161,6 +161,16 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
                 addToBackStack(le_nouveau_frag.getTag()) ;
         transaction.commit();
     }
+    public static void ChargeFragmentDansEmplacement_Bas(Fragment le_nouveau_frag){
+
+        transaction = fm.beginTransaction();
+
+        Log.d("d","ChargeFragmentDansEmplacementBas ... " + le_nouveau_frag.toString());
+        transaction.replace(R.id.emplacement_fragment_bas,le_nouveau_frag).
+                addToBackStack(le_nouveau_frag.getTag()) ;
+
+        transaction.commit();
+    }
 
     protected int getOrientation(){
         return getResources().getConfiguration().orientation;

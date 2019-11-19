@@ -18,6 +18,7 @@ import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -53,6 +54,7 @@ public class Fragment_question extends Fragment {
 
     TextView text_view_de_la_question ;
     Button button_passer_la_question ;
+    Button valider ;
     private View vue_du_frag;
     public static ListView mon_recycler_view ;
 
@@ -105,6 +107,7 @@ public class Fragment_question extends Fragment {
          * On affiche un mot au hasard parmis la liste de dispo pour la categorie  .
          */
         if ( mParam1 != null & mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_MOT){
+
             String catgeorie_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) ;
             String langue_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2) ;
 
@@ -121,15 +124,6 @@ public class Fragment_question extends Fragment {
             Log.d(Base_de_donnee.TAG,"Dans Fragment Question : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3)) ;
 
             cursor.moveToFirst();
-            /*String[] fromColumns = new String[] {Base_de_donnee.CONTENU};
-            int[] toControlIDs = new int[] {android.R.id.text1};
-            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor,
-                    fromColumns,
-                    toControlIDs);
-            sca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            lv.setAdapter(sca);
-            */
-            //cursor.getString(cursor.getColumnIndex(Base_de_donnee.CONTENU)); // pour recuperer le contenu du premier resultat .
             texview_question.setText("Traduire ce mot : " + cursor.getString(2));
 
             button_passer_la_question = vue_du_frag.findViewById(R.id.button_passer_question);
@@ -145,9 +139,9 @@ public class Fragment_question extends Fragment {
                 }
             });
 
-            /*while ( cursor.moveToNext() ){
-                Log.d(Base_de_donnee.TAG , "Res question :: " + cursor.getString(2)) ;
-            }*/
+            MainActivity.ChargeFragmentDansEmplacement_Bas(Fragment_bas.newInstance("valide","traduction"));
+
+
 
             Log.d(Base_de_donnee.TAG, "Fragment Question: OnCreateView terminé , Question en place .");
         }

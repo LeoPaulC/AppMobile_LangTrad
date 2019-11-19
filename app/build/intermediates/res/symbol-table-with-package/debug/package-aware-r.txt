@@ -752,6 +752,7 @@ id button
 id buttonPanel
 id button_effacer
 id button_passer_question
+id button_valider
 id cancel_action
 id center
 id center_horizontal
