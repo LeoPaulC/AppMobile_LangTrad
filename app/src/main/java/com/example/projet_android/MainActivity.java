@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         Log.d("d","STOOOOOOOOOOOOP , l'activité a quitté et la bdd a été fermé  : bdd - " + bdd.toString());
     }
 
-    public static void ChargeFragmentDansEmplacement_Question(Fragment le_nouveau_frag){
+    public static void ChargeFragmentDansEmplacement_Question(Fragment le_nouveau_frag ){
 
         transaction = fm.beginTransaction();
 
@@ -161,13 +161,12 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
                 addToBackStack(le_nouveau_frag.getTag()) ;
         transaction.commit();
     }
-    public static void ChargeFragmentDansEmplacement_Bas(Fragment le_nouveau_frag){
+    public static void ChargeFragmentDansEmplacement_Bas(Fragment le_nouveau_frag , String tag ){
 
         transaction = fm.beginTransaction();
-
         Log.d("d","ChargeFragmentDansEmplacementBas ... " + le_nouveau_frag.toString());
-        transaction.replace(R.id.emplacement_fragment_bas,le_nouveau_frag).
-                addToBackStack(le_nouveau_frag.getTag()) ;
+        transaction.add(R.id.emplacement_fragment_bas,le_nouveau_frag).
+                addToBackStack(tag) ;
 
         transaction.commit();
     }
@@ -175,6 +174,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     protected int getOrientation(){
         return getResources().getConfiguration().orientation;
     }
+
 
     @Override
     public void onFragmentInteraction(Uri uri) {

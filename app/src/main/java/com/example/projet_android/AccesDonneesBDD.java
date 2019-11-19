@@ -149,8 +149,9 @@ public class AccesDonneesBDD extends Fragment {
         }
         if ( mParam1 != null & mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_LANGUE){
             /**
-             * on va construire l'URI pour recuperer les categories .
+             * on va construire l'URI pour recuperer les Langues .
              */
+
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_LANGUE);
             Uri uri = builder.build();

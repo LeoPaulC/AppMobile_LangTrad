@@ -138,9 +138,9 @@ public class Fragment_bas extends Fragment {
             });
 
 
+
+
         }
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         return vue_du_fragment;
     }
@@ -169,6 +169,7 @@ public class Fragment_bas extends Fragment {
     public void onDetach() {
         super.onDetach();
         if ( mParam1 != null && mParam1 == "valide" && mParam2 == "traduction"){
+            MainActivity.fm.popBackStack();
         }
         mListener = null;
     }

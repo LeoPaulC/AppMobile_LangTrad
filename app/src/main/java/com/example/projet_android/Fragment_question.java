@@ -139,7 +139,7 @@ public class Fragment_question extends Fragment {
                 }
             });
 
-            MainActivity.ChargeFragmentDansEmplacement_Bas(Fragment_bas.newInstance("valide","traduction"));
+            MainActivity.ChargeFragmentDansEmplacement_Bas(Fragment_bas.newInstance("valide","traduction"),"valider choix");
 
 
 
