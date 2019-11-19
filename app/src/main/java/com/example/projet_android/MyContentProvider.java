@@ -16,12 +16,14 @@ import java.util.Arrays;
 public class MyContentProvider extends ContentProvider {
 
     public static final String authority = Base_de_donnee.authority ;
+    public static final String recherche_trad_dapres_mot = Base_de_donnee.TABLE_MOT+"/*" ;
 
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
     {
         matcher.addURI(authority,Base_de_donnee.CATEGORIE,1); // pour recuperer toutes les categories de dispo .
         matcher.addURI(authority,Base_de_donnee.TABLE_LANGUE,2); // pour recuperer toutes les categories de dispo .
-        matcher.addURI(authority,Base_de_donnee.TABLE_MOT,3); // pour recuperer toutes les categories de dispo .
+        matcher.addURI(authority,Base_de_donnee.TABLE_MOT,3); // pour recuperer toutes les mot de dispo d'apres une langue et une categorie.
+        matcher.addURI(authority,recherche_trad_dapres_mot,4); // pour recuperer toutes les categories de dispo .
 
     }
     public MyContentProvider() {}
@@ -59,6 +61,24 @@ public class MyContentProvider extends ContentProvider {
 
                 Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3));
                 break;
+            case 4 :
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas RECHERCHE DE Trad d'apres un mot : ");
+                String le_mot_en_cours;
+                le_mot_en_cours = uri.getPathSegments().get(uri.getPathSegments().size()-1) ;
+
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas 4 :  " + uri + " ;; " + le_mot_en_cours + " ;; " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
+                //Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas 4 :  select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD + " where mot_question = ? and "+ Base_de_donnee.TABLE_LANGUE + "2 = ? " );
+                //cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD /*+ " where mot_question = ? and "+ Base_de_donnee.TABLE_LANGUE + "2 = ? */, new String[]{le_mot_en_cours, MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)});
+                //cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD , null );
+                cursor = db.rawQuery("select "+Base_de_donnee.LANGUE_NOM+" , rowid as _id from "+Base_de_donnee.TABLE_LANGUE +" where " + Base_de_donnee.ID_LANGUE +" = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)} );
+                cursor.moveToFirst() ;
+                String pays_choisi =  cursor.getString(0) ;
+                Log.d("CONTENTPROVIDER CAS 4", "!! !!! !! ! ! !! ! !    " + pays_choisi);
+
+                cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD + " Where mot_question = ? and langue2 = ? ", new String[]{le_mot_en_cours, pays_choisi}  );
+
+                Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3));
+                break ;
             default:
                 Log.d("Query", "Not implemented yet");
 
@@ -77,6 +97,9 @@ public class MyContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
+        /**
+         * Voir pour faire les insert ici , suivant la table passer dans le Uri .
+         */
         return null;
     }
 

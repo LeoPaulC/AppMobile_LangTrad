@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Base_de_donnee extends SQLiteOpenHelper {
 
-    public final static int VERSION = 5;
+    public final static int VERSION = 6;
     public final static String DB_NAME = "Base de donnee Projet Mobile";
     public final static String TAG = "d" ;
 
@@ -91,12 +91,12 @@ public class Base_de_donnee extends SQLiteOpenHelper {
             ID_TRAD + " integer primary key AUTOINCREMENT, " +
             "mot_question String, " +
             "mot_reponse String, " +
-            ID_LANGUE +"1 integer , " +
-            ID_LANGUE +"2 integer , " +
+            TABLE_LANGUE +"1 String , " +
+            TABLE_LANGUE +"2 String , " +
             "FOREIGN KEY(mot_question) REFERENCES " + TABLE_MOT + "(" + CONTENU + ")," +
             "FOREIGN KEY(mot_reponse) REFERENCES " + TABLE_MOT + "(" + CONTENU + ")," +
-            "FOREIGN KEY(" + ID_LANGUE + "1) REFERENCES " + TABLE_LANGUE + "(" + ID_LANGUE + ")," +
-            "FOREIGN KEY(" + ID_LANGUE + "2) REFERENCES " + TABLE_LANGUE + "(" + ID_LANGUE + ")" + ");";
+            "FOREIGN KEY(" + TABLE_LANGUE + "1) REFERENCES " + TABLE_LANGUE + "(" + LANGUE_NOM + ")," +
+            "FOREIGN KEY(" + TABLE_LANGUE + "2) REFERENCES " + TABLE_LANGUE + "(" + LANGUE_NOM + ")" + ");";
 
 
 
@@ -258,6 +258,17 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(ID_LANGUE, 1 );
         row.put(CATEGORIE, "Mot Usuel" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        /**
+         * TRADuction
+         */
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Francais");
+        row.put("mot_question", "Bonjour" );
+        row.put("mot_reponse", "Paul t'es une pute , c'est la Traduction tqt " );
+        Log.d("d","BDD :: _" + row.toString());
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
 
 
         affiche_res_requette(new String []{"*"}, new String[]{TABLE_LANGUE},null);

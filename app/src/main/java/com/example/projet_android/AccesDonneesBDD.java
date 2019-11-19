@@ -101,7 +101,7 @@ public class AccesDonneesBDD extends Fragment {
         vue_du_fragment = inflater.inflate(R.layout.fragment_acces_donnees_bdd, container, false);
         Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnCreateView .");
 
-        if ( mParam1 != null & mParam1 == "affiche" && mParam2 == Base_de_donnee.CATEGORIE){
+        if ( mParam1 != null && mParam1 == "affiche" && mParam2 == Base_de_donnee.CATEGORIE){
             /**
              * on va construire l'URI pour recuperer les categories .
              */
@@ -147,7 +147,7 @@ public class AccesDonneesBDD extends Fragment {
 
 
         }
-        if ( mParam1 != null & mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_LANGUE){
+        if ( mParam1 != null && mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_LANGUE){
             /**
              * on va construire l'URI pour recuperer les Langues .
              */
@@ -188,6 +188,7 @@ public class AccesDonneesBDD extends Fragment {
 
                     Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnClickListener Langue .");
                     MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_question.newInstance("affiche",Base_de_donnee.TABLE_MOT));
+
 
                 }
             });

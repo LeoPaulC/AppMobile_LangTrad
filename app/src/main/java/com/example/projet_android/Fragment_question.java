@@ -106,7 +106,7 @@ public class Fragment_question extends Fragment {
         /**
          * On affiche un mot au hasard parmis la liste de dispo pour la categorie  .
          */
-        if ( mParam1 != null & mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_MOT){
+        if ( mParam1 != null && mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_MOT){
 
             String catgeorie_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) ;
             String langue_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2) ;
@@ -124,6 +124,7 @@ public class Fragment_question extends Fragment {
             Log.d(Base_de_donnee.TAG,"Dans Fragment Question : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3)) ;
 
             cursor.moveToFirst();
+            MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
             texview_question.setText("Traduire ce mot : " + cursor.getString(2));
 
             button_passer_la_question = vue_du_frag.findViewById(R.id.button_passer_question);
@@ -133,6 +134,7 @@ public class Fragment_question extends Fragment {
                 @Override
                 public void onClick(View v) {
                     if ( cursor.moveToNext() ){
+                        MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
                         texview_question.setText("Traduire ce mot : " + cursor.getString(2));
 
                     }
@@ -140,6 +142,7 @@ public class Fragment_question extends Fragment {
             });
 
             MainActivity.ChargeFragmentDansEmplacement_Bas(Fragment_bas.newInstance("valide","traduction"),"valider choix");
+            MainActivity.ChargeFragmentDansEmplacement_Reponse(Fragment_reponse.newInstance("affiche","reponse"),"traduction");
 
 
 

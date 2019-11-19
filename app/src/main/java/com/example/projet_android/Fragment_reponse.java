@@ -34,7 +34,7 @@ public class Fragment_reponse extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
-    TextView editText_reponse ;
+    EditText editText_reponse ;
 
     public Fragment_reponse() {
         // Required empty public constructor
@@ -75,8 +75,13 @@ public class Fragment_reponse extends Fragment {
 
         vue_du_fragment = inflater.inflate(R.layout.fragment_reponse, container, false);
 
-        editText_reponse = vue_du_fragment.findViewById(R.id.textView_reponse);
-        editText_reponse.setText(mParam1);
+
+        if ( mParam1 != null && mParam1 == "affiche" && mParam2 == "reponse") {
+
+            editText_reponse = ((EditText)vue_du_fragment.findViewById(R.id.textView_reponse));
+            editText_reponse.setVisibility(View.VISIBLE);
+
+        }
 
         return vue_du_fragment ;
     }
@@ -102,6 +107,9 @@ public class Fragment_reponse extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        if ( mParam1 != null && mParam1 == "affiche" && mParam2 == "reponse") {
+            MainActivity.fm.popBackStack();
+        }
         mListener = null;
     }
 

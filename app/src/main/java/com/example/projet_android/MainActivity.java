@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     static FragmentTransaction transaction ;
 
     static final String BUNDLE_CATEGORIE ="categorie" ;
+    static final String BUNDLE_MOT_QUESTION ="mot" ;
     static final String BUNDLE_LANGUE1 ="langue1" ;
     static final String BUNDLE_LANGUE2 ="langue2" ;
     static final String BUNDLE_SCORE ="score" ;
@@ -165,7 +166,16 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
 
         transaction = fm.beginTransaction();
         Log.d("d","ChargeFragmentDansEmplacementBas ... " + le_nouveau_frag.toString());
-        transaction.add(R.id.emplacement_fragment_bas,le_nouveau_frag).
+        transaction.replace(R.id.emplacement_fragment_bas,le_nouveau_frag).
+                addToBackStack(tag) ;
+
+        transaction.commit();
+    }
+    public static void ChargeFragmentDansEmplacement_Reponse(Fragment le_nouveau_frag , String tag ){
+
+        transaction = fm.beginTransaction();
+        Log.d("d","ChargeFragmentDansEmplacementBas ... " + le_nouveau_frag.toString());
+        transaction.replace(R.id.emplacement_fragment_reponse,le_nouveau_frag).
                 addToBackStack(tag) ;
 
         transaction.commit();

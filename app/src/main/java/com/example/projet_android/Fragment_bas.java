@@ -1,6 +1,7 @@
 package com.example.projet_android;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -32,6 +34,10 @@ public class Fragment_bas extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    MyContentProvider moncontentprovider ;
+    Cursor cursor ;
 
     Button button_valider ;
     Button button_effacer ;
@@ -80,6 +86,7 @@ public class Fragment_bas extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        moncontentprovider = new MyContentProvider();
         Log.d("d" ,"onCreate : " + mParam1 + " " + mParam2);
 
     }
@@ -130,9 +137,26 @@ public class Fragment_bas extends Fragment {
             trad.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+
+                    Log.d("d" ,"Fragment BAS : Onclick" );
+                    Uri.Builder builder = new Uri.Builder();
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION));
+                    Uri uri = builder.build();
+                    Log.d("d" ,"Fragment BAS : URI " + uri );
+                    cursor = moncontentprovider.query(uri,
+                            null
+                            ,null,
+                            null,
+                            null);
+
+                    Log.d(Base_de_donnee.TAG,"Dans Fragment_bas , on a la trad : : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) ) ;
+                    Log.d("d" ,"Fragment BAS : cursor  " + cursor.getCount() );
+                    cursor.moveToFirst();
                     Toast.makeText(getContext(),
-                            ">> : " + MainActivity.fragment_question.text_view_de_la_question.getText(),
+                            ">> : " + cursor.getString(2),
                             Toast.LENGTH_SHORT).show();
+
 
                 }
             });
