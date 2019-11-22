@@ -138,7 +138,8 @@ public class AccesDonneesBDD extends Fragment {
 
                     //MainActivity.frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
                     Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnClickListener Categorie.");
-                    MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE));
+
+                    MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_question.newInstance("affiche",Base_de_donnee.TABLE_MOT));
 
 
 
@@ -187,7 +188,7 @@ public class AccesDonneesBDD extends Fragment {
                     MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE2,pos);
 
                     Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnClickListener Langue .");
-                    MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_question.newInstance("affiche",Base_de_donnee.TABLE_MOT));
+                    MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_CATGEORIE));
 
 
                 }

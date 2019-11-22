@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,15 +14,31 @@
             android:id="@+id/textView_en_tete_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-light"
+            android:autoText="true"
+            android:elegantTextHeight="true"
+            android:fontFamily="serif-monospace"
+            android:forceDarkAllowed="true"
             android:includeFontPadding="false"
-            android:minHeight="20dp" />
+            android:minHeight="20dp"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="18sp"
+            app:autoSizeTextType="none" />
 
         <ListView
             android:id="@+id/ma_liste_view"
-            android:layout_width="wrap_content"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView_en_tete_list"
+            android:layout_marginTop="55dp"
+            android:background="#7E888383"
+            android:backgroundTint="#009688"
+            android:cacheColorHint="#03A9F4"
+            android:divider="#406FC5BB"
+            android:layerType="none"
+            android:verticalScrollbarPosition="right"
             android:visibility="visible" />
     </RelativeLayout>
 </FrameLayout>

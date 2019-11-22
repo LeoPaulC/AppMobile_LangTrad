@@ -218,6 +218,12 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
         row = new ContentValues();
+        row.put(CONTENU, "Hello");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
         row.put(CONTENU, "Salut");
         row.put(ID_LANGUE, 1 );
         row.put(CATEGORIE, "Mot Usuel" );
@@ -234,9 +240,14 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(CATEGORIE, "Animaux" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
         row = new ContentValues();
-        row.put(CONTENU, "Pigeon");
+        row.put(CONTENU, "Elephant");
         row.put(ID_LANGUE, 1 );
         row.put(CATEGORIE, "Mot Usuel" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+        row = new ContentValues();
+        row.put(CONTENU, "Pigeon");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Animaux" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
         row = new ContentValues();
         row.put(CONTENU, "Stylo");
@@ -264,10 +275,16 @@ public class Base_de_donnee extends SQLiteOpenHelper {
          */
         row = new ContentValues();
         row.put(TABLE_LANGUE+"1", "Francais");
-        row.put(TABLE_LANGUE+"2", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
         row.put("mot_question", "Bonjour" );
-        row.put("mot_reponse", "Paul t'es une pute , c'est la Traduction tqt " );
-        Log.d("d","BDD :: _" + row.toString());
+        row.put("mot_reponse", "Hello" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Ordinateur" );
+        row.put("mot_reponse", "Computeur" );
         res = bd.insertOrThrow(TABLE_TRAD, null, row);
 
 

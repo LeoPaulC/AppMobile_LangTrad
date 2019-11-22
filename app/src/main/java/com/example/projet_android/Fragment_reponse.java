@@ -34,7 +34,7 @@ public class Fragment_reponse extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
-    EditText editText_reponse ;
+    static EditText editText_reponse ;
 
     public Fragment_reponse() {
         // Required empty public constructor

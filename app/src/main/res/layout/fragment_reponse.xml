@@ -15,6 +15,7 @@
             android:layout_height="70dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:visibility="invisible" />
     </RelativeLayout>
 </FrameLayout>

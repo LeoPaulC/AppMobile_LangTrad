@@ -57,7 +57,7 @@ public class MyContentProvider extends ContentProvider {
                 break;
             case 3:
                 Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas RECHERCHE DE Mot d'apres une langue et une catgeorie : ");
-                cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_MOT + " where " + Base_de_donnee.CATEGORIE + " = ? and "+ Base_de_donnee.ID_LANGUE + " = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) , MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)});
+                cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_MOT + " where " + Base_de_donnee.CATEGORIE + " = ? and "+ Base_de_donnee.ID_LANGUE + " = ? or "+ Base_de_donnee.ID_LANGUE + " = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) , MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1),MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)});
 
                 Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3));
                 break;
@@ -70,14 +70,31 @@ public class MyContentProvider extends ContentProvider {
                 //Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas 4 :  select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD + " where mot_question = ? and "+ Base_de_donnee.TABLE_LANGUE + "2 = ? " );
                 //cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD /*+ " where mot_question = ? and "+ Base_de_donnee.TABLE_LANGUE + "2 = ? */, new String[]{le_mot_en_cours, MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)});
                 //cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD , null );
+                // recuperer le pays choisie
                 cursor = db.rawQuery("select "+Base_de_donnee.LANGUE_NOM+" , rowid as _id from "+Base_de_donnee.TABLE_LANGUE +" where " + Base_de_donnee.ID_LANGUE +" = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)} );
                 cursor.moveToFirst() ;
                 String pays_choisi =  cursor.getString(0) ;
-                Log.d("CONTENTPROVIDER CAS 4", "!! !!! !! ! ! !! ! !    " + pays_choisi);
+                // recuperer le pays de base
+                cursor = db.rawQuery("select "+Base_de_donnee.LANGUE_NOM+" , rowid as _id from "+Base_de_donnee.TABLE_LANGUE +" where " + Base_de_donnee.ID_LANGUE +" = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1)} );
+                cursor.moveToFirst() ;
+                String pays_base =  cursor.getString(0) ;
+                Log.d("d", "!! !!! !! ! ! !! ! !    " + pays_choisi);
 
-                cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD + " Where mot_question = ? and langue2 = ? ", new String[]{le_mot_en_cours, pays_choisi}  );
+                cursor = db.rawQuery("select *,rowid as _id from "+ Base_de_donnee.TABLE_TRAD + " Where mot_question = ? and langue2 = ? and langue1 = ? ", new String[]{le_mot_en_cours, pays_choisi,pays_base}  );
+                /**
+                 * Dasn le cas ou la premiere trad a pas matché , on regarde la traduction dans l'autre sens .
+                 */
 
-                Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3));
+                Log.d("d", "!! !!! !! ! ! !! ! !    " + cursor.getCount() + pays_base + pays_choisi );
+                if ( cursor.getCount() == 0){
+                    cursor = db.rawQuery("select *,rowid as _id from "+ Base_de_donnee.TABLE_TRAD + " Where mot_reponse= ? and langue2 = ? and langue1 = ? ", new String[]{le_mot_en_cours, pays_choisi,pays_base}  );
+                    Log.d("d", "!! !!! !! ! ! !! ! !  bis :  " + cursor.getCount() + pays_base + pays_choisi );
+                }
+                for (int i = 0; i < cursor.getColumnCount(); i++) {
+
+                    Log.d("d", "Liste colonne de Trad , cas 4 : " + cursor.getColumnNames()[i]);
+                }
+                //Log.d(Base_de_donnee.TAG , "RES : " + cursor.toString());
                 break ;
             default:
                 Log.d("Query", "Not implemented yet");

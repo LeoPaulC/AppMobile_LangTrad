@@ -8,19 +8,27 @@
     <Button
         android:id="@+id/button_valider"
         android:layout_width="match_parent"
-        android:layout_height="96dp"
+        android:layout_height="105dp"
+        android:background="#CDDC39"
         android:text="Button"
         android:visibility="invisible" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="749dp">
 
         <Button
             android:id="@+id/button"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Init BDD" />
+            android:background="#2D009688"
+            android:ellipsize="none"
+            android:fontFamily="casual"
+            android:forceDarkAllowed="true"
+            android:shadowColor="#4CAF50"
+            android:shadowRadius="10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <Button
             android:id="@+id/button_effacer"

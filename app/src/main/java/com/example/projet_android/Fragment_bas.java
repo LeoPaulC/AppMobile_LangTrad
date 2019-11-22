@@ -3,16 +3,19 @@ package com.example.projet_android;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +45,7 @@ public class Fragment_bas extends Fragment {
     Button button_valider ;
     Button button_effacer ;
     Button trad ;
+    TextView ed ;
 
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
@@ -100,6 +104,8 @@ public class Fragment_bas extends Fragment {
         button_effacer = vue_du_fragment.findViewById(R.id.button_effacer);
         trad = vue_du_fragment.findViewById(R.id.button_valider);
 
+        ed = vue_du_fragment.findViewById(R.id.textView_reponse) ;
+
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,6 +146,7 @@ public class Fragment_bas extends Fragment {
 
 
                     Log.d("d" ,"Fragment BAS : Onclick" );
+
                     Uri.Builder builder = new Uri.Builder();
                     builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION));
                     Uri uri = builder.build();
@@ -152,10 +159,53 @@ public class Fragment_bas extends Fragment {
 
                     Log.d(Base_de_donnee.TAG,"Dans Fragment_bas , on a la trad : : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) ) ;
                     Log.d("d" ,"Fragment BAS : cursor  " + cursor.getCount() );
+                    Log.d("d" ,"BundleMotChoisi  " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION) );
                     cursor.moveToFirst();
-                    Toast.makeText(getContext(),
-                            ">> : " + cursor.getString(2),
-                            Toast.LENGTH_SHORT).show();
+                    if (!cursor.getString(2).equals(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION))) {
+                        Log.d("d" ,"fragment bas , if " + cursor.getCount() );
+                        /*Toast.makeText(getContext(),
+                                ">> : " + cursor.getString(2) ,
+                                Toast.LENGTH_SHORT).show();
+
+                         */
+
+                        String reponse_propose = Fragment_reponse.editText_reponse.getText().toString() ;
+                        if ( reponse_propose.toLowerCase().equals(cursor.getString(2).toLowerCase())){
+                            /**
+                             * Reponse correct :)
+                             */
+                            trad.setBackgroundColor(Color.GREEN);
+                        }
+                        else{
+                            /**
+                             * incorrect :s
+                             */
+                            trad.setBackgroundColor(Color.RED);
+                        }
+                    }
+                    else {
+                        Log.d("d" ,"fragment bag , else ." + cursor.getCount() );
+                        /*Toast.makeText(getContext(),
+                                ">> : " + cursor.getString(1) ,
+                                Toast.LENGTH_SHORT).show();
+
+                         */
+                        EditText ed = vue_du_fragment.findViewById(R.id.textView_reponse) ;
+                        String reponse_propose = ed.getText().toString() ;
+                        if ( reponse_propose.toLowerCase().equals(cursor.getString(1).toLowerCase())){
+                            /**
+                             * Reponse correct :)
+                             */
+                            trad.setBackgroundColor(Color.GREEN);
+                        }
+                        else{
+                            /**
+                             * incorrect :s
+                             */
+                            trad.setBackgroundColor(Color.RED);
+                        }
+
+                    }
 
 
                 }

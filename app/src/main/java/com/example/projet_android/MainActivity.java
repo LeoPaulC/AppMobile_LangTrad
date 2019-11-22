@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         bdd = new Base_de_donnee(this);
         // init bundle de session .
         bundle_de_la_session_en_cours = new Bundle();
+        bundle_de_la_session_en_cours.putString(BUNDLE_LANGUE1,"1");
 
         fm = getSupportFragmentManager();
         transaction = fm.beginTransaction();
@@ -96,43 +98,12 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
          * pour le demarage on choisie la Langues ...................
          */
 
-        frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_CATGEORIE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+        frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
 
         transaction
                 .add(R.id.emplacement_fragment_question, frag_accesBDD, "frag_question")
                 .addToBackStack("frag_question");
 
-
-
-        /**
-         *
-         * TEST !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         */
-        /*
-        frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.CATEGORIE);
-        transaction.replace(R.id.emplacement_fragment_question,frag_accesBDD).addToBackStack("categorie");
-
-
-         */
-        // Fragment Reponse graphique
-        /*
-        fragment_reponse = Fragment_reponse.newInstance("Reponse : ..............................................................","");
-
-        transaction
-                .add(R.id.emplacement_fragment_reponse, fragment_reponse, "frag_reponse")
-                .addToBackStack("frag_reponse");
-
-
-
-         */
-                //Log.d("LOG", "premier fragment ajouté ok");
-
-                // Fragment du bas de l'ecran graphique
-
-                /**
-                 * Gestion de la creation du Pré-Remplissage de la BDD ( partiel pour l'instant ) .
-                 */
 
                 fragment_bas = Fragment_bas.newInstance("init" , "bdd"); // permet de passer des paramettre et donc effecturer des actions specifiques .
         transaction.add(R.id.emplacement_fragment_bas,fragment_bas,"Button_du_bas")
@@ -141,7 +112,10 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         // finalise les transaction de base .
         transaction.commit();
 
-        faireToast("Fragments de base ajoutés.");
+        //faireToast("Fragments de base ajoutés.");
+
+        Configuration config = getResources().getConfiguration();
+        faireToast( "Confid key bord " + String.valueOf( config.keyboard ) ) ;
 
 
     }

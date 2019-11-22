@@ -11,24 +11,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45c251bb-3427-4710-a271-1cd67ae6b00c" name="Default Changelist" comment="MAJ">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/blame/res/debug/multi-v2/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/blame/res/debug/multi-v2/debug.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/AccesDonneesBDD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/AccesDonneesBDD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Base_de_donnee.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Base_de_donnee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_bas$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_bas$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_bas$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_bas$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_bas.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_bas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_question.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/Fragment_question.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/MainActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/MainActivity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/MyContentProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/javac/debug/classes/com/example/projet_android/MyContentProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/processed_res/debug/processDebugResources/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/processed_res/debug/processDebugResources/out/resources-debug.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_fragment_acces_donnees_bdd.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_fragment_acces_donnees_bdd.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_fragment_fragment_bas.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_fragment_fragment_bas.xml.flat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_fragment_reponse.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/res/merged/debug/layout_fragment_reponse.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/AccesDonneesBDD.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/AccesDonneesBDD.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Base_de_donnee.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Base_de_donnee.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_bas$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_bas$1.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_bas$2.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_bas$2.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_bas.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_bas.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_question.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/Fragment_question.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/MainActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/MainActivity.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/MyContentProvider.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/intermediates/transforms/dexBuilder/debug/0/com/example/projet_android/MyContentProvider.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonneesBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonneesBDD.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Base_de_donnee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Base_de_donnee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_bas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_bas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_question.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_question.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_reponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_reponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projet_android/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projet_android/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/projet_android/MyContentProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/projet_android/MyContentProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_acces_donnees_bdd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_acces_donnees_bdd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_fragment_bas.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_fragment_bas.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/res/layout/fragment_reponse.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_reponse.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,30 +69,22 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
+              <caret line="116" column="8" lean-forward="true" selection-start-line="116" selection-start-column="8" selection-end-line="117" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/MyContentProvider.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="77" column="180" selection-start-line="77" selection-start-column="180" selection-end-line="77" selection-end-column="180" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4794#4795#0" expanded="true" />
-                <element signature="e#4821#4822#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Base_de_donnee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="908">
-              <caret line="269" column="47" lean-forward="true" selection-start-line="269" selection-start-column="47" selection-end-line="269" selection-end-column="47" />
+            <state relative-caret-position="233">
+              <caret line="244" column="37" selection-start-line="244" selection-start-column="37" selection-end-line="244" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -85,42 +92,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_reponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
+            <state relative-caret-position="23">
+              <caret line="72" column="57" lean-forward="true" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_question.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="137" column="93" lean-forward="true" selection-start-line="137" selection-start-column="93" selection-end-line="137" selection-end-column="93" />
-              <folding>
-                <element signature="e#4966#5263#0" expanded="true" />
-                <element signature="e#5262#5263#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_question.xml">
-          <provider editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fragment_menu.xml">
           <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_reponse.xml">
-          <provider editor-type-id="text-editor" />
           <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonneesBDD.java">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_acces_donnees_bdd.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fragment_bas.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="90" column="53" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="53" />
+            <state relative-caret-position="195">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,22 +141,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_bas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="156" selection-start-line="156" selection-end-line="156" />
+            <state relative-caret-position="307">
+              <caret line="147" column="58" selection-start-line="147" selection-start-column="58" selection-end-line="147" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-671">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#5196#8714#0" expanded="true" />
+                <element signature="e#8713#8714#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,22 +177,22 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/GestionBDD.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/Recup_categorie.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonnees.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_acces_donnees_bdd.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_fragment_menu.xml" />
         <option value="$PROJECT_DIR$/../../../Projet_Android/app/src/main/java/com/example/projet_android/MyContentProvider.java" />
         <option value="$PROJECT_DIR$/../../../Projet_Android/app/src/main/java/com/example/projet_android/MainActivity.java" />
         <option value="$PROJECT_DIR$/../../../Projet_Android/app/src/main/java/com/example/projet_android/Base_de_donnee.java" />
         <option value="$PROJECT_DIR$/../../../Projet_Android/app/src/main/java/com/example/projet_android/AccesDonneesBDD.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_question.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_question.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/MyContentProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonneesBDD.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_acces_donnees_bdd.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_fragment_bas.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/fragment_reponse.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_reponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonneesBDD.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_question.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_bas.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/MyContentProvider.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/MainActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/projet_android/Base_de_donnee.java" />
       </list>
     </option>
@@ -209,7 +209,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -239,12 +240,17 @@
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
+            <path>
+              <item name="Projet_Android" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="mipmap" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,14 +431,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/GestionBDD.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Recup_categorie.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonnees.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_acces_donnees_bdd.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fragment_menu.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/java/com/example/projet_android/Fragment_bas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -455,28 +453,28 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/res/layout/fragment_fragment_bas.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/res/layout/fragment_acces_donnees_bdd.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/res/layout/fragment_fragment_menu.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/res/layout/fragment_question.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/res/layout/fragment_reponse.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../Projet_Android/app/src/main/java/com/example/projet_android/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -513,22 +511,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fragment_bas.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_question.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="99" column="39" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_menu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/MyContentProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-671">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state relative-caret-position="881">
+          <caret line="94" column="94" lean-forward="true" selection-start-line="94" selection-start-column="94" selection-end-line="94" selection-end-column="94" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6239#6240#0" expanded="true" />
+            <element signature="e#6266#6267#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonneesBDD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -536,74 +541,73 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_question.xml">
-      <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_reponse.xml">
       <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_reponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="109" column="31" selection-start-line="109" selection-start-column="31" selection-end-line="109" selection-end-column="31" />
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fragment_menu.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_acces_donnees_bdd.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_fragment_bas.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_question.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="137" column="93" lean-forward="true" selection-start-line="137" selection-start-column="93" selection-end-line="137" selection-end-column="93" />
-          <folding>
-            <element signature="e#4966#5263#0" expanded="true" />
-            <element signature="e#5262#5263#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/AccesDonneesBDD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="90" column="53" lean-forward="true" selection-start-line="90" selection-start-column="8" selection-end-line="90" selection-end-column="53" />
+        <state relative-caret-position="195">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_reponse.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="116" column="8" lean-forward="true" selection-start-line="116" selection-start-column="8" selection-end-line="117" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_bas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="156" selection-start-line="156" selection-end-line="156" />
+        <state relative-caret-position="307">
+          <caret line="147" column="58" selection-start-line="147" selection-start-column="58" selection-end-line="147" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#5196#8714#0" expanded="true" />
+            <element signature="e#8713#8714#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/MyContentProvider.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Fragment_reponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="77" column="180" selection-start-line="77" selection-start-column="180" selection-end-line="77" selection-end-column="180" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4794#4795#0" expanded="true" />
-            <element signature="e#4821#4822#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
+        <state relative-caret-position="23">
+          <caret line="72" column="57" lean-forward="true" selection-start-line="72" selection-start-column="57" selection-end-line="72" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/projet_android/Base_de_donnee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="908">
-          <caret line="269" column="47" lean-forward="true" selection-start-line="269" selection-start-column="47" selection-end-line="269" selection-end-column="47" />
+        <state relative-caret-position="233">
+          <caret line="244" column="37" selection-start-line="244" selection-start-column="37" selection-end-line="244" selection-end-column="37" />
         </state>
       </provider>
     </entry>
