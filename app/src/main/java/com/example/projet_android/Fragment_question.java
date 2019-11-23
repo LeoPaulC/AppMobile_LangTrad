@@ -2,6 +2,7 @@ package com.example.projet_android;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -43,6 +44,38 @@ public class Fragment_question extends Fragment {
 
     CursorLoader mycursorLoad;
 
+    public TextView getTexview_question() {
+        return texview_question;
+    }
+
+    public void setTexview_question(TextView texview_question) {
+        this.texview_question = texview_question;
+    }
+
+    public TextView getText_view_de_la_question() {
+        return text_view_de_la_question;
+    }
+
+    public void setText_view_de_la_question(TextView text_view_de_la_question) {
+        this.text_view_de_la_question = text_view_de_la_question;
+    }
+
+    public Button getButton_passer_la_question() {
+        return button_passer_la_question;
+    }
+
+    public void setButton_passer_la_question(Button button_passer_la_question) {
+        this.button_passer_la_question = button_passer_la_question;
+    }
+
+    public Button getValider() {
+        return valider;
+    }
+
+    public void setValider(Button valider) {
+        this.valider = valider;
+    }
+
     Cursor cursor ;
 
     TextView texview_question ;
@@ -55,7 +88,7 @@ public class Fragment_question extends Fragment {
     TextView text_view_de_la_question ;
     Button button_passer_la_question ;
     Button valider ;
-    private View vue_du_frag;
+    static View vue_du_frag;
     public static ListView mon_recycler_view ;
 
     public Fragment_question() {
@@ -100,6 +133,8 @@ public class Fragment_question extends Fragment {
         vue_du_frag = inflater.inflate(R.layout.fragment_question, container, false);
         text_view_de_la_question = vue_du_frag.findViewById(R.id.Textview_question) ;
         text_view_de_la_question.setText(mParam1);
+        valider = vue_du_frag.findViewById(R.id.button_valider) ;
+
         Log.d(Base_de_donnee.TAG, "Fragment Question : OnCreateView .");
 
 
@@ -136,6 +171,8 @@ public class Fragment_question extends Fragment {
                     if ( cursor.moveToNext() ){
                         MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
                         texview_question.setText("Traduire ce mot : " + cursor.getString(2));
+                        Fragment_bas.trad.setBackgroundColor(Color.rgb(255 , 235 , 59));
+                        // 255 , 235 , 59
 
                     }
                 }

@@ -11,6 +11,10 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+array com_google_android_gms_fonts_certs
+array com_google_android_gms_fonts_certs_dev
+array com_google_android_gms_fonts_certs_prod
+array preloaded_fonts
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -49,6 +53,7 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alignmentMode
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -102,6 +107,8 @@ attr colorPrimary
 attr colorPrimaryDark
 attr colorScheme
 attr colorSwitchThumbNormal
+attr columnCount
+attr columnOrderPreserved
 attr commitIcon
 attr constraintSet
 attr constraint_referenced_ids
@@ -176,6 +183,9 @@ attr layoutManager
 attr layout_anchor
 attr layout_anchorGravity
 attr layout_behavior
+attr layout_column
+attr layout_columnSpan
+attr layout_columnWeight
 attr layout_constrainedHeight
 attr layout_constrainedWidth
 attr layout_constraintBaseline_creator
@@ -226,9 +236,13 @@ attr layout_goneMarginLeft
 attr layout_goneMarginRight
 attr layout_goneMarginStart
 attr layout_goneMarginTop
+attr layout_gravity
 attr layout_insetEdge
 attr layout_keyline
 attr layout_optimizationLevel
+attr layout_row
+attr layout_rowSpan
+attr layout_rowWeight
 attr lineHeight
 attr listChoiceBackgroundIndicator
 attr listDividerAlertDialog
@@ -250,6 +264,7 @@ attr navigationContentDescription
 attr navigationIcon
 attr navigationMode
 attr numericModifiers
+attr orientation
 attr overlapAnchor
 attr paddingBottomNoButtons
 attr paddingEnd
@@ -271,6 +286,8 @@ attr ratingBarStyle
 attr ratingBarStyleIndicator
 attr ratingBarStyleSmall
 attr reverseLayout
+attr rowCount
+attr rowOrderPreserved
 attr scopeUris
 attr searchHintIcon
 attr searchIcon
@@ -343,6 +360,7 @@ attr track
 attr trackTint
 attr trackTintMode
 attr ttcIndex
+attr useDefaultMargins
 attr viewInflaterClass
 attr voiceIcon
 attr windowActionBar
@@ -539,6 +557,7 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen default_gap
 dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
 dimen fastscroll_default_thickness
@@ -706,6 +725,7 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font alfa_slab_one
 id ALT
 id CTRL
 id Drapeau
@@ -740,6 +760,8 @@ id add
 id adjust_height
 id adjust_width
 id alertTitle
+id alignBounds
+id alignMargins
 id all
 id always
 id async
@@ -773,6 +795,8 @@ id default_activity_button
 id dimensions
 id direct
 id disableHome
+id divider
+id editText_choix_nom
 id edit_query
 id emplacement_fragment_bar_du_haut
 id emplacement_fragment_bas
@@ -791,11 +815,13 @@ id group_divider
 id groups
 id home
 id homeAsUp
+id horizontal
 id icon
 id icon_group
 id icon_only
 id ifRoom
 id image
+id imageButton2
 id info
 id invisible
 id italic
@@ -825,6 +851,10 @@ id progressBar2
 id progress_circular
 id progress_horizontal
 id radio
+id radioButton_apprentissage_mot_a_mot
+id radioButton_apprentissage_plusieurs_mot
+id radioButton_quizz
+id radio_group
 id right
 id right_icon
 id right_side
@@ -848,6 +878,7 @@ id showCustom
 id showHome
 id showTitle
 id spacer
+id spinner_choix_langue_de_base
 id split_action_bar
 id spread
 id spread_inside
@@ -867,6 +898,8 @@ id text
 id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
+id textView
+id textView2
 id textView_en_tete_list
 id textView_reponse
 id time
@@ -878,6 +911,7 @@ id topPanel
 id uniform
 id up
 id useLogo
+id vertical
 id wide
 id withText
 id wrap
@@ -920,6 +954,7 @@ layout activity_main
 layout fragment_acces_donnees_bdd
 layout fragment_fragment_bas
 layout fragment_fragment_menu
+layout fragment_page_demarrage
 layout fragment_question
 layout fragment_reponse
 layout notification_action
@@ -1384,6 +1419,8 @@ styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchSt
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
+styleable GridLayout alignmentMode columnCount columnOrderPreserved orientation rowCount rowOrderPreserved useDefaultMargins
+styleable GridLayout_Layout android_layout_width android_layout_height android_layout_margin android_layout_marginLeft android_layout_marginTop android_layout_marginRight android_layout_marginBottom layout_column layout_columnSpan layout_columnWeight layout_gravity layout_row layout_rowSpan layout_rowWeight
 styleable LinearConstraintLayout android_orientation
 styleable LinearLayoutCompat android_gravity android_orientation android_baselineAligned android_baselineAlignedChildIndex android_weightSum divider dividerPadding measureWithLargestChild showDividers
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight

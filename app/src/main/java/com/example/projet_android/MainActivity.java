@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener{
 
     /**
      * Attributs :
@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     static Fragment_reponse fragment_reponse ;
     static Fragment_bas fragment_bas ;
     static AccesDonneesBDD frag_accesBDD ;
+    static Page_demarrage frag_init ;
+
+    static int emplacement_haut ;
+    static int emplacement_question ;
+    static int emplacement_reponse ;
+    static int emplacement_bas ;
 
     // attribut static , a voir
     static ListView ma_liste_view ;
@@ -45,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     static final String BUNDLE_LANGUE2 ="langue2" ;
     static final String BUNDLE_SCORE ="score" ;
     static final String BUNDLE_NIVEAU ="niveau" ;
+    static final String BUNDLE_NOM ="nom" ;
 
     static Bundle bundle_de_la_session_en_cours ;
 
@@ -69,12 +76,22 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         bdd = new Base_de_donnee(this);
         // init bundle de session .
         bundle_de_la_session_en_cours = new Bundle();
-        bundle_de_la_session_en_cours.putString(BUNDLE_LANGUE1,"1");
+        //bundle_de_la_session_en_cours.putString(BUNDLE_LANGUE1,"1");
+        /**
+         * On met le score a Zero a chaque demarrage , pour l'instant
+         */
+        // Initialisation des emplacement ( pour modifier leurs tailles et donc etre modulable )
+        emplacement_question = R.id.emplacement_fragment_question;
+        emplacement_bas = R.id.emplacement_fragment_bas;
+        emplacement_haut = R.id.emplacement_fragment_bar_du_haut;
+        emplacement_reponse = R.id.emplacement_fragment_reponse;
+
+
+        MainActivity.bundle_de_la_session_en_cours.putInt(MainActivity.BUNDLE_SCORE,0);
+
 
         fm = getSupportFragmentManager();
         transaction = fm.beginTransaction();
-
-        Log.d("d","Coucouuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
 
         ma_liste_view = findViewById(R.id.ma_liste_view);
 
@@ -84,6 +101,15 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
          */
 
         // Gestionnaire de Fragment
+
+        /**
+         * premiere page d'initialisation de langue et de nom du pseudo .
+         */
+        frag_init = Page_demarrage.newInstance("init","user");
+        transaction.add(R.id.emplacement_fragment_question,frag_init,"Init user").addToBackStack("Init user") ;
+
+
+        Log.d("d","Init user passer :)");
 
         // fragment Menu Graphique
         fragment_menu = Fragment_menu.newInstance("",""); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
@@ -98,14 +124,14 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
          * pour le demarage on choisie la Langues ...................
          */
 
-        frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+        /**
+         *
+         * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         * a verifier plus tard
+         */
 
-        transaction
-                .add(R.id.emplacement_fragment_question, frag_accesBDD, "frag_question")
-                .addToBackStack("frag_question");
 
-
-                fragment_bas = Fragment_bas.newInstance("init" , "bdd"); // permet de passer des paramettre et donc effecturer des actions specifiques .
+        fragment_bas = Fragment_bas.newInstance("init" , "bdd"); // permet de passer des paramettre et donc effecturer des actions specifiques .
         transaction.add(R.id.emplacement_fragment_bas,fragment_bas,"Button_du_bas")
                 .addToBackStack("Button_du_bas") ;
 
@@ -114,8 +140,6 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
 
         //faireToast("Fragments de base ajoutés.");
 
-        Configuration config = getResources().getConfiguration();
-        faireToast( "Confid key bord " + String.valueOf( config.keyboard ) ) ;
 
 
     }

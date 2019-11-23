@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
 
 
 /**
@@ -28,6 +32,44 @@ public class Fragment_menu extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    static TextView nom ;
+    static TextView score ;
+    ProgressBar barre_progress ;
+    ImageView drapeau ;
+    View vue_du_frag ;
+
+    public TextView getNom() {
+        return nom;
+    }
+
+    public void setNom(TextView nom) {
+        this.nom = nom;
+    }
+
+    public TextView getScore() {
+        return score;
+    }
+
+    public void setScore(TextView score) {
+        this.score = score;
+    }
+
+    public ProgressBar getBarre_progress() {
+        return barre_progress;
+    }
+
+    public void setBarre_progress(ProgressBar barre_progress) {
+        this.barre_progress = barre_progress;
+    }
+
+    public ImageView getDrapeau() {
+        return drapeau;
+    }
+
+    public void setDrapeau(ImageView drapeau) {
+        this.drapeau = drapeau;
+    }
 
     private OnFragmentInteractionListener mListener;
 
@@ -60,13 +102,30 @@ public class Fragment_menu extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        nom = new TextView(getContext());
+        score = new TextView(getContext());
+        barre_progress = new ProgressBar(getContext());
+        drapeau = new ImageView(getContext());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_menu, container, false);
+        vue_du_frag = inflater.inflate(R.layout.fragment_fragment_menu, container, false);
+        if ( mParam1 != null ){
+            nom = vue_du_frag.findViewById(R.id.Nom);
+            score = vue_du_frag.findViewById(R.id.Score);
+            barre_progress = vue_du_frag.findViewById(R.id.progressBar2);
+            drapeau= vue_du_frag.findViewById(R.id.Drapeau);
+
+            nom.setText("Joueur : "+MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM));
+            score.setText("Score : " + MainActivity.bundle_de_la_session_en_cours.getInt(MainActivity.BUNDLE_SCORE));
+            /**
+             * Mettre en relation Langue + drapeau ( DL les images )
+             */
+        }
+        return vue_du_frag;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

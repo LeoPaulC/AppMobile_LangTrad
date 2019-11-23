@@ -464,6 +464,10 @@
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable-xxxhdpi-v4/abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
+        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/layout-land_activity_main.xml.flat",
+        "source": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/layout-land/activity_main.xml"
+    },
+    {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
     },
@@ -592,6 +596,10 @@
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
     },
     {
+        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/font_alfa_slab_one.xml.flat",
+        "source": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/font/alfa_slab_one.xml"
+    },
+    {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/layout_abc_popup_menu_item_layout.xml.flat",
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/layout/abc_popup_menu_item_layout.xml"
     },
@@ -680,12 +688,12 @@
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
-        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable-hdpi-v4/abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_text_dark_focused.xml.flat",
@@ -1238,6 +1246,10 @@
     {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable-mdpi-v4/abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/layout_fragment_page_demarrage.xml.flat",
+        "source": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/layout/fragment_page_demarrage.xml"
     },
     {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",

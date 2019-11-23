@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Base_de_donnee extends SQLiteOpenHelper {
 
-    public final static int VERSION = 6;
+    public final static int VERSION = 7;
     public final static String DB_NAME = "Base de donnee Projet Mobile";
     public final static String TAG = "d" ;
 
@@ -205,7 +205,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(LANGUE_NOM, "Espagnol");
         res = bd.insertOrThrow(TABLE_LANGUE, null, row);
         row = new ContentValues();
-        row.put(LANGUE_NOM, "Allemands");
+        row.put(LANGUE_NOM, "Allemand");
         res = bd.insertOrThrow(TABLE_LANGUE, null, row);
 
         /**

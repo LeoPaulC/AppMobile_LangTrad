@@ -9,7 +9,7 @@
         android:id="@+id/button_valider"
         android:layout_width="match_parent"
         android:layout_height="105dp"
-        android:background="#CDDC39"
+        android:background="#FFEB3B"
         android:text="Button"
         android:visibility="invisible" />
 

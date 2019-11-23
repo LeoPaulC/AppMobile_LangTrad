@@ -43,8 +43,49 @@ public class Fragment_bas extends Fragment {
     Cursor cursor ;
 
     Button button_valider ;
+
+    public Cursor getCursor() {
+        return cursor;
+    }
+
+    public void setCursor(Cursor cursor) {
+        this.cursor = cursor;
+    }
+
+    public Button getButton_valider() {
+        return button_valider;
+    }
+
+    public void setButton_valider(Button button_valider) {
+        this.button_valider = button_valider;
+    }
+
+    public Button getButton_effacer() {
+        return button_effacer;
+    }
+
+    public void setButton_effacer(Button button_effacer) {
+        this.button_effacer = button_effacer;
+    }
+
+    public static Button getTrad() {
+        return trad;
+    }
+
+    public static void setTrad(Button trad) {
+        Fragment_bas.trad = trad;
+    }
+
+    public TextView getEd() {
+        return ed;
+    }
+
+    public void setEd(TextView ed) {
+        this.ed = ed;
+    }
+
     Button button_effacer ;
-    Button trad ;
+    static Button trad ;
     TextView ed ;
 
     private OnFragmentInteractionListener mListener;
@@ -157,56 +198,59 @@ public class Fragment_bas extends Fragment {
                             null,
                             null);
 
-                    Log.d(Base_de_donnee.TAG,"Dans Fragment_bas , on a la trad : : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) ) ;
-                    Log.d("d" ,"Fragment BAS : cursor  " + cursor.getCount() );
-                    Log.d("d" ,"BundleMotChoisi  " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION) );
-                    cursor.moveToFirst();
-                    if (!cursor.getString(2).equals(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION))) {
-                        Log.d("d" ,"fragment bas , if " + cursor.getCount() );
-                        /*Toast.makeText(getContext(),
-                                ">> : " + cursor.getString(2) ,
-                                Toast.LENGTH_SHORT).show();
+                    if ( cursor != null ) {
+                        Log.d(Base_de_donnee.TAG, "Dans Fragment_bas , on a la trad : : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2));
+                        Log.d("d", "Fragment BAS : cursor  " + cursor.getCount());
+                        Log.d("d", "BundleMotChoisi  " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION));
+                        cursor.moveToFirst();
+                        if (!cursor.getString(2).equals(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION))) {
+                            Log.d("d", "fragment bas , if " + cursor.getCount());
+                            String reponse_propose = Fragment_reponse.editText_reponse.getText().toString();
+                            if (reponse_propose.toLowerCase().equals(cursor.getString(2).toLowerCase())) {
+                                /**
+                                 * Reponse correct :)
+                                 */
 
-                         */
+                                trad.setBackgroundColor(Color.GREEN);
+                                MainActivity.bundle_de_la_session_en_cours.putInt(MainActivity.BUNDLE_SCORE,MainActivity.bundle_de_la_session_en_cours.getInt(MainActivity.BUNDLE_SCORE)+1);
+                                Toast.makeText(getContext(), "Bravo , bonne réponse , question suiavnte !", Toast.LENGTH_LONG).show();
+                                // Maj du score
+                                Fragment_menu.score.setText("Score : " + MainActivity.bundle_de_la_session_en_cours.getInt(MainActivity.BUNDLE_SCORE));
+                                Button passer = Fragment_question.vue_du_frag.findViewById(R.id.button_passer_question) ;
+                                if ( passer == null ) Log.d("d", "Rip le boutton passer ....");
+                                passer.performClick();
+                            } else {
+                                /**
+                                 * incorrect :s
+                                 */
+                                trad.setBackgroundColor(Color.RED);
+                            }
+                        } else {
+                            Log.d("d", "fragment bag , else ." + cursor.getCount());
+                            String reponse_propose = Fragment_reponse.editText_reponse.getText().toString();
+                            if (reponse_propose.toLowerCase().equals(cursor.getString(1).toLowerCase())) {
+                                /**
+                                 * Reponse correct :)
+                                 */
+                                trad.setBackgroundColor(Color.GREEN);
+                                MainActivity.bundle_de_la_session_en_cours.putInt(MainActivity.BUNDLE_SCORE,MainActivity.bundle_de_la_session_en_cours.getInt(MainActivity.BUNDLE_SCORE)+1);
+                                // on incremente le score
+                                Fragment_menu.score.setText("Score : " + MainActivity.bundle_de_la_session_en_cours.getInt(MainActivity.BUNDLE_SCORE));
+                                Toast.makeText(getContext(), "Bravo , bonne réponse , question suiavnte !", Toast.LENGTH_LONG).show();
 
-                        String reponse_propose = Fragment_reponse.editText_reponse.getText().toString() ;
-                        if ( reponse_propose.toLowerCase().equals(cursor.getString(2).toLowerCase())){
-                            /**
-                             * Reponse correct :)
-                             */
-                            trad.setBackgroundColor(Color.GREEN);
+                                Button passer = Fragment_question.vue_du_frag.findViewById(R.id.button_passer_question) ;
+                                if ( passer == null ) Log.d("d", "Rip le boutton passer ....");
+                                passer.performClick();
+                            } else {
+                                /**
+                                 * incorrect :s
+                                 */
+                                trad.setBackgroundColor(Color.RED);
+                            }
+
                         }
-                        else{
-                            /**
-                             * incorrect :s
-                             */
-                            trad.setBackgroundColor(Color.RED);
-                        }
+
                     }
-                    else {
-                        Log.d("d" ,"fragment bag , else ." + cursor.getCount() );
-                        /*Toast.makeText(getContext(),
-                                ">> : " + cursor.getString(1) ,
-                                Toast.LENGTH_SHORT).show();
-
-                         */
-                        EditText ed = vue_du_fragment.findViewById(R.id.textView_reponse) ;
-                        String reponse_propose = ed.getText().toString() ;
-                        if ( reponse_propose.toLowerCase().equals(cursor.getString(1).toLowerCase())){
-                            /**
-                             * Reponse correct :)
-                             */
-                            trad.setBackgroundColor(Color.GREEN);
-                        }
-                        else{
-                            /**
-                             * incorrect :s
-                             */
-                            trad.setBackgroundColor(Color.RED);
-                        }
-
-                    }
-
 
                 }
             });
@@ -215,6 +259,7 @@ public class Fragment_bas extends Fragment {
 
 
         }
+
 
         return vue_du_fragment;
     }

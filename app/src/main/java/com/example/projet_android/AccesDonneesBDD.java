@@ -119,7 +119,7 @@ public class AccesDonneesBDD extends Fragment {
             lv = vue_du_fragment.findViewById(R.id.ma_liste_view);
             cursor.moveToFirst();
             String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE , Base_de_donnee.ID_CATEGORIE};
-            int[] toControlIDs = new int[] {android.R.id.text1};
+            int[] toControlIDs = new int[] {android.R.id.text2};
             sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor,
                     fromColumns,
                     toControlIDs);

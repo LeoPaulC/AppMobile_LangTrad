@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Page_demarrage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00FFFFFF">
+
+        <EditText
+            android:id="@+id/editText_choix_nom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Votre nom"
+            android:inputType="textPersonName" />
+
+        <Spinner
+            android:id="@+id/spinner_choix_langue_de_base"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_below="@id/textView2" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/radio_group"
+            android:src="@android:drawable/ic_media_play" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/divider"
+            android:layout_marginTop="12dp"
+            android:elegantTextHeight="false"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="Choix de la méthode d'apprentissage :"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@id/editText_choix_nom"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="Choix de votre langue de base :"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/spinner_choix_langue_de_base"
+            android:layout_marginTop="12dp"
+            android:background="?android:attr/listDivider"
+            android:backgroundTint="#E62196F3" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_below="@id/textView"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButton_apprentissage_plusieurs_mot"
+                android:layout_width="146dp"
+                android:layout_height="wrap_content"
+                android:text="Par Categorie" />
+
+            <RadioButton
+                android:id="@+id/radioButton_apprentissage_mot_a_mot"
+                android:layout_width="145dp"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Mot à Mot" />
+
+            <RadioButton
+                android:id="@+id/radioButton_quizz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Quizz" />
+        </RadioGroup>
+
+    </RelativeLayout>
+</FrameLayout>

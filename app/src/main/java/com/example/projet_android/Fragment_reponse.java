@@ -34,6 +34,15 @@ public class Fragment_reponse extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
+
+    public static EditText getEditText_reponse() {
+        return editText_reponse;
+    }
+
+    public static void setEditText_reponse(EditText editText_reponse) {
+        Fragment_reponse.editText_reponse = editText_reponse;
+    }
+
     static EditText editText_reponse ;
 
     public Fragment_reponse() {

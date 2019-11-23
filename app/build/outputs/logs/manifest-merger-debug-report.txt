@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
-INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
-INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
-INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
+ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/cadiou/.gradle/caches/transforms-2/files-2.1/508ac768b50158a079142e4dc4915061/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.gms:play-services-plus:16.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/6a9ed1b22b4f841163c0f46288cd66ea/jetified-play-services-plus-16.0.0/AndroidManifest.xml:17:1-24:12
@@ -13,6 +13,7 @@ MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/cadiou/.gr
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/47fc3950c814b04977735368112c37af/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/ca3ed72cfdc57fc3a102e462c0327875/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.gridlayout:gridlayout:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/0f4505103b69e512c07e6428baa15090/gridlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/61015dda0f41d63be36764ccaeacf3e4/fragment-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/0a80afa9ca98134d5ce7f6232c71e0a7/vectordrawable-animated-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/8d97f43c730baedb50b76131bea8976c/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -39,20 +40,20 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cadiou/.gradle/cach
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/df65787e67fe4b4bc0635deed9695797/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/a1f5477cd6fd5fad9baa3e263bec7d60/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/60b50828def4ba3859898ffb4c971c21/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
-INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
-INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
+INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
 	package
 		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:3:5-41
 		INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
 		INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
-		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
+		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
 		INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
-		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-24:12
+		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
 		INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:11-69
@@ -61,7 +62,7 @@ ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/A
 	android:name
 		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:6:22-64
 application
-ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:8:5-22:19
+ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:8:5-25:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/cadiou/.gradle/caches/transforms-2/files-2.1/508ac768b50158a079142e4dc4915061/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/cadiou/.gradle/caches/transforms-2/files-2.1/508ac768b50158a079142e4dc4915061/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.gms:play-services-plus:16.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/6a9ed1b22b4f841163c0f46288cd66ea/jetified-play-services-plus-16.0.0/AndroidManifest.xml:22:5-20
@@ -106,6 +107,12 @@ category#android.intent.category.LAUNCHER
 ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:19:17-77
 	android:name
 		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:19:27-74
+meta-data#preloaded_fonts
+ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:22:9-24:57
+	android:resource
+		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:24:13-54
+	android:name
+		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:23:13-43
 uses-sdk
 INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
@@ -128,6 +135,8 @@ MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/cadiou/.gradle/cache
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/47fc3950c814b04977735368112c37af/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/ca3ed72cfdc57fc3a102e462c0327875/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/ca3ed72cfdc57fc3a102e462c0327875/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.gridlayout:gridlayout:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/0f4505103b69e512c07e6428baa15090/gridlayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.gridlayout:gridlayout:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/0f4505103b69e512c07e6428baa15090/gridlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/61015dda0f41d63be36764ccaeacf3e4/fragment-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/61015dda0f41d63be36764ccaeacf3e4/fragment-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/0a80afa9ca98134d5ce7f6232c71e0a7/vectordrawable-animated-1.0.0/AndroidManifest.xml:20:5-44

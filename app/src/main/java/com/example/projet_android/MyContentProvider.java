@@ -78,7 +78,7 @@ public class MyContentProvider extends ContentProvider {
                 cursor = db.rawQuery("select "+Base_de_donnee.LANGUE_NOM+" , rowid as _id from "+Base_de_donnee.TABLE_LANGUE +" where " + Base_de_donnee.ID_LANGUE +" = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1)} );
                 cursor.moveToFirst() ;
                 String pays_base =  cursor.getString(0) ;
-                Log.d("d", "!! !!! !! ! ! !! ! !    " + pays_choisi);
+                Log.d("d", "!! !!! !! ! ! !! ! !   1 ) " + pays_choisi);
 
                 cursor = db.rawQuery("select *,rowid as _id from "+ Base_de_donnee.TABLE_TRAD + " Where mot_question = ? and langue2 = ? and langue1 = ? ", new String[]{le_mot_en_cours, pays_choisi,pays_base}  );
                 /**
@@ -88,7 +88,15 @@ public class MyContentProvider extends ContentProvider {
                 Log.d("d", "!! !!! !! ! ! !! ! !    " + cursor.getCount() + pays_base + pays_choisi );
                 if ( cursor.getCount() == 0){
                     cursor = db.rawQuery("select *,rowid as _id from "+ Base_de_donnee.TABLE_TRAD + " Where mot_reponse= ? and langue2 = ? and langue1 = ? ", new String[]{le_mot_en_cours, pays_choisi,pays_base}  );
-                    Log.d("d", "!! !!! !! ! ! !! ! !  bis :  " + cursor.getCount() + pays_base + pays_choisi );
+                    Log.d("d", "!! !!! !! ! ! !! ! !  2 ) :  " + cursor.getCount() + pays_base + pays_choisi );
+                }
+                if ( cursor.getCount() == 0){
+                    cursor = db.rawQuery("select *,rowid as _id from "+ Base_de_donnee.TABLE_TRAD + " Where mot_reponse= ? and langue1 = ? and langue2 = ? ", new String[]{le_mot_en_cours, pays_choisi,pays_base}  );
+                    Log.d("d", "!! !!! !! ! ! !! ! !  3 ) :  " + cursor.getCount() + pays_base + pays_choisi );
+                }
+                if ( cursor.getCount() == 0){
+                    cursor = db.rawQuery("select *,rowid as _id from "+ Base_de_donnee.TABLE_TRAD + " Where mot_question= ? and langue1 = ? and langue2 = ? ", new String[]{le_mot_en_cours, pays_choisi,pays_base}  );
+                    Log.d("d", "!! !!! !! ! ! !! ! !  4 ) :  " + cursor.getCount() + pays_base + pays_choisi );
                 }
                 for (int i = 0; i < cursor.getColumnCount(); i++) {
 
