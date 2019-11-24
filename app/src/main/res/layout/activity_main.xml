@@ -30,7 +30,7 @@
             android:id="@+id/emplacement_fragment_question"
             android:name="com.example.projet_android.Fragment_question"
             android:layout_width="match_parent"
-            android:layout_height="338dp"
+            android:layout_height="293dp"
             android:layout_below="@id/emplacement_fragment_bar_du_haut"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
             android:id="@+id/emplacement_fragment_reponse"
             android:name="com.example.projet_android.Fragment_reponse"
             android:layout_width="match_parent"
-            android:layout_height="161dp"
+            android:layout_height="218dp"
             android:layout_below="@id/emplacement_fragment_question"
             android:layout_marginTop="9dp" />
 

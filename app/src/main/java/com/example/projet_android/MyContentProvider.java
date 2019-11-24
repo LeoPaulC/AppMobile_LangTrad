@@ -17,6 +17,8 @@ public class MyContentProvider extends ContentProvider {
 
     public static final String authority = Base_de_donnee.authority ;
     public static final String recherche_trad_dapres_mot = Base_de_donnee.TABLE_MOT+"/*" ;
+    public static final String liste_mot_langue_Base_catgeorie = Base_de_donnee.TABLE_MOT+"/*/*" ;
+                                                            // Uri = mot/langue/catgeorie
 
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
     {
@@ -24,6 +26,7 @@ public class MyContentProvider extends ContentProvider {
         matcher.addURI(authority,Base_de_donnee.TABLE_LANGUE,2); // pour recuperer toutes les categories de dispo .
         matcher.addURI(authority,Base_de_donnee.TABLE_MOT,3); // pour recuperer toutes les mot de dispo d'apres une langue et une categorie.
         matcher.addURI(authority,recherche_trad_dapres_mot,4); // pour recuperer toutes les categories de dispo .
+        matcher.addURI(authority,liste_mot_langue_Base_catgeorie,5); // pour recuperer toutes les categories de dispo .
 
     }
     public MyContentProvider() {}
@@ -50,7 +53,7 @@ public class MyContentProvider extends ContentProvider {
                 cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.CATEGORIE, null);
                 Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1));
                 break;
-                case 2:
+            case 2:
                 Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas RECHERCHE DE Langues : ");
                 cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_LANGUE, null);
                 Log.d(Base_de_donnee.TAG , "Nom des Colonnes trouvées : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1));
@@ -104,7 +107,29 @@ public class MyContentProvider extends ContentProvider {
                 }
                 //Log.d(Base_de_donnee.TAG , "RES : " + cursor.toString());
                 break ;
-            default:
+
+            case 5 :
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas 5 recherche mot , d'apres categorie et langue de base   : ");
+                String categorie ;
+                String langue_de_bas ;
+                categorie = uri.getPathSegments().get(uri.getPathSegments().size()-1) ;
+                langue_de_bas = uri.getPathSegments().get(uri.getPathSegments().size()-2) ;
+                Log.d(Base_de_donnee.TAG , "Fin du Cas 5 recherche mot :" + categorie.toString());
+
+                Log.d(Base_de_donnee.TAG , "Fin du Cas 5 recherche mot :" + langue_de_bas);
+
+
+                /*cursor = db.rawQuery("select "+Base_de_donnee.ID_LANGUE+" , rowid as _id from "+Base_de_donnee.TABLE_LANGUE +" where " + Base_de_donnee.LANGUE_NOM +" = ? ", new String[]{langue_de_bas} );
+                cursor.moveToFirst() ;
+                int id_langue_de_base =  cursor.getInt(0) ;
+                // on recupere l'id de la langue*/
+
+                cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_MOT + " where " + Base_de_donnee.CATEGORIE + " = ? and "+ Base_de_donnee.ID_LANGUE + " = ? ", new String[]{categorie,langue_de_bas});
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Fin du Cas 5 recherche mot , d'apres categorie et langue de base   curso.size() : " + cursor.getCount());
+
+                break ;
+
+                default:
                 Log.d("Query", "Not implemented yet");
 
 

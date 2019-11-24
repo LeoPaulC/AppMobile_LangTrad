@@ -157,14 +157,15 @@ public class Page_demarrage extends Fragment {
                          */
 
                     }
-                    else if( plusieurs_mot_par_catgeorie.isSelected()){
+                    else if( plusieurs_mot_par_catgeorie.isChecked()){
                         /**
                          * etudier les mots par categories
                          */
                         /**
                          * Faire les 2 cas au dessus
                          */
-                        oihfqoiakfqmcld;
+                        Fragment_question apprentissage_par_categorie = Fragment_question.newInstance("apprentissage" , "mot a mot") ;
+                        MainActivity.ChargeFragmentDansEmplacement_Question(apprentissage_par_categorie);
 
                     }
 

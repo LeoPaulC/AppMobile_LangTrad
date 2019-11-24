@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener{
 
     /**
@@ -52,6 +55,12 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     static final String BUNDLE_SCORE ="score" ;
     static final String BUNDLE_NIVEAU ="niveau" ;
     static final String BUNDLE_NOM ="nom" ;
+
+    static HashMap<String , ArrayList<String> > ma_liste_de_mot_a_apprendre_pour_plus_tard ;
+    /**
+     * En gros , hashmap < langue , liste_de_mot<String> pour avoir une liste trié par langue , voir ventuellement pour ajouter les catgeroies en compte
+     *
+     * */
 
     static Bundle bundle_de_la_session_en_cours ;
 

@@ -811,6 +811,7 @@ id fill_horizontal
 id fill_vertical
 id forever
 id gone
+id gridview_liste_mot
 id group_divider
 id groups
 id home
@@ -879,6 +880,7 @@ id showHome
 id showTitle
 id spacer
 id spinner_choix_langue_de_base
+id spinner_liste_categorie
 id split_action_bar
 id spread
 id spread_inside

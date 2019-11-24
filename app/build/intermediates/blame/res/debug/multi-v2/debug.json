@@ -1,44 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-cs_values-cs.arsc.flat",
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-en-rCA_values-en-rCA.arsc.flat",
             "map": [
                 {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-cs/values-cs.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,212,314,423,509,614,731,812,893,984,1077,1173,1267,1362,1455,1550,1647,1738,1829,1913,2017,2126,2225,2331,2441,2548,2711,2809",
-                        "endColumns": "106,101,108,85,104,116,80,80,90,92,95,93,94,92,94,96,90,90,83,103,108,98,105,109,106,162,97,81",
-                        "endOffsets": "207,309,418,504,609,726,807,888,979,1072,1168,1262,1357,1450,1545,1642,1733,1824,1908,2012,2121,2220,2326,2436,2543,2706,2804,2886"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,47",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,212,314,423,509,614,731,812,893,984,1077,1173,1267,1362,1455,1550,1647,1738,1829,1913,2017,2126,2225,2331,2441,2548,2711,5550",
-                        "endColumns": "106,101,108,85,104,116,80,80,90,92,95,93,94,92,94,96,90,90,83,103,108,98,105,109,106,162,97,81",
-                        "endOffsets": "207,309,418,504,609,726,807,888,979,1072,1168,1262,1357,1450,1545,1642,1733,1824,1908,2012,2121,2220,2326,2436,2543,2706,2804,5627"
-                    }
-                },
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/res/values-cs/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "201",
-                        "endOffsets": "448"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3961",
-                        "endColumns": "201",
-                        "endOffsets": "4158"
-                    }
-                },
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-cs/values-cs.xml",
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-en-rCA/values-en-rCA.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -47,28 +13,21 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "48",
+                        "startLines": "30",
                         "startColumns": "4",
-                        "startOffsets": "5632",
+                        "startOffsets": "2846",
                         "endColumns": "100",
-                        "endOffsets": "5728"
+                        "endOffsets": "2942"
                     }
                 },
                 {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/res/values-cs/values.xml",
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-en-rCA/values-en-rCA.xml",
                     "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "245,349,541,664,772,984,1109,1247,1373,1607,1716,1911,2037,2257,2438,2532,2625",
-                        "endColumns": "103,191,122,107,211,124,137,125,233,108,194,125,219,180,93,92,110",
-                        "endOffsets": "348,540,663,771,983,1108,1246,1372,1606,1715,1910,2036,2256,2437,2531,2624,2735"
-                    },
-                    "to": {
-                        "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2809,2917,3109,3236,3348,3560,3689,3831,4163,4397,4510,4705,4835,5055,5240,5338,5435",
-                        "endColumns": "107,191,126,111,211,128,141,129,233,112,194,129,219,184,97,96,114",
-                        "endOffsets": "2912,3104,3231,3343,3555,3684,3826,3956,4392,4505,4700,4830,5050,5235,5333,5430,5545"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,209,309,417,501,601,716,793,869,960,1053,1149,1243,1344,1437,1532,1626,1717,1808,1890,1993,2097,2196,2301,2404,2508,2664,2764",
+                        "endColumns": "103,99,107,83,99,114,76,75,90,92,95,93,100,92,94,93,90,90,81,102,103,98,104,102,103,155,99,81",
+                        "endOffsets": "204,304,412,496,596,711,788,864,955,1048,1144,1238,1339,1432,1527,1621,1712,1803,1885,1988,2092,2191,2296,2399,2503,2659,2759,2841"
                     }
                 }
             ]
@@ -147,10 +106,44 @@
             ]
         },
         {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-en-rCA_values-en-rCA.arsc.flat",
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-cs_values-cs.arsc.flat",
             "map": [
                 {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-en-rCA/values-en-rCA.xml",
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-cs/values-cs.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,212,314,423,509,614,731,812,893,984,1077,1173,1267,1362,1455,1550,1647,1738,1829,1913,2017,2126,2225,2331,2441,2548,2711,2809",
+                        "endColumns": "106,101,108,85,104,116,80,80,90,92,95,93,94,92,94,96,90,90,83,103,108,98,105,109,106,162,97,81",
+                        "endOffsets": "207,309,418,504,609,726,807,888,979,1072,1168,1262,1357,1450,1545,1642,1733,1824,1908,2012,2121,2220,2326,2436,2543,2706,2804,2886"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,47",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,212,314,423,509,614,731,812,893,984,1077,1173,1267,1362,1455,1550,1647,1738,1829,1913,2017,2126,2225,2331,2441,2548,2711,5550",
+                        "endColumns": "106,101,108,85,104,116,80,80,90,92,95,93,94,92,94,96,90,90,83,103,108,98,105,109,106,162,97,81",
+                        "endOffsets": "207,309,418,504,609,726,807,888,979,1072,1168,1262,1357,1450,1545,1642,1733,1824,1908,2012,2121,2220,2326,2436,2543,2706,2804,5627"
+                    }
+                },
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/res/values-cs/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "201",
+                        "endOffsets": "448"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3961",
+                        "endColumns": "201",
+                        "endOffsets": "4158"
+                    }
+                },
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-cs/values-cs.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -159,21 +152,28 @@
                         "endOffsets": "151"
                     },
                     "to": {
-                        "startLines": "30",
+                        "startLines": "48",
                         "startColumns": "4",
-                        "startOffsets": "2846",
+                        "startOffsets": "5632",
                         "endColumns": "100",
-                        "endOffsets": "2942"
+                        "endOffsets": "5728"
                     }
                 },
                 {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-en-rCA/values-en-rCA.xml",
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/res/values-cs/values.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,209,309,417,501,601,716,793,869,960,1053,1149,1243,1344,1437,1532,1626,1717,1808,1890,1993,2097,2196,2301,2404,2508,2664,2764",
-                        "endColumns": "103,99,107,83,99,114,76,75,90,92,95,93,100,92,94,93,90,90,81,102,103,98,104,102,103,155,99,81",
-                        "endOffsets": "204,304,412,496,596,711,788,864,955,1048,1144,1238,1339,1432,1527,1621,1712,1803,1885,1988,2092,2191,2296,2399,2503,2659,2759,2841"
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,349,541,664,772,984,1109,1247,1373,1607,1716,1911,2037,2257,2438,2532,2625",
+                        "endColumns": "103,191,122,107,211,124,137,125,233,108,194,125,219,180,93,92,110",
+                        "endOffsets": "348,540,663,771,983,1108,1246,1372,1606,1715,1910,2036,2256,2437,2531,2624,2735"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2809,2917,3109,3236,3348,3560,3689,3831,4163,4397,4510,4705,4835,5055,5240,5338,5435",
+                        "endColumns": "107,191,126,111,211,128,141,129,233,112,194,129,219,184,97,96,114",
+                        "endOffsets": "2912,3104,3231,3343,3555,3684,3826,3956,4392,4505,4700,4830,5050,5235,5333,5430,5545"
                     }
                 }
             ]
@@ -487,6 +487,22 @@
             ]
         },
         {
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-v25_values-v25.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-v25/values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-ta_values-ta.arsc.flat",
             "map": [
                 {
@@ -555,22 +571,6 @@
                         "startOffsets": "5687",
                         "endColumns": "100",
                         "endOffsets": "5783"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-v25_values-v25.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-v25/values-v25.xml",
-                    "from": {
-                        "startLines": "2,3,4,6",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,126,209,308",
-                        "endLines": "2,3,5,7",
-                        "endColumns": "70,82,12,12",
-                        "endOffsets": "121,204,303,414"
                     }
                 }
             ]
@@ -1429,6 +1429,21 @@
             ]
         },
         {
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-ldltr-v21_values-ldltr-v21.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-gu_values-gu.arsc.flat",
             "map": [
                 {
@@ -1497,21 +1512,6 @@
                         "startOffsets": "3942",
                         "endColumns": "205",
                         "endOffsets": "4143"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-ldltr-v21_values-ldltr-v21.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-ldltr-v21/values-ldltr-v21.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "112",
-                        "endOffsets": "163"
                     }
                 }
             ]
@@ -1882,6 +1882,22 @@
             ]
         },
         {
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-v26_values-v26.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-v26/values-v26.xml",
+                    "from": {
+                        "startLines": "2,3,4,8,12,16",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,130,217,431,657,896",
+                        "endLines": "2,3,7,11,15,16",
+                        "endColumns": "74,86,12,12,12,92",
+                        "endOffsets": "125,212,426,652,891,984"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-uk_values-uk.arsc.flat",
             "map": [
                 {
@@ -1950,22 +1966,6 @@
                         "startOffsets": "105,215,317,423,509,617,735,814,894,985,1078,1174,1268,1369,1462,1557,1652,1743,1834,1915,2021,2128,2226,2334,2440,2549,2719,5534",
                         "endColumns": "109,101,105,85,107,117,78,79,90,92,95,93,100,92,94,94,90,90,80,105,106,97,107,105,108,169,99,80",
                         "endOffsets": "210,312,418,504,612,730,809,889,980,1073,1169,1263,1364,1457,1552,1647,1738,1829,1910,2016,2123,2221,2329,2435,2544,2714,2814,5610"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-v26_values-v26.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-v26/values-v26.xml",
-                    "from": {
-                        "startLines": "2,3,4,8,12,16",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,130,217,431,657,896",
-                        "endLines": "2,3,7,11,15,16",
-                        "endColumns": "74,86,12,12,12,92",
-                        "endOffsets": "125,212,426,652,891,984"
                     }
                 }
             ]
@@ -2044,6 +2044,22 @@
             ]
         },
         {
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-v28_values-v28.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-v28/values-v28.xml",
+                    "from": {
+                        "startLines": "2,3,4,8",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,447",
+                        "endLines": "2,3,7,11",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,442,684"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-pa_values-pa.arsc.flat",
             "map": [
                 {
@@ -2112,22 +2128,6 @@
                         "startOffsets": "105,208,305,410,496,596,709,786,862,953,1046,1142,1236,1337,1430,1525,1619,1710,1801,1880,1981,2085,2182,2291,2390,2500,2659,5515",
                         "endColumns": "102,96,104,85,99,112,76,75,90,92,95,93,100,92,94,93,90,90,78,100,103,96,108,98,109,158,99,79",
                         "endOffsets": "203,300,405,491,591,704,781,857,948,1041,1137,1231,1332,1425,1520,1614,1705,1796,1875,1976,2080,2177,2286,2385,2495,2654,2754,5590"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-v28_values-v28.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-v28/values-v28.xml",
-                    "from": {
-                        "startLines": "2,3,4,8",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,130,217,447",
-                        "endLines": "2,3,7,11",
-                        "endColumns": "74,86,12,12",
-                        "endOffsets": "125,212,442,684"
                     }
                 }
             ]
@@ -2546,79 +2546,6 @@
             ]
         },
         {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-or_values-or.arsc.flat",
-            "map": [
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-or/values-or.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,224,334,441,527,631,751,828,905,996,1089,1186,1281,1382,1475,1570,1666,1757,1847,1929,2039,2144,2250,2361,2464,2582,2745,2847",
-                        "endColumns": "118,109,106,85,103,119,76,76,90,92,96,94,100,92,94,95,90,89,81,109,104,105,110,102,117,162,101,88",
-                        "endOffsets": "219,329,436,522,626,746,823,900,991,1084,1181,1276,1377,1470,1565,1661,1752,1842,1924,2034,2139,2245,2356,2459,2577,2740,2842,2931"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,47",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,224,334,441,527,631,751,828,905,996,1089,1186,1281,1382,1475,1570,1666,1757,1847,1929,2039,2144,2250,2361,2464,2582,2745,5625",
-                        "endColumns": "118,109,106,85,103,119,76,76,90,92,96,94,100,92,94,95,90,89,81,109,104,105,110,102,117,162,101,88",
-                        "endOffsets": "219,329,436,522,626,746,823,900,991,1084,1181,1276,1377,1470,1565,1661,1752,1842,1924,2034,2139,2245,2356,2459,2577,2740,2842,5709"
-                    }
-                },
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/res/values-or/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "198",
-                        "endOffsets": "445"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4044",
-                        "endColumns": "198",
-                        "endOffsets": "4238"
-                    }
-                },
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/res/values-or/values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "245,354,547,678,793,1008,1142,1283,1418,1645,1756,1948,2080,2291,2475,2566,2664",
-                        "endColumns": "108,192,130,114,214,133,140,134,226,110,191,131,210,183,90,97,111",
-                        "endOffsets": "353,546,677,792,1007,1141,1282,1417,1644,1755,1947,2079,2290,2474,2565,2663,2775"
-                    },
-                    "to": {
-                        "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "2847,2960,3153,3288,3407,3622,3760,3905,4243,4470,4585,4777,4913,5124,5312,5407,5509",
-                        "endColumns": "112,192,134,118,214,137,144,138,226,114,191,135,210,187,94,101,115",
-                        "endOffsets": "2955,3148,3283,3402,3617,3755,3900,4039,4465,4580,4772,4908,5119,5307,5402,5504,5620"
-                    }
-                },
-                {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-or/values-or.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "48",
-                        "startColumns": "4",
-                        "startOffsets": "5714",
-                        "endColumns": "100",
-                        "endOffsets": "5810"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-th_values-th.arsc.flat",
             "map": [
                 {
@@ -2692,16 +2619,74 @@
             ]
         },
         {
-            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-xlarge-v4_values-xlarge-v4.arsc.flat",
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-or_values-or.arsc.flat",
             "map": [
                 {
-                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-or/values-or.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "55,126,197,267,337,405",
-                        "endColumns": "70,70,69,69,67,67",
-                        "endOffsets": "121,192,262,332,400,468"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,224,334,441,527,631,751,828,905,996,1089,1186,1281,1382,1475,1570,1666,1757,1847,1929,2039,2144,2250,2361,2464,2582,2745,2847",
+                        "endColumns": "118,109,106,85,103,119,76,76,90,92,96,94,100,92,94,95,90,89,81,109,104,105,110,102,117,162,101,88",
+                        "endOffsets": "219,329,436,522,626,746,823,900,991,1084,1181,1276,1377,1470,1565,1661,1752,1842,1924,2034,2139,2245,2356,2459,2577,2740,2842,2931"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,47",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,224,334,441,527,631,751,828,905,996,1089,1186,1281,1382,1475,1570,1666,1757,1847,1929,2039,2144,2250,2361,2464,2582,2745,5625",
+                        "endColumns": "118,109,106,85,103,119,76,76,90,92,96,94,100,92,94,95,90,89,81,109,104,105,110,102,117,162,101,88",
+                        "endOffsets": "219,329,436,522,626,746,823,900,991,1084,1181,1276,1377,1470,1565,1661,1752,1842,1924,2034,2139,2245,2356,2459,2577,2740,2842,5709"
+                    }
+                },
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/res/values-or/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "198",
+                        "endOffsets": "445"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4044",
+                        "endColumns": "198",
+                        "endOffsets": "4238"
+                    }
+                },
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/res/values-or/values.xml",
+                    "from": {
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "245,354,547,678,793,1008,1142,1283,1418,1645,1756,1948,2080,2291,2475,2566,2664",
+                        "endColumns": "108,192,130,114,214,133,140,134,226,110,191,131,210,183,90,97,111",
+                        "endOffsets": "353,546,677,792,1007,1141,1282,1417,1644,1755,1947,2079,2290,2474,2565,2663,2775"
+                    },
+                    "to": {
+                        "startLines": "29,30,31,32,33,34,35,36,38,39,40,41,42,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "2847,2960,3153,3288,3407,3622,3760,3905,4243,4470,4585,4777,4913,5124,5312,5407,5509",
+                        "endColumns": "112,192,134,118,214,137,144,138,226,114,191,135,210,187,94,101,115",
+                        "endOffsets": "2955,3148,3283,3402,3617,3755,3900,4039,4465,4580,4772,4908,5119,5307,5402,5504,5620"
+                    }
+                },
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/res/values-or/values-or.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "48",
+                        "startColumns": "4",
+                        "startOffsets": "5714",
+                        "endColumns": "100",
+                        "endOffsets": "5810"
                     }
                 }
             ]
@@ -2775,6 +2760,21 @@
                         "startOffsets": "5579",
                         "endColumns": "100",
                         "endOffsets": "5675"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/values-xlarge-v4_values-xlarge-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/values-xlarge-v4/values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,126,197,267,337,405",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "121,192,262,332,400,468"
                     }
                 }
             ]

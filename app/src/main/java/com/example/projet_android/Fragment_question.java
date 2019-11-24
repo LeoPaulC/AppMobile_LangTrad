@@ -16,8 +16,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,7 +79,8 @@ public class Fragment_question extends Fragment {
         this.valider = valider;
     }
 
-    Cursor cursor ;
+    static Cursor cursor ;
+    static Cursor cursor2 ;
 
     TextView texview_question ;
 
@@ -88,7 +92,10 @@ public class Fragment_question extends Fragment {
     TextView text_view_de_la_question ;
     Button button_passer_la_question ;
     Button valider ;
+    Spinner spinner_de_choix_categorie;
+    GridView grid_view_de_la_liste_de_mot ;
     static View vue_du_frag;
+    SimpleCursorAdapter sca ;
     public static ListView mon_recycler_view ;
 
     public Fragment_question() {
@@ -184,6 +191,99 @@ public class Fragment_question extends Fragment {
 
 
             Log.d(Base_de_donnee.TAG, "Fragment Question: OnCreateView terminé , Question en place .");
+        }
+        if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2.equals("mot a mot") ){
+            /**
+             * Dans le cas d'un apprentissage par categories et d'apres la langue choisie precedement dans le menu de demarrage
+             */
+            spinner_de_choix_categorie = vue_du_frag.findViewById(R.id.spinner_liste_categorie) ;
+            grid_view_de_la_liste_de_mot = vue_du_frag.findViewById(R.id.gridview_liste_mot);
+
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
+            Uri uri = builder.build();
+            cursor = moncontentprovider.query(uri,
+                    null
+                    ,null,
+                    null,
+                    null);
+
+            Log.d(Base_de_donnee.TAG,"Dans Fragment question apprentissage : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+
+            Log.d(Base_de_donnee.TAG,"cursor count  !" + cursor.getCount());
+            cursor.moveToFirst();
+            String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE };
+            int[] toControlIDs = new int[] {android.R.id.text1};
+            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_1 , cursor,
+                    fromColumns,
+                    toControlIDs);
+            spinner_de_choix_categorie.setAdapter(sca);
+
+            spinner_de_choix_categorie.setVisibility(View.VISIBLE);
+            spinner_de_choix_categorie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    Log.d(Base_de_donnee.TAG,"Reussis !");
+
+                    Uri.Builder builder = new Uri.Builder();
+                    cursor.moveToFirst();
+                    cursor.move(position);
+                    String categorie = cursor.getString(1);
+                    //view.toString()
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1)).appendPath(categorie);
+                    Uri uri = builder.build();
+                    cursor2 = moncontentprovider.query(uri,
+                            null
+                            ,null,
+                            null,
+                            null);
+
+                    Log.d(Base_de_donnee.TAG,"Dans Fragment question apprentissage : " + cursor2.getColumnName(0 ) + " | " + cursor2.getColumnName(1) ) ;
+
+                    cursor2.moveToFirst();
+                    String[] fromColumns = new String[] {Base_de_donnee.CONTENU };
+                    int[] toControlIDs = new int[] {android.R.id.text2};
+                    sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor2,
+                            fromColumns,
+                            toControlIDs);
+                    grid_view_de_la_liste_de_mot.setAdapter(sca);
+                    grid_view_de_la_liste_de_mot.setVisibility(View.VISIBLE);
+
+                    grid_view_de_la_liste_de_mot.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                        @Override
+                        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                            /**
+                             * On restant appuyé , on va ajouté les mots a notre liste perso .
+                             */
+                            String langue ;
+                            cursor2.moveToFirst();
+                            cursor2.move(position);
+                            String mot_selectionne_long = cursor2.getString(2) ;
+                            Log.d("d","Vous etes resté appuyé lg sur " + mot_selectionne_long) ;
+                            /**
+                             * Implementer l'ajout dans notre liste perso , faire une page pour l'afficher aussi .
+                             */
+                            return false;
+                        }
+                    });
+
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+
+
+
+
+
+
+
+
         }
 
         return vue_du_frag;
