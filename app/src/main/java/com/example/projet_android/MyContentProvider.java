@@ -16,11 +16,15 @@ import java.util.Arrays;
 public class MyContentProvider extends ContentProvider {
 
     public static final String authority = Base_de_donnee.authority ;
+
+    public static final String nom_langue_dapres_id = Base_de_donnee.ID_LANGUE+"/*" ;
     public static final String recherche_trad_dapres_mot = Base_de_donnee.TABLE_MOT+"/*" ;
     public static final String liste_mot_langue_Base_catgeorie = Base_de_donnee.TABLE_MOT+"/*/*" ;
                                                             // Uri = mot/langue/catgeorie
     public static final String liste_trad_langueBase_categorie = Base_de_donnee.TABLE_TRAD+"/*/*" ;
     // REtourne les couples , (mot,traduction) en accord avec la langue et catgeroie selectionné
+
+    public static final String Ajout_liste_perso_to_bdd  = "liste" ;
 
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
     {
@@ -29,6 +33,8 @@ public class MyContentProvider extends ContentProvider {
         matcher.addURI(authority,Base_de_donnee.TABLE_MOT,3); // pour recuperer toutes les mot de dispo d'apres une langue et une categorie.
         matcher.addURI(authority,recherche_trad_dapres_mot,4); // pour recuperer toutes les categories de dispo .
         matcher.addURI(authority,liste_mot_langue_Base_catgeorie,5); // pour recuperer toutes les categories de dispo .
+        matcher.addURI(authority,nom_langue_dapres_id,7); // pour recuperer toutes les categories de dispo .
+        matcher.addURI(authority,Ajout_liste_perso_to_bdd,10); // pour recuperer toutes les categories de dispo .
 
     }
     public MyContentProvider() {}
@@ -138,7 +144,16 @@ public class MyContentProvider extends ContentProvider {
                 langue_de_base2 = uri.getPathSegments().get(uri.getPathSegments().size()-2) ;
 
                 break ;
-
+            case 7:
+                Log.d(Base_de_donnee.TAG, "query: cas 7 ");
+                String id_langue ;
+                id_langue = uri.getPathSegments().get(uri.getPathSegments().size()-1) ;
+                cursor = db.rawQuery("select "+Base_de_donnee.LANGUE_NOM+" , rowid as _id from "+Base_de_donnee.TABLE_LANGUE +" where " + Base_de_donnee.ID_LANGUE +" = ? ", new String[]{id_langue} );
+                break ;
+            case 10:
+                Log.d(Base_de_donnee.TAG, "query: cas 10 ");
+                cursor = db.rawQuery("select * , rowid as _id from "+Base_de_donnee.TABLE_LISTE , null);
+                break ;
                 default:
                 Log.d("Query", "Not implemented yet");
 
@@ -157,9 +172,22 @@ public class MyContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
-        /**
-         * Voir pour faire les insert ici , suivant la table passer dans le Uri .
-         */
+        SQLiteDatabase db = MainActivity.bdd.getReadableDatabase();
+        Log.d(Base_de_donnee.TAG , "MyContentProvider : INSERT ");
+        int code = matcher.match(uri);
+        System.out.println("CODE : " + code + "Uri : " + uri.toString());
+
+        Log.d(Base_de_donnee.TAG , "MyContentProvider INSERT : CODE : " + code + " || Uri : " + uri.toString());
+        Cursor cursor = null;
+        switch (code) {
+            case 10 :
+                long a = db.insertOrThrow(Base_de_donnee.TABLE_LISTE , null , values ) ;
+                Log.d(Base_de_donnee.TAG, "insert: :: " + a );
+                break ;
+
+            default:
+                break;
+        }
         return null;
     }
 

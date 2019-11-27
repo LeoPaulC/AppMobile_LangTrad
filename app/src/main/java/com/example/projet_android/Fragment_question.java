@@ -1,5 +1,6 @@
 package com.example.projet_android;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -23,6 +24,8 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import static com.example.projet_android.Base_de_donnee.TAG;
 
@@ -99,7 +102,7 @@ public class Fragment_question extends Fragment {
     static View vue_du_frag;
     SimpleCursorAdapter sca ;
     public static ListView mon_recycler_view ;
-
+    static ArrayList listtmp ;
     public Fragment_question() {
         // Required empty public constructor
     }
@@ -271,14 +274,69 @@ public class Fragment_question extends Fragment {
                              * Ajouter a la liste lors d'un clique long , et lors de l'initialisation , verifier les enfants de la liste et colorier ceux present .
                              * voir pour chaque chlds .
                              */
+                            Uri.Builder builder = new Uri.Builder();
+                            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.ID_LANGUE).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
+                            Uri uri = builder.build();
+                            Cursor cursor_tmp = moncontentprovider.query(uri,
+                                    null
+                                    ,null,
+                                    null,
+                                    null);
+                            cursor_tmp.moveToFirst();
+                            Log.d(TAG,"nom_langue d'apres id : " + cursor_tmp.getString(0 ) ) ;
 
-                            if ( !MainActivity.liste_de_mot.contains(mot_selectionne_long)){
-                                Boolean add = MainActivity.liste_de_mot.add(mot_selectionne_long) ;
+                            String id_langue = cursor_tmp.getString(0);
+
+
+                                /*
+                                Recuperer la traduction
+                                 */
+                            /***/
+                            Uri.Builder builder2 = new Uri.Builder();
+                            Log.d("d" ,"Fragment Reponse : mot a traduire :" + mot_selectionne_long );
+                            builder2.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(mot_selectionne_long);
+                            Uri uri2 = builder2.build();
+                            Log.d("d" ,"Fragment Reponse : URI " + uri2 );
+                            cursor_tmp = moncontentprovider.query(uri2,
+                                    null
+                                    ,null,
+                                    null,
+                                    null);
+                            cursor_tmp.moveToFirst();
+
+                            listtmp = new ArrayList<String>() ;
+                            listtmp.add(id_langue); // on ajoute la langue
+                            listtmp.add(mot_selectionne_long); // on ajoute le mot
+
+                            if ( cursor_tmp != null ){
+                                if ( cursor_tmp.getString(1).equals(mot_selectionne_long)){
+                                    // cas ou la traduction colle avec le mot choisi
+                                    listtmp.add(cursor_tmp.getString(2));
+                                }
+                                else {
+                                    // le cas ou c'est la reponse de la trad qui match avec le mot selectionne
+                                    listtmp.add(cursor_tmp.getString(1));
+                                }
+
+                            }
+                            if ( !MainActivity.liste_de_mot.contains(listtmp) ){
+                                Boolean add = MainActivity.liste_de_mot.add(listtmp) ;
+                                MyContentProvider myContentProvider = new MyContentProvider();
+                                Uri.Builder builder_liste = new Uri.Builder();
+                                builder_liste.scheme("content").authority(Base_de_donnee.authority).appendPath("liste");
+                                Uri uri_liste = builder_liste.build();
+                                ContentValues cv = new ContentValues();
+                                cv.put("langue_nom",id_langue);
+                                cv.put("mot",mot_selectionne_long);
+                                cv.put("trad",listtmp.get(2).toString());
+                                myContentProvider.insert(uri_liste,cv);
+
                                 Log.d(TAG, "onItemLongClick: add = " + add);
                                 grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.GREEN);
                             }
                             else {
-                                Boolean remove = MainActivity.liste_de_mot.remove(mot_selectionne_long);
+                                Boolean remove = MainActivity.liste_de_mot.remove(listtmp );
+
                                 Log.d(TAG, "onItemLongClick: remove = " + remove);
                                 grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.WHITE);
                             }
@@ -286,6 +344,9 @@ public class Fragment_question extends Fragment {
                             /**
                              * Implementer l'ajout dans notre liste perso , faire une page pour l'afficher aussi .
                              */
+
+                            Log.d(TAG, "onItemLongClick: liste : " + MainActivity.liste_de_mot.toString());
+
                             return false;
                         }
                     });
@@ -311,19 +372,18 @@ public class Fragment_question extends Fragment {
                                 cursor2.moveToFirst();
                                 cursor2.move(i);
                                 String mot_a_remplir = cursor2.getString(2) ;
-                                if ( MainActivity.liste_de_mot.contains(mot_a_remplir)) {
-                                    Log.d("d","\n\n\n On colorie le mot : " + mot_a_remplir + " i =  " + i) ;
+                                if ( listtmp != null && listtmp.contains(mot_a_remplir)) {
+                                    grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
+                                }
+
                                     //grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
                                     //grid_view_de_la_liste_de_mot.getChildAt(i).setElevation(1);
-                                    grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
-                                    /**
-                                     * Voir ça demain !
-                                     */
+
                                 }
 
 
                             }
-                        }
+
                     });
 
                     grid_view_de_la_liste_de_mot.setVisibility(View.VISIBLE);

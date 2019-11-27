@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Base_de_donnee extends SQLiteOpenHelper {
 
-    public final static int VERSION = 7;
+    public final static int VERSION = 8;
     public final static String DB_NAME = "Base de donnee Projet Mobile";
     public final static String TAG = "d" ;
 
@@ -99,8 +99,12 @@ public class Base_de_donnee extends SQLiteOpenHelper {
             "FOREIGN KEY(" + TABLE_LANGUE + "2) REFERENCES " + TABLE_LANGUE + "(" + LANGUE_NOM + ")" + ");";
 
 
-
-
+    public final static String TABLE_LISTE = "listeperso" ;
+    public final static String CREATE_LISTE_PERSO =  "create table " + TABLE_LISTE + "(" +
+            "id_sous_liste integer primary key AUTOINCREMENT, " +
+            LANGUE_NOM +" String, " +
+            "mot String, " +
+            "trad String ); ";
     /**
     public final static String CREATE_STAT = "create table " + TABLE_STAT + "(" +
             COLONNE_PAYS + " string references geo, " +
@@ -129,6 +133,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         db.execSQL(CREATE_DICO);
         db.execSQL(CREATE_MOT);
         db.execSQL(CREATE_TRAD);
+        db.execSQL(CREATE_LISTE_PERSO);
         Log.d("d","Création base de données terminée.................................................................................................................................") ;
 
     }
@@ -141,6 +146,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
             db.execSQL("drop table if exists " + TABLE_DICTIONNAIRE);
             db.execSQL("drop table if exists " + TABLE_MOT);
             db.execSQL("drop table if exists " + TABLE_TRAD);
+            db.execSQL("drop table if exists " + TABLE_LISTE);
             onCreate(db);
         }
     }
@@ -321,11 +327,13 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_DICTIONNAIRE+"';");
         bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_LANGUE+"';");
         bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_TRAD+"';");
+        bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_LISTE+"';");
         bd.delete(TABLE_MOT,null,null);
         bd.delete(TABLE_CATGEORIE,null,null);
         bd.delete(TABLE_DICTIONNAIRE,null,null);
         bd.delete(TABLE_LANGUE,null,null);
         bd.delete(TABLE_TRAD,null,null);
+        bd.delete(TABLE_LISTE,null,null);
         Log.d(TAG, "effacer_bdd: fait . Remise à 0 de tous les auto increments.");
     }
 

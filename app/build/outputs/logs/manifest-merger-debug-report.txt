@@ -14,6 +14,7 @@ MERGED from [com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gra
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/3fe1f04fdcaea1b296e63e7f613ebccc/jetified-play-services-tasks-16.0.1/AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/47fc3950c814b04977735368112c37af/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/05168a99ce6bc986f8dc92d58ead19f3/lifecycle-extensions-2.0.0/AndroidManifest.xml:17:1-25:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/ca3ed72cfdc57fc3a102e462c0327875/recyclerview-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.gridlayout:gridlayout:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/0f4505103b69e512c07e6428baa15090/gridlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.navigation:navigation-fragment:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/31d23e129899d579b3883f4b5d7db859/jetified-navigation-fragment-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -37,16 +38,18 @@ MERGED from [android.arch.navigation:navigation-common:1.0.0] /home/cadiou/.grad
 MERGED from [androidx.core:core:1.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/45ed680b1ca2374827549d4e2c9e1a90/versionedparcelable-1.0.0/AndroidManifest.xml:17:1-25:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/01d333055a983e736e0a5fac950ffa8f/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/f64c8351ef0c9a7a800019d28185706c/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/e51a74e622ef7469bfa82ce10276a925/lifecycle-service-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/a0e6ae58238c1d1ff8cccab3415a6d19/lifecycle-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.documentfile:documentfile:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b432947d09f38291043b1b7278108b44/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/8cf450d11667f9427b289f08c2115f5c/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.print:print:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/2bd63e96b82e4254cd6653dc8da764d4/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/df65787e67fe4b4bc0635deed9695797/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/a1f5477cd6fd5fad9baa3e263bec7d60/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/60b50828def4ba3859898ffb4c971c21/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/2bd63e96b82e4254cd6653dc8da764d4/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/f64c8351ef0c9a7a800019d28185706c/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b432947d09f38291043b1b7278108b44/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/8cf450d11667f9427b289f08c2115f5c/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
 INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
 INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:2:1-27:12
@@ -84,10 +87,14 @@ MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/cadiou/.gr
 MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/3fe1f04fdcaea1b296e63e7f613ebccc/jetified-play-services-tasks-16.0.1/AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/05168a99ce6bc986f8dc92d58ead19f3/lifecycle-extensions-2.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/05168a99ce6bc986f8dc92d58ead19f3/lifecycle-extensions-2.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.core:core:1.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:22:5-89
 MERGED from [androidx.core:core:1.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:22:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/45ed680b1ca2374827549d4e2c9e1a90/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/45ed680b1ca2374827549d4e2c9e1a90/versionedparcelable-1.0.0/AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:22:5-28:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:22:5-28:19
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:22:18-86
 	android:supportsRtl
@@ -144,6 +151,8 @@ MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/
 MERGED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/47fc3950c814b04977735368112c37af/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/47fc3950c814b04977735368112c37af/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/05168a99ce6bc986f8dc92d58ead19f3/lifecycle-extensions-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/05168a99ce6bc986f8dc92d58ead19f3/lifecycle-extensions-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/ca3ed72cfdc57fc3a102e462c0327875/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/ca3ed72cfdc57fc3a102e462c0327875/recyclerview-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.gridlayout:gridlayout:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/0f4505103b69e512c07e6428baa15090/gridlayout-1.0.0/AndroidManifest.xml:20:5-44
@@ -190,26 +199,30 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/cadio
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/45ed680b1ca2374827549d4e2c9e1a90/versionedparcelable-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/01d333055a983e736e0a5fac950ffa8f/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/01d333055a983e736e0a5fac950ffa8f/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/f64c8351ef0c9a7a800019d28185706c/cardview-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/f64c8351ef0c9a7a800019d28185706c/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/e51a74e622ef7469bfa82ce10276a925/lifecycle-service-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/e51a74e622ef7469bfa82ce10276a925/lifecycle-service-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/a0e6ae58238c1d1ff8cccab3415a6d19/lifecycle-runtime-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/a0e6ae58238c1d1ff8cccab3415a6d19/lifecycle-runtime-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b432947d09f38291043b1b7278108b44/documentfile-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.documentfile:documentfile:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b432947d09f38291043b1b7278108b44/documentfile-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/8cf450d11667f9427b289f08c2115f5c/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/8cf450d11667f9427b289f08c2115f5c/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.print:print:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/2bd63e96b82e4254cd6653dc8da764d4/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/2bd63e96b82e4254cd6653dc8da764d4/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/df65787e67fe4b4bc0635deed9695797/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/df65787e67fe4b4bc0635deed9695797/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/a1f5477cd6fd5fad9baa3e263bec7d60/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/a1f5477cd6fd5fad9baa3e263bec7d60/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/60b50828def4ba3859898ffb4c971c21/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/60b50828def4ba3859898ffb4c971c21/core-runtime-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/2bd63e96b82e4254cd6653dc8da764d4/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/2bd63e96b82e4254cd6653dc8da764d4/lifecycle-viewmodel-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/f64c8351ef0c9a7a800019d28185706c/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/f64c8351ef0c9a7a800019d28185706c/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b432947d09f38291043b1b7278108b44/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b432947d09f38291043b1b7278108b44/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/8cf450d11667f9427b289f08c2115f5c/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/8cf450d11667f9427b289f08c2115f5c/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
 INJECTED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion
@@ -234,3 +247,13 @@ ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.
 		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
+provider#androidx.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+	android:authorities
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+	android:multiprocess
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+	android:exported
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79

@@ -11,6 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.net.Uri;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener , fragment_ma_liste_perso.OnFragmentInteractionListener{
 
     /**
      * Attributs :
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
     static final String BUNDLE_NOM ="nom" ;
 
     static List<Map<String , List<String> >> mes_listes_de_mot_a_apprendre_pour_plus_tard ;
-    static ArrayList<String> liste_de_mot ;
+    static ArrayList<ArrayList<String>> liste_de_mot ;
     /**
      * En gros ,plsueiurs liste de hashmap < langue , liste_de_mot<String> pour avoir une liste trié par langue , voir ventuellement pour ajouter les catgeroies en compte
      *
@@ -142,7 +143,15 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
          * mes listes de mots a apprendre
          */
         mes_listes_de_mot_a_apprendre_pour_plus_tard= new ArrayList<Map<String,List<String>>>();
-        liste_de_mot = new ArrayList<String>();
+        liste_de_mot = new ArrayList<ArrayList<String>>();
+        /**
+         * donc on aura : [ .......] -> langue
+         *                [........]  -> mot
+         *                [........]  -> trad
+         *
+         *Faire une requete au demarrage pour recuperer la liste de la bdd
+         *
+         */
 
         HashMap hashmapliste = new HashMap();
 
@@ -234,7 +243,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_tools )
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -267,6 +276,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         super.onStop();
         bdd.close();
         Log.d("d","STOOOOOOOOOOOOP , l'activité a quitté et la bdd a été fermé  : bdd - " + bdd.toString());
+
     }
 
     public static void ChargeFragmentDansEmplacement_Question(Fragment le_nouveau_frag ){

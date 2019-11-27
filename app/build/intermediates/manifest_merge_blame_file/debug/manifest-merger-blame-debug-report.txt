@@ -68,6 +68,17 @@
 41-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
 42            android:value="@integer/google_play_services_version" />
 42-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
-43    </application>
-44
-45</manifest>
+43
+44        <provider
+44-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+45            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+45-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+46            android:authorities="com.example.projet_android.lifecycle-process"
+46-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+47            android:exported="false"
+47-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+48            android:multiprocess="true" />
+48-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+49    </application>
+50
+51</manifest>

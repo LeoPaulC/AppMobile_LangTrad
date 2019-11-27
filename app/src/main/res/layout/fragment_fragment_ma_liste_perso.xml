@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment_ma_liste_perso">
+
+    <RelativeLayout
+        android:id="@+id/layout_page_acces_ma_liste_perso"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:ellipsize="none"
+            android:includeFontPadding="false"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="25sp"
+            app:autoSizeTextType="uniform"
+            tools:text="@string/Ma_liste" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/textView4"
+            android:background="#DD009688" />
+
+        <ListView
+            android:id="@+id/listeview_mot_perso"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/divider2" />
+
+    </RelativeLayout>
+</FrameLayout>

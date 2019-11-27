@@ -680,6 +680,10 @@
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/2946ca0ea6c89dab7d7d9fbc18e54292/material-1.0.0/res/anim-v21/design_bottom_sheet_slide_in.xml"
     },
     {
+        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/layout_layout_liste_view_liste.xml.flat",
+        "source": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/layout/layout_liste_view_liste.xml"
+    },
+    {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable-xxhdpi-v4/abc_list_selector_disabled_holo_dark.9.png"
     },
@@ -1166,6 +1170,10 @@
     {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_focused_holo.9.png.flat",
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable-xhdpi-v4/abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/layout_layout_perso.xml.flat",
+        "source": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/layout/layout_perso.xml"
     },
     {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable_common_google_signin_btn_icon_light_focused.xml.flat",
@@ -2230,6 +2238,10 @@
     {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable_abc_seekbar_track_material.xml.flat",
         "source": "/home/cadiou/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/layout_fragment_fragment_ma_liste_perso.xml.flat",
+        "source": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/layout/fragment_fragment_ma_liste_perso.xml"
     },
     {
         "merged": "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_off_mtrl_alpha.png.flat",
