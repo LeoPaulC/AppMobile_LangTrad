@@ -17,5 +17,6 @@
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:visibility="invisible" />
+
     </RelativeLayout>
 </FrameLayout>

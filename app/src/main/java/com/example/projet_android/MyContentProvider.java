@@ -19,6 +19,8 @@ public class MyContentProvider extends ContentProvider {
     public static final String recherche_trad_dapres_mot = Base_de_donnee.TABLE_MOT+"/*" ;
     public static final String liste_mot_langue_Base_catgeorie = Base_de_donnee.TABLE_MOT+"/*/*" ;
                                                             // Uri = mot/langue/catgeorie
+    public static final String liste_trad_langueBase_categorie = Base_de_donnee.TABLE_TRAD+"/*/*" ;
+    // REtourne les couples , (mot,traduction) en accord avec la langue et catgeroie selectionné
 
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
     {
@@ -125,7 +127,15 @@ public class MyContentProvider extends ContentProvider {
                 // on recupere l'id de la langue*/
 
                 cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_MOT + " where " + Base_de_donnee.CATEGORIE + " = ? and "+ Base_de_donnee.ID_LANGUE + " = ? ", new String[]{categorie,langue_de_bas});
-                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Fin du Cas 5 recherche mot , d'apres categorie et langue de base   curso.size() : " + cursor.getCount());
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Fin du Cas 5 recherche mot , d'apres categorie et langue de base   cursor.size() : " + cursor.getCount());
+
+                break ;
+            case 6 :
+                Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas 6 recherche liste de mot , d'apres categorie et langue de base : ");
+                String categorie2 ;
+                String langue_de_base2 ;
+                categorie2 = uri.getPathSegments().get(uri.getPathSegments().size()-1) ;
+                langue_de_base2 = uri.getPathSegments().get(uri.getPathSegments().size()-2) ;
 
                 break ;
 

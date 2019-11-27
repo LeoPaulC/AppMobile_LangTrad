@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -91,6 +92,8 @@ public class Fragment_bas extends Fragment {
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
 
+
+
     public Fragment_bas() {
         // Required empty public constructor
     }
@@ -144,8 +147,10 @@ public class Fragment_bas extends Fragment {
         button_valider = vue_du_fragment.findViewById(R.id.button);
         button_effacer = vue_du_fragment.findViewById(R.id.button_effacer);
         trad = vue_du_fragment.findViewById(R.id.button_valider);
-
         ed = vue_du_fragment.findViewById(R.id.textView_reponse) ;
+
+        button_valider.setVisibility(View.INVISIBLE);
+        button_effacer.setVisibility(View.INVISIBLE);
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -154,6 +159,18 @@ public class Fragment_bas extends Fragment {
          * Verifie si les options choisies correpondents a une Init BDD :
          */
         if ( mParam1 != null && mParam1.equals("init") && mParam2.equals("bdd")){ // partie correpsondant a l'initailisation de la base de donnée
+            /*
+            On va masquer les autres fragments
+            */
+
+            MainActivity.layout_haut.setVisibility(View.INVISIBLE);
+            MainActivity.layout_question.setVisibility(View.INVISIBLE);
+            MainActivity.layout_bas.setVisibility(View.INVISIBLE);
+            MainActivity.layout_reponse.setVisibility(View.INVISIBLE);
+
+
+            button_valider.setVisibility(View.VISIBLE);
+            button_effacer.setVisibility(View.VISIBLE);
             button_valider.setText("Initialisation de la Base de donnée ( sans remplissage )");
             button_valider.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -172,6 +189,7 @@ public class Fragment_bas extends Fragment {
                 }
             });
         }
+
 
         if ( mParam1 != null && mParam1.equals("valide") && mParam2.equals("traduction")){ // partie correpsondant a l'initailisation de la base de donnée
             Log.d("d" ,"Fragment BAS : valide - trad" ); // creation Table OK

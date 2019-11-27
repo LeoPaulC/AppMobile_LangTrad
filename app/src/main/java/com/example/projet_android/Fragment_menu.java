@@ -4,15 +4,28 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+
+import static androidx.constraintlayout.widget.Constraints.TAG;
 
 
 /**
@@ -38,6 +51,9 @@ public class Fragment_menu extends Fragment {
     ProgressBar barre_progress ;
     ImageView drapeau ;
     View vue_du_frag ;
+
+
+    NavigationView nav_view ;
 
     public TextView getNom() {
         return nom;
@@ -113,17 +129,18 @@ public class Fragment_menu extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         vue_du_frag = inflater.inflate(R.layout.fragment_fragment_menu, container, false);
+
+        Log.d(Base_de_donnee.TAG, "onCreateView Menu: " + mParam1);
         if ( mParam1 != null ){
             nom = vue_du_frag.findViewById(R.id.Nom);
             score = vue_du_frag.findViewById(R.id.Score);
             barre_progress = vue_du_frag.findViewById(R.id.progressBar2);
             drapeau= vue_du_frag.findViewById(R.id.Drapeau);
-
             nom.setText("Joueur : "+MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM));
             score.setText("Score : " + MainActivity.bundle_de_la_session_en_cours.getInt(MainActivity.BUNDLE_SCORE));
-            /**
-             * Mettre en relation Langue + drapeau ( DL les images )
-             */
+
+
+
         }
         return vue_du_frag;
     }

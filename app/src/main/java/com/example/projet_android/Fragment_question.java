@@ -24,6 +24,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.projet_android.Base_de_donnee.TAG;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -142,7 +144,7 @@ public class Fragment_question extends Fragment {
         text_view_de_la_question.setText(mParam1);
         valider = vue_du_frag.findViewById(R.id.button_valider) ;
 
-        Log.d(Base_de_donnee.TAG, "Fragment Question : OnCreateView .");
+        Log.d(TAG, "Fragment Question : OnCreateView .");
 
 
         /**
@@ -152,6 +154,8 @@ public class Fragment_question extends Fragment {
 
             String catgeorie_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) ;
             String langue_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2) ;
+
+            MainActivity.layout_reponse.setVisibility(View.VISIBLE);
 
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT);
@@ -163,7 +167,7 @@ public class Fragment_question extends Fragment {
                     null);
             texview_question = vue_du_frag.findViewById(R.id.Textview_question);
             texview_question.setText("Traduire ce mot : ");
-            Log.d(Base_de_donnee.TAG,"Dans Fragment Question : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3)) ;
+            Log.d(TAG,"Dans Fragment Question : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3)) ;
 
             cursor.moveToFirst();
             MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
@@ -190,7 +194,7 @@ public class Fragment_question extends Fragment {
 
 
 
-            Log.d(Base_de_donnee.TAG, "Fragment Question: OnCreateView terminé , Question en place .");
+            Log.d(TAG, "Fragment Question: OnCreateView terminé , Question en place .");
         }
         if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2.equals("mot a mot") ){
             /**
@@ -208,9 +212,9 @@ public class Fragment_question extends Fragment {
                     null,
                     null);
 
-            Log.d(Base_de_donnee.TAG,"Dans Fragment question apprentissage : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+            Log.d(TAG,"Dans Fragment question apprentissage : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
 
-            Log.d(Base_de_donnee.TAG,"cursor count  !" + cursor.getCount());
+            Log.d(TAG,"cursor count  !" + cursor.getCount());
             cursor.moveToFirst();
             String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE };
             int[] toControlIDs = new int[] {android.R.id.text1};
@@ -223,7 +227,8 @@ public class Fragment_question extends Fragment {
             spinner_de_choix_categorie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    Log.d(Base_de_donnee.TAG,"Reussis !");
+                    Log.d(TAG,"Reussis !");
+                    MainActivity.layout_reponse.setVisibility(View.VISIBLE);
 
                     Uri.Builder builder = new Uri.Builder();
                     cursor.moveToFirst();
@@ -238,7 +243,7 @@ public class Fragment_question extends Fragment {
                             null,
                             null);
 
-                    Log.d(Base_de_donnee.TAG,"Dans Fragment question apprentissage : " + cursor2.getColumnName(0 ) + " | " + cursor2.getColumnName(1) ) ;
+                    Log.d(TAG,"Dans Fragment question apprentissage : " + cursor2.getColumnName(0 ) + " | " + cursor2.getColumnName(1) ) ;
 
                     cursor2.moveToFirst();
                     String[] fromColumns = new String[] {Base_de_donnee.CONTENU };
@@ -247,7 +252,7 @@ public class Fragment_question extends Fragment {
                             fromColumns,
                             toControlIDs);
                     grid_view_de_la_liste_de_mot.setAdapter(sca);
-                    grid_view_de_la_liste_de_mot.setVisibility(View.VISIBLE);
+                    Log.d("d","\n\n\n On colorie le mot : " + grid_view_de_la_liste_de_mot.getCount()) ;
 
                     grid_view_de_la_liste_de_mot.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                         @Override
@@ -259,13 +264,69 @@ public class Fragment_question extends Fragment {
                             cursor2.moveToFirst();
                             cursor2.move(position);
                             String mot_selectionne_long = cursor2.getString(2) ;
-                            Log.d("d","Vous etes resté appuyé lg sur " + mot_selectionne_long) ;
+                            Log.d("d","Vous etes resté appuyé lg sur " + mot_selectionne_long +" position = " + position) ;
+
+
+                            /**
+                             * Ajouter a la liste lors d'un clique long , et lors de l'initialisation , verifier les enfants de la liste et colorier ceux present .
+                             * voir pour chaque chlds .
+                             */
+
+                            if ( !MainActivity.liste_de_mot.contains(mot_selectionne_long)){
+                                Boolean add = MainActivity.liste_de_mot.add(mot_selectionne_long) ;
+                                Log.d(TAG, "onItemLongClick: add = " + add);
+                                grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.GREEN);
+                            }
+                            else {
+                                Boolean remove = MainActivity.liste_de_mot.remove(mot_selectionne_long);
+                                Log.d(TAG, "onItemLongClick: remove = " + remove);
+                                grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.WHITE);
+                            }
+
                             /**
                              * Implementer l'ajout dans notre liste perso , faire une page pour l'afficher aussi .
                              */
                             return false;
                         }
                     });
+                    grid_view_de_la_liste_de_mot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            /**
+                             * On ne peut recreer de fragment a chaque click .
+                             */
+                            cursor2.moveToFirst();
+                            cursor2.move(position);
+                            String mot_selectionne = cursor2.getString(2) ;
+                            MainActivity.ChargeFragmentDansEmplacement_Reponse(Fragment_reponse.newInstance("trad",mot_selectionne),"trad");
+                        }
+                    });
+
+                    grid_view_de_la_liste_de_mot.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+                        @Override
+                        public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                            grid_view_de_la_liste_de_mot.removeOnLayoutChangeListener(this);
+                            Log.d("d","Liste_completée , getcount " + grid_view_de_la_liste_de_mot.getCount() + " getchildcount() = " + grid_view_de_la_liste_de_mot.getChildCount()) ;
+                            for (int i = 0; i < grid_view_de_la_liste_de_mot.getCount(); i++) {
+                                cursor2.moveToFirst();
+                                cursor2.move(i);
+                                String mot_a_remplir = cursor2.getString(2) ;
+                                if ( MainActivity.liste_de_mot.contains(mot_a_remplir)) {
+                                    Log.d("d","\n\n\n On colorie le mot : " + mot_a_remplir + " i =  " + i) ;
+                                    //grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
+                                    //grid_view_de_la_liste_de_mot.getChildAt(i).setElevation(1);
+                                    grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
+                                    /**
+                                     * Voir ça demain !
+                                     */
+                                }
+
+
+                            }
+                        }
+                    });
+
+                    grid_view_de_la_liste_de_mot.setVisibility(View.VISIBLE);
 
 
                 }
@@ -274,9 +335,10 @@ public class Fragment_question extends Fragment {
                 public void onNothingSelected(AdapterView<?> parent) {
 
                 }
+
             });
 
-
+            Maj_liste_user_avec_liste_affiche();
 
 
 
@@ -288,6 +350,31 @@ public class Fragment_question extends Fragment {
 
         return vue_du_frag;
 
+    }
+
+    /**
+     * Voir ça plus tard
+     */
+
+    public void Maj_liste_user_avec_liste_affiche(){
+
+        Log.d("d","\n\n\n nb child: " + grid_view_de_la_liste_de_mot.getChildCount() + " , count()  =  " + grid_view_de_la_liste_de_mot.getCount()) ;
+        for (int i = 0; i < grid_view_de_la_liste_de_mot.getCount(); i++) {
+            cursor2.moveToFirst();
+            cursor2.move(i);
+            String mot_a_remplir = cursor2.getString(2) ;
+            if ( MainActivity.liste_de_mot.contains(mot_a_remplir)) {
+                Log.d("d","\n\n\n On colorie le mot : " + mot_a_remplir + " i =  " + i) ;
+                //grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
+                //grid_view_de_la_liste_de_mot.getChildAt(i).setElevation(1);
+                grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.RED);
+                /**
+                 * Voir ça demain !
+                 */
+            }
+
+
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -311,6 +398,11 @@ public class Fragment_question extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2.equals("mot a mot") ){
+            MainActivity.layout_question.setVisibility(View.INVISIBLE);
+            MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
+            MainActivity.layout_reponse.setVisibility(View.INVISIBLE);
+        }
         mListener = null;
     }
 

@@ -2,19 +2,39 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_demarrage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Page_demarrage">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#00FFFFFF">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:adjustViewBounds="false"
+            android:background="#009688"
+            android:src="@drawable/side_nav_bar"
+            app:srcCompat="@mipmap/ic_launcher_round"
+            tools:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/spinner_choix_langue_de_base2"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_below="@id/textView3"
+            android:layout_marginTop="19dp" />
 
         <EditText
             android:id="@+id/editText_choix_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/imageView2"
+            android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="Votre nom"
             android:inputType="textPersonName" />
@@ -23,12 +43,13 @@
             android:id="@+id/spinner_choix_langue_de_base"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:layout_below="@id/textView2" />
+            android:layout_below="@id/textView2"
+            android:layout_marginTop="18dp" />
 
         <ImageButton
             android:id="@+id/imageButton2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="75dp"
             android:layout_below="@id/radio_group"
             android:src="@android:drawable/ic_media_play" />
 
@@ -36,8 +57,8 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_below="@id/divider"
-            android:layout_marginTop="12dp"
+            android:layout_below="@id/spinner_choix_langue_de_base2"
+            android:layout_marginTop="17dp"
             android:elegantTextHeight="false"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Choix de la méthode d'apprentissage :"
@@ -49,8 +70,20 @@
             android:layout_width="match_parent"
             android:layout_height="32dp"
             android:layout_below="@id/editText_choix_nom"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/alfa_slab_one"
             android:text="Choix de votre langue de base :"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_below="@+id/divider"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/alfa_slab_one"
+            android:text="Choix de la langue à etudier  :"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -66,8 +99,9 @@
         <RadioGroup
             android:id="@+id/radio_group"
             android:layout_width="match_parent"
-            android:layout_height="49dp"
+            android:layout_height="63dp"
             android:layout_below="@id/textView"
+            android:layout_marginTop="17dp"
             android:baselineAligned="false"
             android:orientation="horizontal">
 
@@ -93,4 +127,5 @@
         </RadioGroup>
 
     </RelativeLayout>
+
 </FrameLayout>

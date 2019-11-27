@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,22 +12,26 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="16dp"
+        android:paddingLeft="@dimen/cardview_compat_inset_shadow"
         android:paddingRight="16dp">
 
         <ImageView
             android:id="@+id/Drapeau"
-            android:layout_width="91dp"
-            android:layout_height="73dp"
+            android:layout_width="94dp"
+            android:layout_height="72dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="40dp"
             android:background="#8B6B6B6B"
-            android:visibility="visible"
+            android:visibility="invisible"
             tools:src="@tools:sample/avatars[11]" />
 
         <TextView
             android:id="@+id/Nom"
-            android:layout_width="131dp"
-            android:layout_height="73dp"
+            android:layout_width="111dp"
+            android:layout_height="71dp"
             android:layout_alignParentLeft="false"
+            android:layout_marginLeft="4dp"
             android:layout_toRightOf="@id/Drapeau"
             android:autoText="true"
             android:textAlignment="center"
@@ -43,14 +48,14 @@
         <ProgressBar
             android:id="@+id/progressBar2"
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
-            android:layout_width="156dp"
-            android:layout_height="43dp"
+            android:layout_width="133dp"
+            android:layout_height="39dp"
             android:layout_below="@id/Score"
             android:layout_toRightOf="@id/Nom"
             android:max="100"
             android:progress="40"
             android:progressTint="#4CAF50"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
     </RelativeLayout>
 

@@ -22,6 +22,8 @@ import androidx.fragment.app.Fragment;
 
 import java.util.zip.Inflater;
 
+import static com.example.projet_android.Base_de_donnee.TAG;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,11 +44,13 @@ public class Page_demarrage extends Fragment {
     private String mParam2;
     EditText editText_nom ;
     Spinner liste_langue ;
+    Spinner liste_langue2 ;
     Cursor cursor ;
     SimpleCursorAdapter sca ;
     private OnFragmentInteractionListener mListener;
     private MyContentProvider moncontentprovider;
     ImageButton valider_choix ;
+    View vue_du_fragment;
 
     RadioButton mot_a_mot ;
     RadioButton plusieurs_mot_par_catgeorie ;
@@ -82,6 +86,7 @@ public class Page_demarrage extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
         liste_langue = new Spinner(getContext());
+        liste_langue2  = new Spinner(getContext()) ;
         moncontentprovider = new MyContentProvider();
         valider_choix = new ImageButton(getContext());
         mot_a_mot = new RadioButton(getContext());
@@ -93,8 +98,11 @@ public class Page_demarrage extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vue_du_fragment = inflater.inflate(R.layout.fragment_page_demarrage, container, false);
-        if ( mParam1 != null && mParam1 == "init" && mParam2 == "user"){
+        vue_du_fragment = inflater.inflate(R.layout.fragment_page_demarrage, container, false);
+
+        Log.d(TAG,"Page_Demarrage : OnCreateView " + mParam1 + " " + mParam2) ;
+
+        if ( mParam1 != null && mParam1.equals("init") && mParam2.equals("user")){
             /**
              * On accede a cette page qui sert de Menu en quelque sorte
              * Choix de la langue de base ,
@@ -104,16 +112,20 @@ public class Page_demarrage extends Fragment {
              * Passerelle vers les autres "Activitées"
              */
 
-            Log.d(Base_de_donnee.TAG,"Page_Demarrage : OnCreateView ") ;
             // trouver tous les Layout associé au paramettre de ce fragment .
             editText_nom = vue_du_fragment.findViewById(R.id.editText_choix_nom) ;
             liste_langue = vue_du_fragment.findViewById(R.id.spinner_choix_langue_de_base);
+            liste_langue2 = vue_du_fragment.findViewById(R.id.spinner_choix_langue_de_base2) ;
             valider_choix = vue_du_fragment.findViewById(R.id.imageButton2) ;
             mot_a_mot = vue_du_fragment.findViewById(R.id.radioButton_apprentissage_mot_a_mot);
             plusieurs_mot_par_catgeorie = vue_du_fragment.findViewById(R.id.radioButton_apprentissage_plusieurs_mot);
             quizz = vue_du_fragment.findViewById(R.id.radioButton_quizz) ;
-            // fin
-            // requette pour recuperer les langues dispos
+
+
+            if ( MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM) != null )
+                editText_nom.setText(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM));
+
+
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_LANGUE);
             Uri uri = builder.build();
@@ -125,36 +137,78 @@ public class Page_demarrage extends Fragment {
             cursor.moveToFirst();
             String[] fromColumns = new String[] {Base_de_donnee.LANGUE_NOM};
             int[] toControlIDs = new int[] {android.R.id.text1};
-            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor,
+            Log.d(TAG, "onCreateView Page_demarrage: " + cursor.getCount());
+            sca = new SimpleCursorAdapter(getActivity().getBaseContext(), android.R.layout.simple_list_item_2 , cursor,
                     fromColumns,
                     toControlIDs);
             sca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             liste_langue.setAdapter(sca);
+            liste_langue2.setAdapter(sca);
+
+
+
 
 
 
             valider_choix.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+                    // recuperation des langues choisies :
                     int langue_de_base = liste_langue.getSelectedItemPosition()+1 ;
                     MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE1 , String.valueOf(langue_de_base));
+
+                    int langue_a_apprendre = liste_langue2.getSelectedItemPosition()+1 ;
+                    MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE2 , String.valueOf(langue_a_apprendre));
+
                     if ( !editText_nom.getText().toString().equals("") )
                         MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_NOM , editText_nom.getText().toString());
                     else MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_NOM , "User_Guest");
-                    Fragment_menu.nom.setText(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM));
+
+                    //Fragment_menu.nom.setText(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM));
+
+                    MainActivity.layout_demarrage = vue_du_fragment.findViewById(R.id.layout_demarrage);
+
+
+
+
+
+
 
                     if ( quizz.isChecked() ){
                         /**
                          * Si aucun des 2 radio boutton d'apprentissage n'est selectionné , on lance le quizz par catgeroie
                          */
+                        MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
+                        MainActivity.layout_question.setVisibility(View.VISIBLE);
+                        MainActivity.layout_haut.setVisibility(View.VISIBLE);
                         Toast.makeText(getContext(),"Spinner res : " + langue_de_base + "/ nom : " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM), Toast.LENGTH_SHORT).show();
-                        MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE)); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
-
+                        //MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE)); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+                        MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_CATGEORIE));
                     }
                     else if ( mot_a_mot.isChecked() ){
                         /**
                          * On va etudier les mot un par un dans la langue de base vers d'autre langue .
                          */
+                        Log.d(TAG, "onClick: getfragmetncount :" + MainActivity.fm.getFragments().size());
+
+                        for(Fragment f : MainActivity.fm.getFragments())
+                            Log.d(TAG, "onClick: class : " + f.getArguments());
+
+
+
+//                        MainActivity.layout_demarrage = vue_du_fragment.findViewById(R.id.layout_demarrage);
+                        MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
+
+                        MainActivity.layout_question.setVisibility(View.VISIBLE);
+                        MainActivity.layout_haut.setVisibility(View.VISIBLE);
+
+                        Fragment_question apprentissage_par_categorie = Fragment_question.newInstance("apprentissage" , "mot a mot") ;
+                        MainActivity.ChargeFragmentDansEmplacement_Question(apprentissage_par_categorie);
+                        Log.d(TAG, "onClick2: getfragmetncount :" + MainActivity.fm.getFragments().size());
+
+                        for(Fragment f : MainActivity.fm.getFragments())
+                            Log.d(TAG, "onClick: class : " + f.getTag());
 
                     }
                     else if( plusieurs_mot_par_catgeorie.isChecked()){
@@ -164,8 +218,7 @@ public class Page_demarrage extends Fragment {
                         /**
                          * Faire les 2 cas au dessus
                          */
-                        Fragment_question apprentissage_par_categorie = Fragment_question.newInstance("apprentissage" , "mot a mot") ;
-                        MainActivity.ChargeFragmentDansEmplacement_Question(apprentissage_par_categorie);
+
 
                     }
 
@@ -189,6 +242,7 @@ public class Page_demarrage extends Fragment {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
+
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");

@@ -138,7 +138,7 @@ public class AccesDonneesBDD extends Fragment {
 
                     //MainActivity.frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
                     Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnClickListener Categorie.");
-
+                    MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
                     MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_question.newInstance("affiche",Base_de_donnee.TABLE_MOT));
 
 
@@ -153,6 +153,7 @@ public class AccesDonneesBDD extends Fragment {
              * on va construire l'URI pour recuperer les Langues .
              */
 
+            MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_LANGUE);
             Uri uri = builder.build();
@@ -222,6 +223,12 @@ public class AccesDonneesBDD extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        if ( mParam1 != null && mParam1 == "affiche" && mParam2 == Base_de_donnee.CATEGORIE){
+            MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
+        }
+        if ( mParam1 != null && mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_LANGUE){
+            MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
+        }
         mListener = null;
     }
 

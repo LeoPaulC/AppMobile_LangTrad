@@ -2,16 +2,22 @@ package com.example.projet_android;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -31,6 +37,12 @@ public class Fragment_reponse extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    Cursor cursor ;
+    MyContentProvider moncontentprovider ;
+    static ProgressBar pb_exit ;
+    static int progress = 0 ;
+    private static int compteur = 0 ;
 
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
@@ -74,6 +86,7 @@ public class Fragment_reponse extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        moncontentprovider = new MyContentProvider();
     }
 
     @SuppressLint("WrongViewCast")
@@ -88,7 +101,38 @@ public class Fragment_reponse extends Fragment {
         if ( mParam1 != null && mParam1 == "affiche" && mParam2 == "reponse") {
 
             editText_reponse = ((EditText)vue_du_fragment.findViewById(R.id.textView_reponse));
+
             editText_reponse.setVisibility(View.VISIBLE);
+
+        }
+        if ( mParam1 != null && mParam1.equals("trad") && mParam2 != null){ // affichier al traduction d'apres un mot slectionné
+            editText_reponse = ((EditText)vue_du_fragment.findViewById(R.id.textView_reponse));
+            editText_reponse.setEnabled(false);
+            editText_reponse.setVisibility(View.VISIBLE);
+            Uri.Builder builder = new Uri.Builder();
+            Log.d("d" ,"Fragment Reponse : mot a traduire :" + mParam2 );
+            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(mParam2);
+            Uri uri = builder.build();
+            Log.d("d" ,"Fragment Reponse : URI " + uri );
+            cursor = moncontentprovider.query(uri,
+                    null
+                    ,null,
+                    null,
+                    null);
+            cursor.moveToFirst();
+            if ( cursor != null ){
+               if ( cursor.getString(1).equals(mParam2)){
+                   // cas ou la traduction colle avec le mot choisi
+                   editText_reponse.setText(cursor.getString(2));
+
+               }
+               else {
+                   // le cas ou c'est la reponse de la trad qui match avec le mot selectionne
+                   editText_reponse.setText(cursor.getString(1));
+               }
+
+            }
+
 
         }
 
@@ -118,6 +162,13 @@ public class Fragment_reponse extends Fragment {
         super.onDetach();
         if ( mParam1 != null && mParam1 == "affiche" && mParam2 == "reponse") {
             MainActivity.fm.popBackStack();
+        }
+        if ( mParam1 != null && mParam1 == "trad" && mParam2 != null ) {
+            for (Fragment a : MainActivity.fm.getFragments() ) {
+                // on retire de la liste tous les fragment créé pour la réponse
+                if ( a instanceof Fragment_reponse)
+                    MainActivity.fm.popBackStack();
+            }
         }
         mListener = null;
     }

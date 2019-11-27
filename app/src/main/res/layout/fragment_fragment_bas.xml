@@ -5,37 +5,48 @@
     android:layout_height="match_parent"
     tools:context=".Fragment_bas">
 
-    <Button
-        android:id="@+id/button_valider"
-        android:layout_width="match_parent"
-        android:layout_height="105dp"
-        android:background="#FFEB3B"
-        android:text="Button"
-        android:visibility="invisible" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="749dp">
 
         <Button
-            android:id="@+id/button"
-            style="@style/Widget.AppCompat.Button.Colored"
+            android:id="@+id/button_valider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#2D009688"
+            android:layout_height="105dp"
+            android:background="#D02982C9"
+            android:drawableRight="@android:drawable/ic_media_play"
+            android:text="Button"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/button"
+            style="?android:attr/textAppearanceButton"
+            android:layout_width="match_parent"
+            android:layout_height="162dp"
+            android:layout_marginTop="100dp"
+            android:background="#009688"
+            android:clickable="true"
+            android:drawableBottom="@drawable/common_full_open_on_phone"
             android:ellipsize="none"
             android:fontFamily="casual"
             android:forceDarkAllowed="true"
             android:shadowColor="#4CAF50"
             android:shadowRadius="10"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textAppearance="@style/RtlOverlay.Widget.AppCompat.Search.DropDown.Icon2"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_effacer"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="180dp"
             android:layout_below="@id/button"
-            android:text="Button"
+            android:backgroundTint="#B434828B"
+            android:clickable="true"
+            android:drawableBottom="@android:drawable/ic_menu_delete"
+            android:drawingCacheQuality="auto"
+            android:text="Button_eff"
             android:visibility="visible" />
+
     </RelativeLayout>
 </FrameLayout>
