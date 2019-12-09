@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Base_de_donnee extends SQLiteOpenHelper {
 
-    public final static int VERSION = 8;
+    public final static int VERSION = 9;
     public final static String DB_NAME = "Base de donnee Projet Mobile";
     public final static String TAG = "d" ;
 
@@ -27,6 +27,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
     public final static String CONTENU = "contenu";
     public final static String CATEGORIE = "categorie";
     public final static String ID_DICO = "id_dico";
+    public final static String ID_IMAGE = "id_image";
 
     /**
      * Table DICTIONNAIRE :
@@ -105,6 +106,18 @@ public class Base_de_donnee extends SQLiteOpenHelper {
             LANGUE_NOM +" String, " +
             "mot String, " +
             "trad String ); ";
+
+    public final static String TABLE_IMAGE = "image" ;
+
+    public final static String CREATE_IMAGE =  "create table " + TABLE_IMAGE + "(" +
+            "id_image integer primary key AUTOINCREMENT, " +
+            CONTENU +" String, " +
+            "chemin_interne String ," +
+            "chemin_externe String ," +
+            ID_TRAD + " integer ); ";
+
+    // contenue corresponont au nom de l'imagie , par exemple " voiture.png" et chemin = home/leo-paul/..... chemin absolue
+
     /**
     public final static String CREATE_STAT = "create table " + TABLE_STAT + "(" +
             COLONNE_PAYS + " string references geo, " +
@@ -134,6 +147,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         db.execSQL(CREATE_MOT);
         db.execSQL(CREATE_TRAD);
         db.execSQL(CREATE_LISTE_PERSO);
+        db.execSQL(CREATE_IMAGE);
         Log.d("d","Création base de données terminée.................................................................................................................................") ;
 
     }
@@ -147,6 +161,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
             db.execSQL("drop table if exists " + TABLE_MOT);
             db.execSQL("drop table if exists " + TABLE_TRAD);
             db.execSQL("drop table if exists " + TABLE_LISTE);
+            db.execSQL("drop table if exists " + TABLE_IMAGE);
             onCreate(db);
         }
     }
@@ -223,6 +238,20 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(CATEGORIE, "Mot Usuel" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
+        /********/
+
+        row = new ContentValues();
+        row.put(CONTENU, "Voiture");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Car");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
         row = new ContentValues();
         row.put(CONTENU, "Hello");
         row.put(ID_LANGUE, 2 );
@@ -293,6 +322,26 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put("mot_reponse", "Computeur" );
         res = bd.insertOrThrow(TABLE_TRAD, null, row);
 
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Voiture" );
+        row.put("mot_reponse", "Car" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        /** public final static String CREATE_IMAGE =  "create table " + TABLE_IMAGE + "(" +
+            "id_image integer primary key AUTOINCREMENT, " +
+            CONTENU +" String, " +
+            "chemin String ," +
+            ID_TRAD + " integer ); ";
+         */
+
+        row = new ContentValues();
+        row.put(CONTENU, "voiture");
+        row.put("chemin_interne", "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/drawable/voiture.png");
+        row.put(ID_TRAD, 3 );
+        res = bd.insertOrThrow(TABLE_IMAGE, null, row);
+
 
         affiche_res_requette(new String []{"*"}, new String[]{TABLE_LANGUE},null);
 
@@ -328,12 +377,14 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_LANGUE+"';");
         bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_TRAD+"';");
         bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_LISTE+"';");
+        bd.execSQL("UPDATE sqlite_sequence SET seq = 0 WHERE name = '"+TABLE_IMAGE+"';");
         bd.delete(TABLE_MOT,null,null);
         bd.delete(TABLE_CATGEORIE,null,null);
         bd.delete(TABLE_DICTIONNAIRE,null,null);
         bd.delete(TABLE_LANGUE,null,null);
         bd.delete(TABLE_TRAD,null,null);
         bd.delete(TABLE_LISTE,null,null);
+        bd.delete(TABLE_IMAGE,null,null);
         Log.d(TAG, "effacer_bdd: fait . Remise à 0 de tous les auto increments.");
     }
 

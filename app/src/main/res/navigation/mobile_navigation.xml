@@ -74,9 +74,18 @@
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="com.example.myapplication.ui.tools.ToolsFragment"
+        android:name="com.example.projet_android.fragment_acces_memoire_tel"
         android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_fragment_acces_memoire_tel" >
+        <argument
+            android:name="param1"
+            app:argType="string"
+            android:defaultValue="apprentissage" />
+        <argument
+            android:name="param2"
+            app:argType="string"
+            android:defaultValue="mot a mot" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_share"

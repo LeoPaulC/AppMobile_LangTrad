@@ -14,71 +14,80 @@
 12    <uses-permission android:name="android.permission.INTERNET" />
 12-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:6:5-67
 12-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:6:22-64
-13
-14    <application
-14-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:8:5-25:19
-15        android:allowBackup="true"
-15-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:9:9-35
-16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:22:18-86
-17        android:debuggable="true"
-18        android:icon="@mipmap/ic_launcher"
-18-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:10:9-43
-19        android:roundIcon="@mipmap/ic_launcher_round"
-19-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:11:9-54
-20        android:supportsRtl="true"
-20-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:12:9-35
-21        android:testOnly="true"
-22        android:theme="@style/AppTheme" >
-22-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:13:9-40
-23        <activity android:name="com.example.projet_android.MainActivity" >
-23-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:14:9-20:20
-23-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:14:19-47
-24            <intent-filter>
-24-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:15:13-19:29
-25                <action android:name="android.intent.action.MAIN" />
-25-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:16:17-69
-25-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:16:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:18:17-77
-27-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:18:27-74
-28            </intent-filter>
-29        </activity>
-30
-31        <meta-data
-31-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:22:9-24:57
-32            android:name="preloaded_fonts"
-32-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:23:13-43
-33            android:resource="@array/preloaded_fonts" />
-33-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:24:13-54
-34
-35        <activity
-35-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
-36            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-36-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:24:13-79
-37            android:exported="false"
-37-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:25:13-37
-38            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-38-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:26:13-72
-39
-40        <meta-data
-40-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:23:9-25:69
-41            android:name="com.google.android.gms.version"
-41-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
-42            android:value="@integer/google_play_services_version" />
-42-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
-43
-44        <provider
-44-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
-45            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-45-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
-46            android:authorities="com.example.projet_android.lifecycle-process"
-46-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
-47            android:exported="false"
-47-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
-48            android:multiprocess="true" />
-48-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
-49    </application>
-50
-51</manifest>
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:7:5-80
+13-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:7:22-77
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:8:5-81
+14-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+15-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:9:5-88
+15-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:9:22-85
+16
+17    <application
+17-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:11:5-28:19
+18        android:allowBackup="true"
+18-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:12:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:22:18-86
+20        android:debuggable="true"
+21        android:icon="@mipmap/ic_launcher"
+21-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:13:9-43
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:14:9-54
+23        android:supportsRtl="true"
+23-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:15:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:16:9-40
+26        <activity android:name="com.example.projet_android.MainActivity" >
+26-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:17:9-23:20
+26-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:17:19-47
+27            <intent-filter>
+27-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:18:13-22:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:19:17-69
+28-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:19:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:21:17-77
+30-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:21:27-74
+31            </intent-filter>
+32        </activity>
+33
+34        <meta-data
+34-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:25:9-27:57
+35            android:name="preloaded_fonts"
+35-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:26:13-43
+36            android:resource="@array/preloaded_fonts" />
+36-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:27:13-54
+37
+38        <activity
+38-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
+39            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+39-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:24:13-79
+40            android:exported="false"
+40-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:25:13-37
+41            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+41-->[com.google.android.gms:play-services-base:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/7353aed7ff1154f4c28798e5c536240b/jetified-play-services-base-16.0.1/AndroidManifest.xml:26:13-72
+42
+43        <meta-data
+43-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:23:9-25:69
+44            android:name="com.google.android.gms.version"
+44-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:24:13-58
+45            android:value="@integer/google_play_services_version" />
+45-->[com.google.android.gms:play-services-basement:16.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/cb5282ac395874ad1822b116950cc3f5/jetified-play-services-basement-16.0.1/AndroidManifest.xml:25:13-66
+46
+47        <provider
+47-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+48            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+48-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+49            android:authorities="com.example.projet_android.lifecycle-process"
+49-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+50            android:exported="false"
+50-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+51            android:multiprocess="true" />
+51-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+52    </application>
+53
+54</manifest>

@@ -103,6 +103,7 @@ public class Fragment_question extends Fragment {
     SimpleCursorAdapter sca ;
     public static ListView mon_recycler_view ;
     static ArrayList listtmp ;
+    static String nom_langue ;
     public Fragment_question() {
         // Required empty public constructor
     }
@@ -284,6 +285,7 @@ public class Fragment_question extends Fragment {
                                     null);
                             cursor_tmp.moveToFirst();
                             Log.d(TAG,"nom_langue d'apres id : " + cursor_tmp.getString(0 ) ) ;
+                            nom_langue = cursor_tmp.getString(0 ) ;
 
                             String id_langue = cursor_tmp.getString(0);
 
@@ -319,7 +321,45 @@ public class Fragment_question extends Fragment {
                                 }
 
                             }
-                            if ( !MainActivity.liste_de_mot.contains(listtmp) ){
+
+                            Uri.Builder builder_req = new Uri.Builder();
+                            builder_req.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.ID_LANGUE).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
+                            Uri uri_req = builder_req.build();
+                            Cursor cursor_req = moncontentprovider.query(uri_req,
+                                    null
+                                    ,null,
+                                    null,
+                                    null);
+                            cursor_req.moveToFirst();
+                            Log.d(TAG,"nom_langue d'apres id : " + cursor_req.getString(0 ) ) ;
+                            nom_langue = cursor_req.getString(0 ) ;
+
+                            Cursor curso_delete ;
+                            MyContentProvider myContentProvider_delete = new MyContentProvider();
+                            builder_req = new Uri.Builder();
+                            builder_req.scheme("content").authority(Base_de_donnee.authority).appendPath("liste").appendPath(nom_langue).appendPath(mot_selectionne_long);
+                            uri_req = builder_req.build();
+                            curso_delete = myContentProvider_delete.query(uri_req,
+                                    null
+                                    ,null ,null,null);
+
+                            if ( curso_delete.getCount() != 0 ){
+                                grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.WHITE);
+                                Boolean remove = MainActivity.liste_de_mot.remove(listtmp );
+
+                                Log.d(Base_de_donnee.TAG, "onItemLongClick: " + listtmp.toString());
+
+                                //MyContentProvider myContentProvider_delete = new MyContentProvider();
+                                Uri.Builder builder_liste_delete = new Uri.Builder();
+                                builder_liste_delete.scheme("content").authority(Base_de_donnee.authority).appendPath("liste").appendPath(listtmp.get(0).toString()).appendPath(listtmp.get(1).toString());
+                                Uri uri_liste_delete = builder_liste_delete.build();
+                                myContentProvider_delete.delete(uri_liste_delete,
+                                        null
+                                        ,null );
+                                Log.d(TAG, "onItemLongClick: remove = " + remove);
+                                //grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.WHITE);
+                            }
+                            else {
                                 Boolean add = MainActivity.liste_de_mot.add(listtmp) ;
                                 MyContentProvider myContentProvider = new MyContentProvider();
                                 Uri.Builder builder_liste = new Uri.Builder();
@@ -334,18 +374,16 @@ public class Fragment_question extends Fragment {
                                 Log.d(TAG, "onItemLongClick: add = " + add);
                                 grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.GREEN);
                             }
-                            else {
-                                Boolean remove = MainActivity.liste_de_mot.remove(listtmp );
 
-                                Log.d(TAG, "onItemLongClick: remove = " + remove);
-                                grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.WHITE);
-                            }
+
+
 
                             /**
                              * Implementer l'ajout dans notre liste perso , faire une page pour l'afficher aussi .
                              */
 
                             Log.d(TAG, "onItemLongClick: liste : " + MainActivity.liste_de_mot.toString());
+                            listtmp.clear();
 
                             return false;
                         }
@@ -372,10 +410,43 @@ public class Fragment_question extends Fragment {
                                 cursor2.moveToFirst();
                                 cursor2.move(i);
                                 String mot_a_remplir = cursor2.getString(2) ;
+                                /**
+                                 * faire une requete avec la langue et le mot
+                                 */
+                                /*
                                 if ( listtmp != null && listtmp.contains(mot_a_remplir)) {
                                     grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
                                 }
 
+                                 */
+                                /** On va recuperer le nom_de_la_langue en cours d'apprentisasge */
+                                Uri.Builder builder = new Uri.Builder();
+                                builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.ID_LANGUE).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
+                                Uri uri = builder.build();
+                                Cursor cursor_tmp = moncontentprovider.query(uri,
+                                        null
+                                        ,null,
+                                        null,
+                                        null);
+                                cursor_tmp.moveToFirst();
+                                Log.d(TAG,"nom_langue d'apres id : " + cursor_tmp.getString(0 ) ) ;
+                                nom_langue = cursor_tmp.getString(0 ) ;
+
+                                Cursor curso_delete ;
+                                MyContentProvider myContentProvider_delete = new MyContentProvider();
+                                Uri.Builder builder_liste_delete = new Uri.Builder();
+                                builder_liste_delete.scheme("content").authority(Base_de_donnee.authority).appendPath("liste").appendPath(nom_langue).appendPath(mot_a_remplir);
+                                Uri uri_liste_delete = builder_liste_delete.build();
+                                curso_delete = myContentProvider_delete.query(uri_liste_delete,
+                                        null
+                                        ,null ,null,null);
+
+                                if ( curso_delete.getCount() != 0 ){
+                                    grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
+                                }
+                                else {
+                                    grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.WHITE);
+                                }
                                     //grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
                                     //grid_view_de_la_liste_de_mot.getChildAt(i).setElevation(1);
 

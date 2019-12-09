@@ -13,8 +13,25 @@
     <string name="menu_tools">Gestion avancée Base de Donnée</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="titre_liste">Voici votre liste d\'apprentissage personnelle :</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Ma_liste">Voici votre Liste personnelle</string>
+
+    <!-- TODO : ajouter les autres mots !!!-->
+    <string-array name="tableau_mot">
+        <item>Bonjour</item>
+        <item>Salut</item>
+        <item>Cacahuete</item>
+        <item>Elephant</item>
+        <item>Stylo</item>
+        <item>Crayon</item>
+        <item>Ordinateur</item>
+        <item>Master</item>
+        <item>Hello</item>
+        <item>Computeur</item>
+        <item>Voiture</item>
+        <item>Car</item>
+    </string-array>
 </resources>

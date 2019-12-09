@@ -15,9 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.example.projet_android.Base_de_donnee.TAG;
 
 
 /**
@@ -56,6 +59,7 @@ public class Fragment_reponse extends Fragment {
     }
 
     static EditText editText_reponse ;
+    ImageButton affiche_image ;
 
     public Fragment_reponse() {
         // Required empty public constructor
@@ -101,8 +105,17 @@ public class Fragment_reponse extends Fragment {
         if ( mParam1 != null && mParam1 == "affiche" && mParam2 == "reponse") {
 
             editText_reponse = ((EditText)vue_du_fragment.findViewById(R.id.textView_reponse));
-
+            affiche_image = vue_du_fragment.findViewById(R.id.button_affiche_image) ;
+            
             editText_reponse.setVisibility(View.VISIBLE);
+            affiche_image.setVisibility(View.VISIBLE);
+            
+            affiche_image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG, "onClick: imageView affiche");
+                }
+            });
 
         }
         if ( mParam1 != null && mParam1.equals("trad") && mParam2 != null){ // affichier al traduction d'apres un mot slectionné

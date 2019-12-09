@@ -33,6 +33,7 @@ array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
 array preloaded_fonts
+array tableau_mot
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1122,6 +1123,7 @@ drawable notify_panel_notification_icon_bg
 drawable side_nav_bar
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable voiture
 font alfa_slab_one
 id ALT
 id CTRL
@@ -1173,6 +1175,7 @@ id blocking
 id bottom
 id button
 id buttonPanel
+id button_affiche_image
 id button_effacer
 id button_passer_question
 id button_valider
@@ -1182,6 +1185,7 @@ id center_horizontal
 id center_vertical
 id chains
 id checkbox
+id chemin_rep
 id chronometer
 id clip_horizontal
 id clip_vertical
@@ -1242,6 +1246,7 @@ id image
 id imageButton2
 id imageView
 id imageView2
+id imageView2_liste
 id info
 id invisible
 id italic
@@ -1249,6 +1254,7 @@ id item_touch_helper_previous_elevation
 id labeled
 id langue_nom
 id largeLabel
+id layout
 id layout_bar_du_haut
 id layout_bas
 id layout_demarrage
@@ -1367,12 +1373,12 @@ id textStart
 id textView
 id textView2
 id textView3
-id textView4
 id textView5
 id textView6
 id textView7
 id textView_en_tete_list
 id textView_reponse
+id textView_tite_liste
 id text_gallery
 id text_home
 id text_input_password_toggle
@@ -1401,9 +1407,11 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id valider_choix_mot_image
 id vertical
 id view_offset_helper
 id visible
+id webview_image
 id wide
 id withText
 id wrap
@@ -1474,6 +1482,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fragment_acces_donnees_bdd
+layout fragment_fragment_acces_memoire_tel
 layout fragment_fragment_bas
 layout fragment_fragment_ma_liste_perso
 layout fragment_fragment_menu
@@ -1605,6 +1614,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string titre_liste
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
