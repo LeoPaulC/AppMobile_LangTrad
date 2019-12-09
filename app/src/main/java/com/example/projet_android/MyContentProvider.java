@@ -201,6 +201,7 @@ public class MyContentProvider extends ContentProvider {
                 Log.d(Base_de_donnee.TAG, "insert: :: " + a);
                 break;
 
+
             default:
                 break;
         }

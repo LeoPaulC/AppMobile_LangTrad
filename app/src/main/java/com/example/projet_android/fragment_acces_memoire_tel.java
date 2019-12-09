@@ -219,7 +219,7 @@ public class fragment_acces_memoire_tel extends Fragment {
         //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "fraise.jpg");
         //request.setDestinationUri(Uri.parse(getContext().getFilesDir().toString()+"/fraise.jpg")) ;
         String destinationDirectory = Environment.getExternalStorageDirectory() + "/Images/" ;
-        request.setDestinationUri(Uri.fromFile(new File(destinationDirectory,chemin.getText()+"jpg")));
+        request.setDestinationUri(Uri.fromFile(new File(destinationDirectory,chemin.getText()+".jpg")));
 
         request.setDescription("Votre image");
         request.setTitle(chemin.getText()+".jpg");
