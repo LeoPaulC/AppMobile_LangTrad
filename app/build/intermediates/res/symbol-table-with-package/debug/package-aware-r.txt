@@ -1153,7 +1153,7 @@ id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
 id action_nav_gallery_to_nav_home
-id action_nav_home_pop
+id action_nav_gallery_to_nav_slideshow
 id action_nav_home_to_nav_gallery
 id action_settings
 id action_text
@@ -1168,6 +1168,7 @@ id alignMargins
 id all
 id always
 id async
+id audio
 id auto
 id barrier
 id beginning

@@ -24,6 +24,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="action_nav_gallery_to_nav_slideshow">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -40,11 +45,6 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_nav_home_pop">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
                             <entry key="action_nav_home_to_nav_gallery">
                               <value>
                                 <LayoutPositions />

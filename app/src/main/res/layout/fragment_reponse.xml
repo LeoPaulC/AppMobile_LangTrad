@@ -12,19 +12,27 @@
 
         <EditText
             android:id="@+id/textView_reponse"
-            android:layout_width="342dp"
+            android:layout_width="259dp"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:visibility="invisible" />
 
-        <ImageView
+        <Button
             android:id="@+id/button_affiche_image"
             android:layout_width="69dp"
             android:layout_height="70dp"
             android:layout_toRightOf="@id/textView_reponse"
-            android:src="@android:drawable/ic_menu_gallery"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/audio"
+            android:layout_width="83dp"
+            android:layout_height="68dp"
+            android:layout_toRightOf="@id/button_affiche_image"
+            android:background="@android:drawable/ic_lock_silent_mode_off"
+            android:backgroundTint="@color/common_google_signin_btn_text_light_default"
             android:visibility="invisible" />
 
     </RelativeLayout>

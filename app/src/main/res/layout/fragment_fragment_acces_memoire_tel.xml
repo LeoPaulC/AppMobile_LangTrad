@@ -24,8 +24,10 @@
 
             <WebView
                 android:id="@+id/webview_image"
+                style="@android:style/Widget.Material.Light.WebView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:animationCache="true"
                 android:visibility="invisible" />
         </FrameLayout>
 

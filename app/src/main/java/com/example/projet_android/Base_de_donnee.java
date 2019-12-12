@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Base_de_donnee extends SQLiteOpenHelper {
 
-    public final static int VERSION = 9;
+    public final static int VERSION = 45;
     public final static String DB_NAME = "Base de donnee Projet Mobile";
     public final static String TAG = "d" ;
 
@@ -79,6 +79,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
             CONTENU + " string," +
             CATEGORIE + " string," +
             ID_DICO + " integer ," +
+            "lien_son String ," +
             "FOREIGN KEY(" + ID_LANGUE + ") REFERENCES " + TABLE_LANGUE + "(" + ID_LANGUE + ")," +
             "FOREIGN KEY(" + CATEGORIE + ") REFERENCES " + TABLE_CATGEORIE + "(" + NOM_CATGEORIE + ")," +
             "FOREIGN KEY(" + ID_DICO + ") REFERENCES " + TABLE_DICTIONNAIRE + "(" + ID_DICO + ")" + ");"; // joindre ID_LANGUE du mot à Langue et Id_dico
@@ -94,6 +95,8 @@ public class Base_de_donnee extends SQLiteOpenHelper {
             "mot_reponse String, " +
             TABLE_LANGUE +"1 String , " +
             TABLE_LANGUE +"2 String , " +
+            "img_interne String , " +
+            "img_externe String , " +
             "FOREIGN KEY(mot_question) REFERENCES " + TABLE_MOT + "(" + CONTENU + ")," +
             "FOREIGN KEY(mot_reponse) REFERENCES " + TABLE_MOT + "(" + CONTENU + ")," +
             "FOREIGN KEY(" + TABLE_LANGUE + "1) REFERENCES " + TABLE_LANGUE + "(" + LANGUE_NOM + ")," +
