@@ -91,9 +91,18 @@
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="com.example.myapplication.ui.share.ShareFragment"
+        android:name="com.example.projet_android.ajout_BDD_trad"
         android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_ajout__bdd_trad" >
+        <argument
+            android:name="param1"
+            app:argType="string"
+            android:defaultValue="fr" />
+        <argument
+            android:name="param2"
+            app:argType="string"
+            android:defaultValue="en" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_send"

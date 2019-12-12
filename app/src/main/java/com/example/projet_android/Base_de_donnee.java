@@ -241,8 +241,6 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(CATEGORIE, "Mot Usuel" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
-        /********/
-
         row = new ContentValues();
         row.put(CONTENU, "Voiture");
         row.put(ID_LANGUE, 1 );
@@ -261,52 +259,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(CATEGORIE, "Mot Usuel" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
-        row = new ContentValues();
-        row.put(CONTENU, "Salut");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
 
-        row = new ContentValues();
-        row.put(CONTENU, "Cacahuete");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
-        row = new ContentValues();
-        row.put(CONTENU, "Elephant");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Animaux" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
-        row = new ContentValues();
-        row.put(CONTENU, "Elephant");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
-        row = new ContentValues();
-        row.put(CONTENU, "Pigeon");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Animaux" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
-        row = new ContentValues();
-        row.put(CONTENU, "Stylo");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
-        row = new ContentValues();
-        row.put(CONTENU, "Crayon");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
-        row = new ContentValues();
-        row.put(CONTENU, "Ordinateur");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
-        row = new ContentValues();
-        row.put(CONTENU, "Master");
-        row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
-        res = bd.insertOrThrow(TABLE_MOT, null, row);
 
         /**
          * TRADuction
@@ -321,27 +274,12 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row = new ContentValues();
         row.put(TABLE_LANGUE+"1", "Francais");
         row.put(TABLE_LANGUE+"2", "Anglais");
-        row.put("mot_question", "Ordinateur" );
-        row.put("mot_reponse", "Computeur" );
-        res = bd.insertOrThrow(TABLE_TRAD, null, row);
-
-        row = new ContentValues();
-        row.put(TABLE_LANGUE+"1", "Francais");
-        row.put(TABLE_LANGUE+"2", "Anglais");
         row.put("mot_question", "Voiture" );
         row.put("mot_reponse", "Car" );
         res = bd.insertOrThrow(TABLE_TRAD, null, row);
 
-        /** public final static String CREATE_IMAGE =  "create table " + TABLE_IMAGE + "(" +
-            "id_image integer primary key AUTOINCREMENT, " +
-            CONTENU +" String, " +
-            "chemin String ," +
-            ID_TRAD + " integer ); ";
-         */
-
         row = new ContentValues();
         row.put(CONTENU, "voiture");
-        row.put("chemin_interne", "/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/res/drawable/voiture.png");
         row.put(ID_TRAD, 3 );
         res = bd.insertOrThrow(TABLE_IMAGE, null, row);
 

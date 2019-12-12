@@ -39,7 +39,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener , fragment_ma_liste_perso.OnFragmentInteractionListener , fragment_acces_memoire_tel.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener , fragment_ma_liste_perso.OnFragmentInteractionListener , fragment_acces_memoire_tel.OnFragmentInteractionListener , ajout_BDD_trad.OnFragmentInteractionListener{
 
     /**
      * Attributs :
@@ -269,7 +269,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools )
+                R.id.nav_tools , R.id.nav_share)
                 .setDrawerLayout(drawer)
                 .build();
 

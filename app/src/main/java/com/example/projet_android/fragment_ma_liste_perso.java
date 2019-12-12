@@ -315,13 +315,9 @@ public class fragment_ma_liste_perso extends Fragment {
                                                         TextView tv = vue_du_fragment.findViewById(R.id.trad);
                                                         String mot = tv.getText().toString();
                                                         mtts.speak(mot, TextToSpeech.QUEUE_FLUSH, null);
-
                                                     }
-
                                                 }
                                             });
-
-
                                         }
                                     });
                                     alert.show();

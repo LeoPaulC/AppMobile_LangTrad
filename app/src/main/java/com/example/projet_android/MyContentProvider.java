@@ -37,6 +37,9 @@ public class MyContentProvider extends ContentProvider {
                                             // maj img interne / le mot concerné  ( le lien sera dans le content values )
     public static final String Maj_img_ext= "img_ext/*" ;
 
+    public static final String ajout_mot_et_trad = "ajout/*/*/*/*/*/*/*" ;
+    //                                              ajout/mot1/l1/mot2/l2/categorie
+
 
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -51,6 +54,7 @@ public class MyContentProvider extends ContentProvider {
         matcher.addURI(authority, Delete_liste_perso_to_bdd, 11);
         matcher.addURI(authority, Maj_img_interne, 12);
         matcher.addURI(authority, Maj_img_ext, 13);
+        matcher.addURI(authority, ajout_mot_et_trad, 14);
 
     }
 
@@ -249,6 +253,53 @@ public class MyContentProvider extends ContentProvider {
             case 10:
                 long a = db.insertOrThrow(Base_de_donnee.TABLE_LISTE, null, values);
                 Log.d(TAG, "insert: :: " + a);
+                break;
+
+
+            case 14:
+
+                String cat = uri.getPathSegments().get(uri.getPathSegments().size() - 3);
+                String mot1 = uri.getPathSegments().get(uri.getPathSegments().size() - 7);
+                String mot2 = uri.getPathSegments().get(uri.getPathSegments().size() - 5);
+                int l1 = Integer.parseInt(uri.getPathSegments().get(uri.getPathSegments().size() - 6));
+                int l2 = Integer.parseInt(uri.getPathSegments().get(uri.getPathSegments().size() - 4));
+
+                String l1nom = uri.getPathSegments().get(uri.getPathSegments().size() - 2);
+                String l2nom = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
+
+                ContentValues cv1 = new ContentValues();
+                cv1.put(Base_de_donnee.CONTENU,mot1);
+                cv1.put(Base_de_donnee.ID_LANGUE,l2);
+                cv1.put(Base_de_donnee.CATEGORIE,cat);
+
+                long b = db.insertOrThrow(Base_de_donnee.TABLE_MOT,null,cv1);
+                Log.d(TAG, "insert: mot 1 : " + b );
+                Log.d(TAG, "insert: l1 " + l1);
+                Log.d(TAG, "insert: l2 " + l2);
+
+                cv1 = new ContentValues();
+                cv1.put(Base_de_donnee.CONTENU,mot2);
+                cv1.put(Base_de_donnee.ID_LANGUE,l1);
+                cv1.put(Base_de_donnee.CATEGORIE,cat);
+
+                b = db.insertOrThrow(Base_de_donnee.TABLE_MOT,null,cv1);
+                Log.d(TAG, "insert: mot 1 : " + b );
+
+                Log.d(TAG, "insert: mot1 " + mot1);
+                Log.d(TAG, "insert: mot2 " + mot2);
+                Log.d(TAG, "insert: l2 " + l2nom);
+                Log.d(TAG, "insert: l1 " + l1nom);
+
+                cv1 = new ContentValues();
+                cv1.put("mot_question",mot1);
+                cv1.put("mot_reponse",mot2);
+                cv1.put("langue1",l1nom);
+                cv1.put("langue2",l2nom);
+
+                b = db.insertOrThrow(Base_de_donnee.TABLE_TRAD,null,cv1);
+                Log.d(TAG, "insert: mot 1 : " + b );
+
+
                 break;
 
 

@@ -1125,6 +1125,7 @@ drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable voiture
 font alfa_slab_one
+font bilbo
 id ALT
 id CTRL
 id Drapeau
@@ -1160,6 +1161,13 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_categorie
+id add_langue1
+id add_langue2
+id add_mot
+id add_trad
+id add_tv_choix_categorie
+id add_valider
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1170,11 +1178,13 @@ id always
 id async
 id audio
 id auto
+id bande
 id barrier
 id beginning
 id blocking
 id bottom
 id button
+id button2
 id buttonPanel
 id button_affiche_image
 id button_effacer
@@ -1210,6 +1220,8 @@ id direct
 id disableHome
 id divider
 id divider2
+id divider3
+id divider4
 id drawer_layout
 id editText_choix_nom
 id edit_query
@@ -1404,6 +1416,8 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tv_langue1
+id tv_langue2
 id uniform
 id unlabeled
 id up
@@ -1483,6 +1497,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fragment_acces_donnees_bdd
+layout fragment_ajout__bdd_trad
 layout fragment_fragment_acces_memoire_tel
 layout fragment_fragment_bas
 layout fragment_fragment_ma_liste_perso
