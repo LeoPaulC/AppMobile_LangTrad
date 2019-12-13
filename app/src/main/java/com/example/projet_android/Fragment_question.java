@@ -51,6 +51,7 @@ public class Fragment_question extends Fragment {
     MyContentProvider moncontentprovider ;
 
     CursorLoader mycursorLoad;
+    private ListView liste_view_de_la_liste_de_mot;
 
     public TextView getTexview_question() {
         return texview_question;
@@ -201,11 +202,16 @@ public class Fragment_question extends Fragment {
             Log.d(TAG, "Fragment Question: OnCreateView terminé , Question en place .");
         }
         if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2.equals("mot a mot") ){
+        //if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2 != null ){
             /**
              * Dans le cas d'un apprentissage par categories et d'apres la langue choisie precedement dans le menu de demarrage
              */
             spinner_de_choix_categorie = vue_du_frag.findViewById(R.id.spinner_liste_categorie) ;
+
+            // TODO separer l'apprentissage mot à mot et par categorie
             grid_view_de_la_liste_de_mot = vue_du_frag.findViewById(R.id.gridview_liste_mot);
+
+                //grid_view_de_la_liste_de_mot = vue_du_frag.findViewById(R.id.gridview_liste_mot);
 
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
@@ -478,6 +484,85 @@ public class Fragment_question extends Fragment {
 
 
         }
+        if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2.equals("categorie") ){
+            Log.d(TAG, "onCreateView: Apprentissage par categorie");
+            spinner_de_choix_categorie = vue_du_frag.findViewById(R.id.spinner_liste_categorie) ;
+            liste_view_de_la_liste_de_mot = new ListView(getContext());
+            liste_view_de_la_liste_de_mot = vue_du_frag.findViewById(R.id.liste_view_liste_mot);
+
+            // todo debut
+
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
+            Uri uri = builder.build();
+            cursor = moncontentprovider.query(uri,
+                    null
+                    ,null,
+                    null,
+                    null);
+
+            Log.d(TAG,"Dans Fragment question apprentissage : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+
+            Log.d(TAG,"cursor count  !" + cursor.getCount());
+            cursor.moveToFirst();
+            String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE };
+            int[] toControlIDs = new int[] {android.R.id.text1};
+            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_1 , cursor,
+                    fromColumns,
+                    toControlIDs);
+            spinner_de_choix_categorie.setAdapter(sca);
+
+            spinner_de_choix_categorie.setVisibility(View.VISIBLE);
+            spinner_de_choix_categorie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    Log.d(TAG, "Reussis !");
+                    MainActivity.layout_reponse.setVisibility(View.VISIBLE);
+
+                    Uri.Builder builder = new Uri.Builder();
+                    cursor.moveToFirst();
+                    cursor.move(position);
+                    String categorie = cursor.getString(1);
+                    //view.toString()
+
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_TRAD).
+                            appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1)).
+                            appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)).
+                            appendPath(categorie);
+                    Uri uri = builder.build();
+                    cursor2 = moncontentprovider.query(uri,
+                            null
+                            , null,
+                            null,
+                            null);
+
+                    Log.d(TAG, "Dans Fragment question apprentissage : " + cursor2.getColumnName(0) + " | " + cursor2.getColumnName(1));
+
+                    // todo : ici on a la liste de tous les mots dans al langue de base en accord avec la categorie selectionnée
+                    /** dans le cursor2 */
+
+                    String[] fromColumns = new String[] {"mot_question" , "mot_reponse"};
+                    int[] toControlIDs = new int[] {R.id.mot_question,R.id.mot_reponse};
+                    sca = new SimpleCursorAdapter(getContext(), R.layout.layout_liste_mot_apprentissage_categorie , cursor2,
+                            fromColumns,
+                            toControlIDs);
+
+                    liste_view_de_la_liste_de_mot.setAdapter(sca);
+
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+
+            });
+
+            liste_view_de_la_liste_de_mot.setVisibility(View.VISIBLE);
+
+
+        }
 
         return vue_du_frag;
 
@@ -530,9 +615,14 @@ public class Fragment_question extends Fragment {
     public void onDetach() {
         super.onDetach();
         if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2.equals("mot a mot") ){
-            MainActivity.layout_question.setVisibility(View.INVISIBLE);
+            MainActivity.layout_question.setVisibility(View.GONE);
             MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
-            MainActivity.layout_reponse.setVisibility(View.INVISIBLE);
+            MainActivity.layout_reponse.setVisibility(View.GONE);
+        }
+        if ( mParam1 != null && mParam1.equals("apprentissage") && mParam2.equals("categorie") ){
+            MainActivity.layout_question.setVisibility(View.GONE);
+            MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
+            MainActivity.layout_reponse.setVisibility(View.GONE);
         }
         mListener = null;
     }

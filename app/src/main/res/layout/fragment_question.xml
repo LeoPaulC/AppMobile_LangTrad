@@ -46,6 +46,13 @@
             android:numColumns="auto_fit"
             android:visibility="invisible" />
 
+        <ListView
+            android:id="@+id/liste_view_liste_mot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/spinner_liste_categorie"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 
 </FrameLayout>

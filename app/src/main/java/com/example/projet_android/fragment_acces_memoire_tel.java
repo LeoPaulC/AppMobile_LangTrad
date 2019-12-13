@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -25,14 +26,17 @@ import android.webkit.WebViewClient;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.FilterQueryProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Random;
 
 import static android.content.Context.DOWNLOAD_SERVICE;
@@ -110,20 +114,44 @@ public class fragment_acces_memoire_tel extends Fragment {
         vue_du_fragment  = inflater.inflate(R.layout.fragment_fragment_acces_memoire_tel, container, false);
 
         if (mParam1 !=null ){
+
+            MainActivity.layout_question.setVisibility(View.GONE);
             MainActivity.layout_reponse.setVisibility(View.INVISIBLE);
             webview_image = vue_du_fragment.findViewById(R.id.webview_image) ;
             valider_choix_mot_image = vue_du_fragment.findViewById(R.id.valider_choix_mot_image) ;
             chemin = (AutoCompleteTextView) vue_du_fragment.findViewById(R.id.chemin_rep) ;
+            chemin.setText("");
 
             // pour nos test
-            chemin.setText("Voiture");
+            chemin.setHint("Entrer le mot dont vous voulez changer l'image");
 
 
-            String[] tableauString = getResources().getStringArray(R.array.tableau_mot);
+            MyContentProvider myContentProvider = new MyContentProvider();
+            Uri.Builder builder_liste = new Uri.Builder();
+            builder_liste.scheme("content").authority(Base_de_donnee.authority).appendPath(MyContentProvider.tous_les_mots);
+            Uri uri_liste = builder_liste.build();
+            Cursor cursor = myContentProvider.query(uri_liste,
+                    null
+                    , null,
+                    null,
+                    null);
+
+            cursor.moveToFirst();
+            ArrayList<String> liste_mot = new ArrayList<>();
+            liste_mot.add(cursor.getString(0)) ;
+            Log.d(TAG, "onCreateView: mot ajouté a la liste " + cursor.getString(0));
+
+            while ( cursor.moveToNext()){
+                Log.d(TAG, "onCreateView: mot ajouté a la liste " + cursor.getString(0));
+                liste_mot.add(cursor.getString(0)) ;
+            }
+
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
-                    android.R.layout.simple_dropdown_item_1line, tableauString);
+                    android.R.layout.simple_dropdown_item_1line, liste_mot);
 
             chemin.setAdapter(adapter);
+
+
             valider_choix_mot_image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -142,7 +170,7 @@ public class fragment_acces_memoire_tel extends Fragment {
                     //You'll need this menu to choose an action on long press
                     registerForContextMenu(webview_image);
                     //webview_image.loadUrl(HTTP_URL);
-                    String url = "https://www.google.com/search?hl=fr&biw=1870&bih=919&tbm=isch&sxsrf=ACYBGNQevJnnHnyN_4qXYAPXdH1p4cqxIg%3A1574949813744&sa=1&ei=tdPfXbGLLYTnxgOQh6vwDw&q="+chemin.getText()+"&oq="+chemin.getText()+"&gs_l=img.3..0i67l6j0j0i67j0l2.1461.2033..2141...2.0..0.68.257.5......0....1..gws-wiz-img.....10..35i362i39j35i39.Q2ovIvlBHrk&ved=0ahUKEwjxub-hiY3mAhWEs3EKHZDDCv4Q4dUDCAY&uact=5#imgrc=gzJYbbw5cVkXPM:" ;
+                    String url = "https://www.google.com/search?hl=fr&biw=1870&bih=919&tbm=isch&sxsrf=ACYBGNQevJnnHnyN_4qXYAPXdH1p4cqxIg%3A1574949813744&sa=1&ei=tdPfXbGLLYTnxgOQh6vwDw&q="+chemin.getText()+"+jpg&oq="+chemin.getText()+"+jpg&gs_l=img.3..0i67l6j0j0i67j0l2.1461.2033..2141...2.0..0.68.257.5......0....1..gws-wiz-img.....10..35i362i39j35i39.Q2ovIvlBHrk&ved=0ahUKEwjxub-hiY3mAhWEs3EKHZDDCv4Q4dUDCAY&uact=5#imgrc=gzJYbbw5cVkXPM:" ;
                     webview_image.loadUrl(url);
                     // url google image recherche de fraise
                     webview_image.canGoBackOrForward(0) ;

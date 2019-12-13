@@ -33,7 +33,6 @@ array com_google_android_gms_fonts_certs
 array com_google_android_gms_fonts_certs_dev
 array com_google_android_gms_fonts_certs_prod
 array preloaded_fonts
-array tableau_mot
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1184,9 +1183,10 @@ id beginning
 id blocking
 id bottom
 id button
-id button2
 id buttonPanel
 id button_affiche_image
+id button_aj_cat
+id button_ajout_cat
 id button_effacer
 id button_passer_question
 id button_valider
@@ -1260,6 +1260,7 @@ id imageButton2
 id imageView
 id imageView2
 id imageView2_liste
+id imageView3
 id info
 id invisible
 id italic
@@ -1280,6 +1281,7 @@ id line1
 id line3
 id listMode
 id list_item
+id liste_view_liste_mot
 id listeview_mot_perso
 id ma_liste_view
 id masked
@@ -1289,6 +1291,8 @@ id middle
 id mini
 id mobile_navigation
 id mot
+id mot_question
+id mot_reponse
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
@@ -1304,6 +1308,7 @@ id nav_tools
 id nav_view
 id navigation_header_container
 id never
+id nom_cat
 id none
 id normal
 id notification_background
@@ -1386,6 +1391,7 @@ id textStart
 id textView
 id textView2
 id textView3
+id textView4
 id textView5
 id textView6
 id textView7
@@ -1511,6 +1517,8 @@ layout fragment_send
 layout fragment_share
 layout fragment_slideshow
 layout fragment_tools
+layout layout_ajout_categorie
+layout layout_liste_mot_apprentissage_categorie
 layout layout_liste_view_liste
 layout layout_perso
 layout mtrl_layout_snackbar

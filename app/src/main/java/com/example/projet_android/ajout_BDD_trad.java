@@ -1,6 +1,8 @@
 package com.example.projet_android;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,11 +13,15 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
+
+import java.util.Locale;
 
 import static com.example.projet_android.Base_de_donnee.TAG;
 
@@ -41,6 +47,7 @@ public class ajout_BDD_trad extends Fragment {
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
     private SimpleCursorAdapter sca;
+    private Cursor cursor2;
 
     public ajout_BDD_trad() {
         // Required empty public constructor
@@ -88,6 +95,7 @@ public class ajout_BDD_trad extends Fragment {
     Spinner sp_l2 ;
 
     Button add_valider ;
+    Button ajout_cat ;
 
     Cursor cursor ;
 
@@ -101,6 +109,8 @@ public class ajout_BDD_trad extends Fragment {
 
         if ( mParam1 != null || mParam2 != null ){
 
+            MainActivity.layout_question.setVisibility(View.GONE);
+
             tv_choix_cat = vue_du_fragment.findViewById(R.id.add_tv_choix_categorie) ;
             tv_langue1 = vue_du_fragment.findViewById(R.id.tv_langue1);
             tv_langue2 = vue_du_fragment.findViewById(R.id.tv_langue2);
@@ -113,6 +123,7 @@ public class ajout_BDD_trad extends Fragment {
             mot2 = vue_du_fragment.findViewById(R.id.add_trad);
 
             add_valider= vue_du_fragment.findViewById(R.id.add_valider) ;
+            ajout_cat = vue_du_fragment.findViewById(R.id.button_aj_cat);
 
 
             // TODO : GERE le spinner du choix de catgeorie
@@ -120,16 +131,16 @@ public class ajout_BDD_trad extends Fragment {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
             Uri uri = builder.build();
-            cursor = moncontentprovider.query(uri,
+            cursor2 = moncontentprovider.query(uri,
                     null
                     ,null,
                     null,
                     null);
-            Log.d(TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
-            cursor.moveToFirst();
+            //Log.d(TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+            cursor2.moveToFirst();
             String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE , Base_de_donnee.ID_CATEGORIE};
             int[] toControlIDs = new int[] {android.R.id.text2};
-            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor,
+            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor2,
                     fromColumns,
                     toControlIDs);
             sca.setDropDownViewResource(android.R.layout.simple_list_item_2);
@@ -228,6 +239,61 @@ public class ajout_BDD_trad extends Fragment {
 
             // TODO creation de categorie
 
+            ajout_cat.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                    View view = getLayoutInflater().inflate(R.layout.layout_ajout_categorie, null);
+
+
+                    final EditText text= view.findViewById(R.id.nom_cat);
+                    Button button= view.findViewById(R.id.button_ajout_cat);
+
+                    mBuilder.setView(view);
+                    final AlertDialog dialog = mBuilder.create();
+
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d(TAG, "onClick: ajout cat :: " + text.getText().toString());
+                            Uri.Builder builder = new Uri.Builder();
+                            builder.scheme("content").authority(Base_de_donnee.authority).appendPath("aj_cat").appendPath(text.getText().toString()) ;
+                            Uri uri = builder.build();
+                            Log.d(TAG, "onClick: Uri == " + uri);
+                            Uri res = moncontentprovider.insert(uri,
+                                    null
+                            );
+                            Toast.makeText(getActivity(),"Categorie ajoutée ! " , Toast.LENGTH_LONG) ;
+
+                            builder = new Uri.Builder();
+                            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
+                            uri = builder.build();
+                            cursor2 = moncontentprovider.query(uri,
+                                    null
+                                    ,null,
+                                    null,
+                                    null);
+                            //Log.d(TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+                            cursor2.moveToFirst();
+                            String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE , Base_de_donnee.ID_CATEGORIE};
+                            int[] toControlIDs = new int[] {android.R.id.text2};
+                            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor2,
+                                    fromColumns,
+                                    toControlIDs);
+                            sca.setDropDownViewResource(android.R.layout.simple_list_item_2);
+                            sp_cat.setAdapter(sca);
+
+                            dialog.dismiss();
+
+                        }
+                    });
+
+                    dialog.show();
+
+
+
+                }
+            });
 
 
 

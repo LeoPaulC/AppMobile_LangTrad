@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -145,6 +147,55 @@ public class Page_demarrage extends Fragment {
             liste_langue.setAdapter(sca);
             liste_langue2.setAdapter(sca);
 
+            liste_langue.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if ( position == liste_langue2.getSelectedItemPosition()){
+                        valider_choix.setEnabled(false);
+                        Animation anim = AnimationUtils.loadAnimation(valider_choix.getContext(), android.R.anim.slide_out_right);
+                        valider_choix.setAnimation(anim);
+                        anim.start();
+                        valider_choix.setVisibility(View.INVISIBLE);
+                    }
+                    else {
+                        valider_choix.setEnabled(true);
+                        valider_choix.setVisibility(View.VISIBLE);
+                        Animation anim = AnimationUtils.loadAnimation(valider_choix.getContext(), android.R.anim.slide_in_left);
+                        valider_choix.setAnimation(anim);
+                        anim.start();
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+            liste_langue2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if ( position == liste_langue.getSelectedItemPosition() ){
+                        valider_choix.setEnabled(false);
+                        Animation anim = AnimationUtils.loadAnimation(valider_choix.getContext(), android.R.anim.slide_out_right);
+                        valider_choix.setAnimation(anim);
+                        anim.start();
+                        valider_choix.setVisibility(View.INVISIBLE);
+                    }
+                    else {
+                        valider_choix.setEnabled(true);
+                        valider_choix.setVisibility(View.VISIBLE);
+                        Animation anim = AnimationUtils.loadAnimation(valider_choix.getContext(), android.R.anim.slide_in_left);
+                        valider_choix.setAnimation(anim);
+                        anim.start();
+                    }
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
 
 
 
@@ -192,8 +243,8 @@ public class Page_demarrage extends Fragment {
                          */
                         Log.d(TAG, "onClick: getfragmetncount :" + MainActivity.fm.getFragments().size());
 
-                        for(Fragment f : MainActivity.fm.getFragments())
-                            Log.d(TAG, "onClick: class : " + f.getArguments());
+                        //for(Fragment f : MainActivity.fm.getFragments())
+                        //    Log.d(TAG, "onClick: class : " + f.getArguments());
 
 
 
@@ -212,12 +263,15 @@ public class Page_demarrage extends Fragment {
 
                     }
                     else if( plusieurs_mot_par_catgeorie.isChecked()){
-                        /**
-                         * etudier les mots par categories
-                         */
-                        /**
-                         * Faire les 2 cas au dessus
-                         */
+
+                        MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
+
+                        MainActivity.layout_question.setVisibility(View.VISIBLE);
+                        MainActivity.layout_haut.setVisibility(View.VISIBLE);
+
+                        Fragment_question apprentissage_par_categorie = Fragment_question.newInstance("apprentissage" , "categorie") ;
+                        MainActivity.ChargeFragmentDansEmplacement_Question(apprentissage_par_categorie);
+                        Log.d(TAG, "onClick3: getfragmetncount :" + MainActivity.fm.getFragments().size());
 
 
                     }

@@ -137,7 +137,7 @@
             tools:text="Choix Langue Dst :" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/button_aj_cat"
             android:layout_width="wrap_content"
             android:layout_height="63dp"
             android:layout_below="@id/add_tv_choix_categorie"

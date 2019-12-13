@@ -48,9 +48,11 @@
 
         <ImageButton
             android:id="@+id/imageButton2"
+            style="@android:style/Widget.DeviceDefault.Light.ImageButton"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_below="@id/radio_group"
+            android:background="@drawable/side_nav_bar"
             android:src="@android:drawable/ic_media_play" />
 
         <TextView

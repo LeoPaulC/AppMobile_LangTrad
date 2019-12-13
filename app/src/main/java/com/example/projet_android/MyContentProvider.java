@@ -27,7 +27,8 @@ public class MyContentProvider extends ContentProvider {
     public static final String recherche_trad_dapres_mot = Base_de_donnee.TABLE_MOT + "/*";
     public static final String liste_mot_langue_Base_catgeorie = Base_de_donnee.TABLE_MOT + "/*/*";
     // Uri = mot/langue/catgeorie
-    public static final String liste_trad_langueBase_categorie = Base_de_donnee.TABLE_TRAD + "/*/*";
+    public static final String liste_trad_langueBase_categorie = Base_de_donnee.TABLE_TRAD + "/*/*/*";
+    // langue1/langue2/catgeorie
     // REtourne les couples , (mot,traduction) en accord avec la langue et catgeroie selectionné
 
     public static final String Ajout_liste_perso_to_bdd = "liste";
@@ -39,6 +40,11 @@ public class MyContentProvider extends ContentProvider {
 
     public static final String ajout_mot_et_trad = "ajout/*/*/*/*/*/*/*" ;
     //                                              ajout/mot1/l1/mot2/l2/categorie
+
+    public static final String ajout_categorie = "aj_cat/*";
+
+    public static final String tous_les_mots = "tous_mot" ;
+
 
 
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -55,6 +61,9 @@ public class MyContentProvider extends ContentProvider {
         matcher.addURI(authority, Maj_img_interne, 12);
         matcher.addURI(authority, Maj_img_ext, 13);
         matcher.addURI(authority, ajout_mot_et_trad, 14);
+        matcher.addURI(authority, ajout_categorie, 15);
+        matcher.addURI(authority, tous_les_mots, 16);
+        matcher.addURI(authority, liste_trad_langueBase_categorie, 17);
 
     }
 
@@ -109,10 +118,7 @@ public class MyContentProvider extends ContentProvider {
                 le_mot_en_cours = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
 
                 Log.d(TAG, "MyContentProvider : " + '\n' + "Cas 4 :  " + uri + " ;; " + le_mot_en_cours + " ;; " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
-                //Log.d(Base_de_donnee.TAG , "MyContentProvider : "+ '\n' +"Cas 4 :  select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD + " where mot_question = ? and "+ Base_de_donnee.TABLE_LANGUE + "2 = ? " );
-                //cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD /*+ " where mot_question = ? and "+ Base_de_donnee.TABLE_LANGUE + "2 = ? */, new String[]{le_mot_en_cours, MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)});
-                //cursor = db.rawQuery("select *,rowid as _id from "+Base_de_donnee.TABLE_TRAD , null );
-                // recuperer le pays choisie
+
                 cursor = db.rawQuery("select " + Base_de_donnee.LANGUE_NOM + " , rowid as _id from " + Base_de_donnee.TABLE_LANGUE + " where " + Base_de_donnee.ID_LANGUE + " = ? ", new String[]{MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)});
                 cursor.moveToFirst();
                 String pays_choisi = cursor.getString(0);
@@ -221,6 +227,41 @@ public class MyContentProvider extends ContentProvider {
                 Log.d(TAG, "query: lien externe == " + cursor.getString(6) );
                 break;
 
+            case 16 :
+                cursor= db.rawQuery("Select "+Base_de_donnee.CONTENU+" , rowid as _id from " + Base_de_donnee.TABLE_MOT , null);
+                cursor.moveToFirst();
+                Log.d(TAG, "query: tous les mots dispo ; taille  == " + cursor.getCount() );
+
+                break ;
+            case 17 :
+                String langueBase ; // = 0 ( fr )
+                String langueDst ; // = 0 ( fr )
+                String categorie_en_cours;
+
+                langueBase = uri.getPathSegments().get(uri.getPathSegments().size() - 3);
+                langueDst = uri.getPathSegments().get(uri.getPathSegments().size() - 2);
+                categorie_en_cours = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
+
+                cursor = db.rawQuery("select " + Base_de_donnee.LANGUE_NOM + " , rowid as _id from " + Base_de_donnee.TABLE_LANGUE + " where " + Base_de_donnee.ID_LANGUE + " = ? ", new String[]{langueBase});
+                cursor.moveToFirst();
+                langueBase = cursor.getString(0);
+                Log.d(TAG, "query: lb :" + langueBase);
+
+                cursor = db.rawQuery("select " + Base_de_donnee.LANGUE_NOM + " , rowid as _id from " + Base_de_donnee.TABLE_LANGUE + " where " + Base_de_donnee.ID_LANGUE + " = ? ", new String[]{langueDst});
+                cursor.moveToFirst();
+                langueDst = cursor.getString(0);
+                Log.d(TAG, "query: ldst :" + langueDst);
+
+                Log.d(TAG, "query: langueBase = " + langueBase + " , langueDST = " + langueDst);
+                cursor= db.rawQuery("Select Distinct traduction.* , traduction.rowid as _id " +
+                                        " from " + Base_de_donnee.TABLE_MOT +" , " +Base_de_donnee.TABLE_TRAD
+                        + " Where mot.categorie = ? and  ( mot.contenu = traduction.mot_question or mot.contenu = traduction.mot_reponse )  and " +
+                        " ( ( traduction.langue1 = ?  and traduction.langue2 = ? ) or ( traduction.langue2 = ?  and traduction.langue1 = ? ) )"
+                        , new String[]{categorie_en_cours,langueBase,langueDst,langueBase,langueDst});
+                Log.d(TAG, "query: Cas 17 : " + cursor.getCount());
+
+                break ;
+
 
 
             default:
@@ -298,6 +339,17 @@ public class MyContentProvider extends ContentProvider {
 
                 b = db.insertOrThrow(Base_de_donnee.TABLE_TRAD,null,cv1);
                 Log.d(TAG, "insert: mot 1 : " + b );
+
+
+                break;
+
+            case 15:
+                String nom_CATEGORIE = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
+                Log.d(TAG, "insert: ajout catgeorie : " + nom_CATEGORIE);
+                ContentValues cv2 = new ContentValues();
+                cv2.put(Base_de_donnee.NOM_CATGEORIE,nom_CATEGORIE);
+                long c = db.insertOrThrow(Base_de_donnee.TABLE_CATGEORIE,null,cv2);
+                Log.d(TAG, "insert: res ajout categorie == " + c );
 
 
                 break;
@@ -400,7 +452,7 @@ public class MyContentProvider extends ContentProvider {
                 }
 
                 // on met à jour la ou les trad qui comporte le mot "mot" dans la question ou la réponse
-                int res = db.update(Base_de_donnee.TABLE_TRAD,cv,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot"),values.getAsString("mot")});
+                int res = db.update(Base_de_donnee.TABLE_TRAD,cv,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot").toLowerCase(),values.getAsString("mot").toLowerCase()});
                 Log.d(TAG, "update interne : RES : " + res);
                 break;
             case 13 :
@@ -416,8 +468,8 @@ public class MyContentProvider extends ContentProvider {
                 Uri uri2 = uri_tmp2.build() ;
                 Cursor tmp2 = this.query(uri2,null,null,null,null) ;
                 tmp2.moveToFirst();
-                for ( String s : tmp2.getColumnNames())
-                    Log.d(TAG, "update: " + s);
+                //for ( String s : tmp2.getColumnNames())
+                 //   Log.d(TAG, "update: " + s);
                 Log.d(TAG, "update: " + values.getAsString("mot"));
                 Log.d(TAG, "update: " + values.getAsString("img_externe"));
 
@@ -425,7 +477,7 @@ public class MyContentProvider extends ContentProvider {
                 cv2.put("img_externe" , values.getAsString("img_externe"));
 
                 // on met à jour la ou les trad qui comporte le mot "mot" dans la question ou la réponse
-                int res2 = db.update(Base_de_donnee.TABLE_TRAD,cv2,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot"),values.getAsString("mot")});
+                int res2 = db.update(Base_de_donnee.TABLE_TRAD,cv2,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot").toLowerCase(),values.getAsString("mot").toLowerCase()});
                 Log.d(TAG, "update externe :  RES : " + res2);
                 break;
 

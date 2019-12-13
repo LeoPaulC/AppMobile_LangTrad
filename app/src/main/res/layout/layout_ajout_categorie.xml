@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/side_nav_bar"
+        android:fontFamily="@font/bilbo"
+        android:text="Ajout d'une categorie :"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/nom_cat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView4"
+        android:ems="10"
+        android:hint="Nom de la catégorie à ajouter ?"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button_ajout_cat"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_below="@id/nom_cat"
+        android:text="Ajouter" />
+</RelativeLayout>
