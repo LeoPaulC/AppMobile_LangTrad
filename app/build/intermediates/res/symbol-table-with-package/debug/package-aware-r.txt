@@ -1174,6 +1174,7 @@ id alignBounds
 id alignMargins
 id all
 id always
+id app_bar_layout
 id async
 id audio
 id auto
@@ -1258,9 +1259,9 @@ id ifRoom
 id image
 id imageButton2
 id imageView
-id imageView2
 id imageView2_liste
 id imageView3
+id imageView4
 id info
 id invisible
 id italic
@@ -1325,6 +1326,7 @@ id pin
 id progressBar2
 id progress_circular
 id progress_horizontal
+id quitter
 id radio
 id radioButton_apprentissage_mot_a_mot
 id radioButton_apprentissage_plusieurs_mot

@@ -3,16 +3,23 @@ package com.example.projet_android;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.Settings;
+import android.util.Base64;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -30,12 +37,17 @@ import android.widget.FilterQueryProvider;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.app.NotificationCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -66,6 +78,7 @@ public class fragment_acces_memoire_tel extends Fragment {
 
     static AutoCompleteTextView chemin ;
     Button valider_choix_mot_image ;
+    Button quitter ;
     private WebView webview_image;
 
     public fragment_acces_memoire_tel() {
@@ -100,6 +113,7 @@ public class fragment_acces_memoire_tel extends Fragment {
         chemin = new AutoCompleteTextView(getContext()) ;
         valider_choix_mot_image = new Button(getContext());
         webview_image = new WebView(getContext());
+        quitter = new Button((getContext()));
     }
 
 
@@ -120,10 +134,20 @@ public class fragment_acces_memoire_tel extends Fragment {
             webview_image = vue_du_fragment.findViewById(R.id.webview_image) ;
             valider_choix_mot_image = vue_du_fragment.findViewById(R.id.valider_choix_mot_image) ;
             chemin = (AutoCompleteTextView) vue_du_fragment.findViewById(R.id.chemin_rep) ;
+            quitter = vue_du_fragment.findViewById(R.id.quitter);
             chemin.setText("");
 
+            quitter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    webview_image.setVisibility(View.GONE);
+                    chemin.setEnabled(true);
+
+                }
+            });
+
             // pour nos test
-            chemin.setHint("Entrer le mot dont vous voulez changer l'image");
+            chemin.setHint("Image associée à ...");
 
 
             MyContentProvider myContentProvider = new MyContentProvider();
@@ -170,7 +194,7 @@ public class fragment_acces_memoire_tel extends Fragment {
                     //You'll need this menu to choose an action on long press
                     registerForContextMenu(webview_image);
                     //webview_image.loadUrl(HTTP_URL);
-                    String url = "https://www.google.com/search?hl=fr&biw=1870&bih=919&tbm=isch&sxsrf=ACYBGNQevJnnHnyN_4qXYAPXdH1p4cqxIg%3A1574949813744&sa=1&ei=tdPfXbGLLYTnxgOQh6vwDw&q="+chemin.getText()+"+jpg&oq="+chemin.getText()+"+jpg&gs_l=img.3..0i67l6j0j0i67j0l2.1461.2033..2141...2.0..0.68.257.5......0....1..gws-wiz-img.....10..35i362i39j35i39.Q2ovIvlBHrk&ved=0ahUKEwjxub-hiY3mAhWEs3EKHZDDCv4Q4dUDCAY&uact=5#imgrc=gzJYbbw5cVkXPM:" ;
+                    String url = "https://www.google.com/search?hl=fr&biw=1870&bih=919&tbm=isch&sxsrf=ACYBGNQevJnnHnyN_4qXYAPXdH1p4cqxIg%3A1574949813744&sa=1&ei=tdPfXbGLLYTnxgOQh6vwDw&q="+chemin.getText()+"+http&oq="+chemin.getText()+"+http&gs_l=img.3..0i67l6j0j0i67j0l2.1461.2033..2141...2.0..0.68.257.5......0....1..gws-wiz-img.....10..35i362i39j35i39.Q2ovIvlBHrk&ved=0ahUKEwjxub-hiY3mAhWEs3EKHZDDCv4Q4dUDCAY&uact=5#imgrc=gzJYbbw5cVkXPM:" ;
                     webview_image.loadUrl(url);
                     // url google image recherche de fraise
                     webview_image.canGoBackOrForward(0) ;
@@ -207,15 +231,60 @@ public class fragment_acces_memoire_tel extends Fragment {
 
                             DownloadImageURL = webViewHitTestResult.getExtra();
 
-                            if(URLUtil.isValidUrl(url) || ( DownloadImageURL.startsWith("https:") || DownloadImageURL.startsWith("http:") ) ){ // voir pour modider ça car fixe pour l'instant
+                            if (URLUtil.isValidUrl(url) || (DownloadImageURL.startsWith("https:") || DownloadImageURL.startsWith("http:"))) { // voir pour modider ça car fixe pour l'instant
                                 askForPermission();
                                 //lance_requette_DL(url , DownloadImageURL);
-                                return true ;
-                            }
-                            else {
-                                Toast.makeText(getActivity(),"Oups , ce type d'image n'est pas pris en compte ", Toast.LENGTH_LONG).show();
+                                return true;
+                            } else if (DownloadImageURL.startsWith("data:image/jpeg;base64")) {
+                                Random rd = new Random();
+                                double ajout_fin_img = rd.nextDouble();
+                                String lien = Environment.getExternalStorageDirectory() + "/Images/";
+
+                                File file = new File(lien, chemin.getText() + String.valueOf(ajout_fin_img) + ".jpg");
+                                String base64EncodedString = DownloadImageURL.substring(DownloadImageURL.indexOf(",") + 1);
+                                byte[] decodedBytes = Base64.decode(base64EncodedString, Base64.DEFAULT);
+                                OutputStream os = null;
+                                try {
+                                    os = new FileOutputStream(file);
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                }
+                                try {
+                                    os.write(decodedBytes);
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                try {
+                                    os.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                Uri.Builder uri_tmp = new Uri.Builder();
+                                uri_tmp.scheme("content").authority(Base_de_donnee.authority).appendPath("img_int").appendPath(chemin.getText().toString());
+                                Uri urii = uri_tmp.build();
+                                MyContentProvider myContentProvider = new MyContentProvider();
+                                ContentValues cv = new ContentValues();
+
+                                cv.put("mot", chemin.getText().toString());
+
+                                //String lien = Environment.getExternalStorageDirectory() + "/Images/" + chemin.getText() + String.valueOf(ajout_fin_img) + ".jpg";
+
+                                cv.put("img_interne", file.getAbsolutePath());
+
+
+                                int tmp = myContentProvider.update(urii, cv, null, null);
+
+                                Log.d(TAG, "onMenuItemClick: Reussis data image Base64 ; res req = " + tmp);
+
+                                Toast.makeText(getActivity(), "Image téléchargée et ajoutée comme image 'interne' du mot : " + chemin.getText(), Toast.LENGTH_LONG).show();
+                                return true;
+
+
+                            } else {
+                                Toast.makeText(getActivity(), "Oups , ce type d'image n'est pas pris en compte ", Toast.LENGTH_LONG).show();
                                 return false;
                             }
+
                         }
                     });
             contextMenu.add(0, 2, 0, "Ajouter le lien de l'image comme image Externe")
@@ -224,7 +293,7 @@ public class fragment_acces_memoire_tel extends Fragment {
                         public boolean onMenuItemClick(MenuItem menuItem) {
 
                             DownloadImageURL = webViewHitTestResult.getExtra();
-                            if (  DownloadImageURL.startsWith("https:") || DownloadImageURL.startsWith("http:") )
+                            if (  DownloadImageURL.startsWith("https:") || DownloadImageURL.startsWith("http:") || true)
                             {
                                 Log.d(TAG, "onMenuItemClick: Dlimage " + DownloadImageURL);
                                 Toast.makeText(getActivity(),"Cette image a été ajouté comme lien externe vers le mot : " + chemin.getText().toString(), Toast.LENGTH_LONG).show();
@@ -240,9 +309,6 @@ public class fragment_acces_memoire_tel extends Fragment {
 
                                 int tmp = myContentProvider.update(urii,cv,null,null) ;
 
-                            }
-                            else {
-                                Toast.makeText(getActivity(),"Oups , ce type d'image ne peut etre ajouté ... ", Toast.LENGTH_LONG).show();
                             }
                             return false;
                         }
@@ -278,41 +344,43 @@ public class fragment_acces_memoire_tel extends Fragment {
 
         Log.d(TAG, "lance_requette_DL: " + DownloadImageURL.toString());
 
-        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadImageURL));
 
-        request.allowScanningByMediaScanner();
-        //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "fraise.jpg");
-        //request.setDestinationUri(Uri.parse(getContext().getFilesDir().toString()+"/fraise.jpg")) ;
-        String destinationDirectory = Environment.getExternalStorageDirectory() + "/Images/" ;
+            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(DownloadImageURL));
 
-        Random rd = new Random();
-        double ajout_fin_img = rd.nextDouble() ;
+            request.allowScanningByMediaScanner();
+            //request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "fraise.jpg");
+            //request.setDestinationUri(Uri.parse(getContext().getFilesDir().toString()+"/fraise.jpg")) ;
+            String destinationDirectory = Environment.getExternalStorageDirectory() + "/Images/";
 
-        request.setDestinationUri(Uri.fromFile(new File(destinationDirectory,chemin.getText()+String.valueOf(ajout_fin_img)+".jpg")));
+            Random rd = new Random();
+            double ajout_fin_img = rd.nextDouble();
 
-
-        Uri.Builder uri_tmp = new Uri.Builder();
-        uri_tmp.scheme("content").authority(Base_de_donnee.authority).appendPath("img_int").appendPath(chemin.getText().toString()) ;
-        Uri urii = uri_tmp.build() ;
-        MyContentProvider myContentProvider = new MyContentProvider();
-        ContentValues cv = new ContentValues();
-
-        cv.put("mot",chemin.getText().toString());
-
-        String lien = Environment.getExternalStorageDirectory() + "/Images/" + chemin.getText()+String.valueOf(ajout_fin_img)+".jpg" ;
-
-        cv.put("img_interne" , lien );
+            request.setDestinationUri(Uri.fromFile(new File(destinationDirectory, chemin.getText() + String.valueOf(ajout_fin_img) + ".jpg")));
 
 
-        int tmp = myContentProvider.update(urii,cv,null,null) ;
+            Uri.Builder uri_tmp = new Uri.Builder();
+            uri_tmp.scheme("content").authority(Base_de_donnee.authority).appendPath("img_int").appendPath(chemin.getText().toString());
+            Uri urii = uri_tmp.build();
+            MyContentProvider myContentProvider = new MyContentProvider();
+            ContentValues cv = new ContentValues();
+
+            cv.put("mot", chemin.getText().toString());
+
+            String lien = Environment.getExternalStorageDirectory() + "/Images/" + chemin.getText() + String.valueOf(ajout_fin_img) + ".jpg";
+
+            cv.put("img_interne", lien);
 
 
-        request.setDescription("Votre image");
-        request.setTitle(chemin.getText()+".jpg");
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-        DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
-        downloadManager.enqueue(request);
-        Toast.makeText(getActivity(),"Image téléchargée et ajoutée comme lien interne au mot : " + chemin.getText().toString(),Toast.LENGTH_LONG).show();
+            int tmp = myContentProvider.update(urii, cv, null, null);
+
+
+            request.setDescription("Votre image");
+            request.setTitle(chemin.getText() + ".jpg");
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+            DownloadManager downloadManager = (DownloadManager) getActivity().getSystemService(DOWNLOAD_SERVICE);
+            downloadManager.enqueue(request);
+            Toast.makeText(getActivity(), "Image téléchargée et ajoutée comme lien interne au mot : " + chemin.getText().toString(), Toast.LENGTH_LONG).show();
+
 
     }
 

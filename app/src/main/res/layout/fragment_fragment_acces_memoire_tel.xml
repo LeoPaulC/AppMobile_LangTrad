@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,16 +11,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:background="@drawable/side_nav_bar"
+            android:fontFamily="@font/bilbo"
+            android:text="Selectionner le mot dont vous voulez changer l'image"
+            android:textAlignment="center"
+            android:textSize="36sp" />
+
         <AutoCompleteTextView
             android:id="@+id/chemin_rep"
-            android:layout_width="354dp"
+            android:layout_width="273dp"
             android:layout_height="57dp"
+            android:layout_below="@id/imageView4"
             android:text="@string/hello_blank_fragment" />
 
         <FrameLayout
             android:id="@+id/layout"
             android:layout_width="match_parent"
-            android:layout_height="351dp"
+            android:layout_height="573dp"
             android:layout_below="@id/chemin_rep">
 
             <WebView
@@ -27,16 +39,26 @@
                 style="@android:style/Widget.Material.Light.WebView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:animationCache="true"
+                android:animationCache="false"
+                android:theme="@android:style/Widget.Holo.Light.WebView"
                 android:visibility="invisible" />
         </FrameLayout>
 
         <Button
             android:id="@+id/valider_choix_mot_image"
-            android:layout_width="wrap_content"
+            android:layout_width="55dp"
             android:layout_height="wrap_content"
+            android:layout_below="@id/imageView4"
             android:layout_toRightOf="@id/chemin_rep"
             android:background="@drawable/ic_menu_send" />
+
+        <Button
+            android:id="@+id/quitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView4"
+            android:layout_toRightOf="@id/valider_choix_mot_image"
+            android:background="@android:drawable/ic_delete" />
 
     </RelativeLayout>
 

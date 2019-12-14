@@ -238,7 +238,7 @@ public class MyContentProvider extends ContentProvider {
                 String langueDst ; // = 0 ( fr )
                 String categorie_en_cours;
 
-                langueBase = uri.getPathSegments().get(uri.getPathSegments().size() - 3);
+                langueBase = ( uri.getPathSegments().get(uri.getPathSegments().size() - 3) );
                 langueDst = uri.getPathSegments().get(uri.getPathSegments().size() - 2);
                 categorie_en_cours = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
 
@@ -302,34 +302,40 @@ public class MyContentProvider extends ContentProvider {
                 String cat = uri.getPathSegments().get(uri.getPathSegments().size() - 3);
                 String mot1 = uri.getPathSegments().get(uri.getPathSegments().size() - 7);
                 String mot2 = uri.getPathSegments().get(uri.getPathSegments().size() - 5);
-                int l1 = Integer.parseInt(uri.getPathSegments().get(uri.getPathSegments().size() - 6));
-                int l2 = Integer.parseInt(uri.getPathSegments().get(uri.getPathSegments().size() - 4));
+                int l1 = Integer.parseInt(uri.getPathSegments().get(uri.getPathSegments().size() - 6))+1;
+                int l2 = Integer.parseInt(uri.getPathSegments().get(uri.getPathSegments().size() - 4))+1;
 
                 String l1nom = uri.getPathSegments().get(uri.getPathSegments().size() - 2);
                 String l2nom = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
 
+                // todo insert 1 mot 1
                 ContentValues cv1 = new ContentValues();
                 cv1.put(Base_de_donnee.CONTENU,mot1);
-                cv1.put(Base_de_donnee.ID_LANGUE,l2);
-                cv1.put(Base_de_donnee.CATEGORIE,cat);
-
-                long b = db.insertOrThrow(Base_de_donnee.TABLE_MOT,null,cv1);
-                Log.d(TAG, "insert: mot 1 : " + b );
-                Log.d(TAG, "insert: l1 " + l1);
-                Log.d(TAG, "insert: l2 " + l2);
-
-                cv1 = new ContentValues();
-                cv1.put(Base_de_donnee.CONTENU,mot2);
                 cv1.put(Base_de_donnee.ID_LANGUE,l1);
                 cv1.put(Base_de_donnee.CATEGORIE,cat);
 
-                b = db.insertOrThrow(Base_de_donnee.TABLE_MOT,null,cv1);
-                Log.d(TAG, "insert: mot 1 : " + b );
+                long b = db.insertOrThrow(Base_de_donnee.TABLE_MOT,null,cv1);
 
-                Log.d(TAG, "insert: mot1 " + mot1);
-                Log.d(TAG, "insert: mot2 " + mot2);
-                Log.d(TAG, "insert: l2 " + l2nom);
-                Log.d(TAG, "insert: l1 " + l1nom);
+                Log.d(TAG, "insert: 1  :: id mot =" + b);
+                Log.d(TAG, "insert: contenu = " + mot1);
+                Log.d(TAG, "insert: idlangue = " + l1);
+                Log.d(TAG, "insert: categorie = " + cat);
+
+                // todo insert 1 mot 2
+                cv1 = new ContentValues();
+                cv1.put(Base_de_donnee.CONTENU,mot2);
+                cv1.put(Base_de_donnee.ID_LANGUE,l2);
+                cv1.put(Base_de_donnee.CATEGORIE,cat);
+
+                b = db.insertOrThrow(Base_de_donnee.TABLE_MOT,null,cv1);
+
+                Log.d(TAG, "insert: 2  :: id mot =" + b);
+                Log.d(TAG, "insert: contenu = " + mot2);
+                Log.d(TAG, "insert: idlangue = " + l2);
+                Log.d(TAG, "insert: categorie = " + cat);
+
+
+                // todo insert 3 trad
 
                 cv1 = new ContentValues();
                 cv1.put("mot_question",mot1);
@@ -338,7 +344,11 @@ public class MyContentProvider extends ContentProvider {
                 cv1.put("langue2",l2nom);
 
                 b = db.insertOrThrow(Base_de_donnee.TABLE_TRAD,null,cv1);
-                Log.d(TAG, "insert: mot 1 : " + b );
+                Log.d(TAG, "insert: trad res : " + b );
+                Log.d(TAG, "insert: mot1 " + mot1);
+                Log.d(TAG, "insert: mot2 " + mot2);
+                Log.d(TAG, "insert: l2 " + l2nom);
+                Log.d(TAG, "insert: l1 " + l1nom);
 
 
                 break;

@@ -245,7 +245,9 @@ public class Fragment_question extends Fragment {
                     cursor.move(position);
                     String categorie = cursor.getString(1);
                     //view.toString()
-                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1)).appendPath(categorie);
+
+                    String l = String.valueOf((Integer.parseInt(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1))));
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(l).appendPath(categorie);
                     Uri uri = builder.build();
                     cursor2 = moncontentprovider.query(uri,
                             null

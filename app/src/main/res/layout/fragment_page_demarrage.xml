@@ -12,16 +12,6 @@
         android:layout_height="wrap_content"
         android:background="#00FFFFFF">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="101dp"
-            android:adjustViewBounds="false"
-            android:background="#009688"
-            android:src="@drawable/side_nav_bar"
-            app:srcCompat="@mipmap/ic_launcher_round"
-            tools:visibility="visible" />
-
         <Spinner
             android:id="@+id/spinner_choix_langue_de_base2"
             android:layout_width="match_parent"
@@ -33,7 +23,6 @@
             android:id="@+id/editText_choix_nom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/imageView2"
             android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="Votre nom"

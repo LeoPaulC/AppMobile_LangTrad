@@ -1,5 +1,6 @@
 package com.example.projet_android;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -249,22 +250,13 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
          *
          */
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        this.setSupportActionBar(toolbar);
+
         fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                /*String liste_toast = "" ;
-                for ( String s : MainActivity.liste_de_mot)
-                    liste_toast += s + '\n' ;*/
-                Snackbar.make(view, MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM) + " , Votre score : " + MainActivity.bundle_de_la_session_en_cours.getInt(MainActivity.BUNDLE_SCORE) , Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -273,11 +265,24 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
                 .setDrawerLayout(drawer)
                 .build();
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment2);
+        final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+
+        final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment2);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
 
 
 

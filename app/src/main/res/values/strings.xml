@@ -8,11 +8,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Accueil</string>
-    <string name="menu_gallery">Initialisation / Suppression Base de donnée</string>
-    <string name="menu_slideshow">Ma Liste personnelle</string>
-    <string name="menu_tools">Gestion avancée Base de Donnée</string>
-    <string name="menu_share">Ajouter une Traduction</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_gallery">Init. - Suppr. BDD </string>
+    <string name="menu_slideshow">Liste personnelle</string>
+    <string name="menu_tools">Ajout d\'image  </string>
+    <string name="menu_share">Ajout Trad. - Cat.</string>
+    <string name="menu_send">Supprimer des Elements</string>
     <string name="titre_liste">Voici votre liste d\'apprentissage personnelle :</string>
 
     <!-- TODO: Remove or change this placeholder text -->
