@@ -45,6 +45,13 @@ public class MyContentProvider extends ContentProvider {
 
     public static final String tous_les_mots = "tous_mot" ;
 
+    public static final String Delete_categorie ="del_cat/*" ;
+    public static final String Delete_langue ="del_langue/*" ;
+    public static final String Delete_trad ="del_trad/*/*/*/*" ;
+                                        // mot1 / mot2 / l1 / l2
+
+
+
 
 
     private UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -64,6 +71,9 @@ public class MyContentProvider extends ContentProvider {
         matcher.addURI(authority, ajout_categorie, 15);
         matcher.addURI(authority, tous_les_mots, 16);
         matcher.addURI(authority, liste_trad_langueBase_categorie, 17);
+        matcher.addURI(authority, Delete_categorie, 18);
+        matcher.addURI(authority, Delete_langue, 19);
+        matcher.addURI(authority, Delete_trad, 20);
 
     }
 
@@ -401,6 +411,44 @@ public class MyContentProvider extends ContentProvider {
                 tmp.moveToFirst();
                 long b = db.delete(Base_de_donnee.TABLE_TRAD, "img_interne = ? ", new String[]{tmp.getString(5)});
                 Log.d(TAG, "delete check : " + b);
+                break ;
+
+
+            /**
+            public static final String Delete_categorie ="del_cat/*" ;
+            public static final String Delete_langue ="del_langue/*" ;
+            public static final String Delete_trad ="del_trad/*//*/*//*" ;
+            // mot1 / mot2 / l1 / l2
+            */
+
+            case 18 : // categorie
+                String nom_cat ;
+                nom_cat = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
+                long q = db.delete(Base_de_donnee.TABLE_CATGEORIE, "nom_CATEGORIE = ? ", new String[]{nom_cat});
+                Log.d(TAG, "delete: categorie avec el nom : " + nom_cat + " , resultat = " + q);
+                break;
+
+            case 19 : // langue
+                String id_l ;
+                id_l = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
+                long z = db.delete(Base_de_donnee.TABLE_LANGUE, Base_de_donnee.ID_LANGUE + " = ? ", new String[]{id_l});
+                Log.d(TAG, "delete: langue avec id_langue : " + id_l + " , resultat = " + z);
+                break ;
+            case 20 : // trad
+                String mot1 ;
+                String mot_trad ;
+                String l ;
+                String lbis ;
+
+
+                lbis = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
+                l = uri.getPathSegments().get(uri.getPathSegments().size() - 2);
+                mot_trad = uri.getPathSegments().get(uri.getPathSegments().size() - 3);
+                mot1 = uri.getPathSegments().get(uri.getPathSegments().size() - 4);
+                long t = db.delete(Base_de_donnee.TABLE_TRAD,  "( ( mot_question  = ? and  mot_reponse = ? ) or ( mot_question = ? and mot_reponse = ? ) ) and " +
+                        "( ( langue1 = ? and langue2 = ? ) or ( langue1 = ? and langue2 = ? ) )",
+                        new String[]{mot1,mot_trad,mot_trad,mot1,l,lbis,lbis,l});
+                Log.d(TAG, "delete: trad , mot = " + mot1 + " , trad = " + mot_trad + " , l1 = " + l + " , l2 = " + lbis + " ,,, res  = " + t);
                 break ;
 
             default:

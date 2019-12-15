@@ -12,10 +12,10 @@
         <Button
             android:id="@+id/button_valider"
             android:layout_width="match_parent"
-            android:layout_height="105dp"
-            android:background="#D02982C9"
+            android:layout_height="85dp"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
             android:drawableRight="@android:drawable/ic_media_play"
-            android:text="Button"
+            android:text="Valider la Traduction ?"
             android:visibility="invisible" />
 
         <Button
@@ -23,7 +23,6 @@
             style="?android:attr/textAppearanceButton"
             android:layout_width="match_parent"
             android:layout_height="162dp"
-            android:layout_marginTop="100dp"
             android:background="#009688"
             android:clickable="true"
             android:drawableBottom="@drawable/common_full_open_on_phone"
@@ -47,6 +46,29 @@
             android:drawingCacheQuality="auto"
             android:text="Button_eff"
             android:visibility="visible" />
+
+        <Button
+            android:id="@+id/button_del_cat"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_effacer"
+            android:text="Effacer une \nCatégorie" />
+
+        <Button
+            android:id="@+id/button_del_langue"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_effacer"
+            android:layout_toRightOf="@id/button_del_cat"
+            android:text="Effacer une \n Langue" />
+
+        <Button
+            android:id="@+id/button_del_trad"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button_effacer"
+            android:layout_toRightOf="@id/button_del_langue"
+            android:text="Effacer une \n Traduction" />
 
     </RelativeLayout>
 </FrameLayout>

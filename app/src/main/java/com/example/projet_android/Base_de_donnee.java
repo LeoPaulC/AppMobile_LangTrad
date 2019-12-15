@@ -192,7 +192,7 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         SQLiteDatabase bd = this.getWritableDatabase();
 
         ContentValues row = new ContentValues();
-        row.put(NOM_CATGEORIE, "Mot Usuel");
+        row.put(NOM_CATGEORIE, "Commun");
         long res = bd.insertOrThrow(TABLE_CATGEORIE, null, row);
 
         row = new ContentValues();
@@ -238,7 +238,25 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row = new ContentValues();
         row.put(CONTENU, "Bonjour");
         row.put(ID_LANGUE, 1 );
-        row.put(CATEGORIE, "Mot Usuel" );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Au revoir");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Manger");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Boire");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Commun" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
         row = new ContentValues();
@@ -254,9 +272,27 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
         row = new ContentValues();
+        row.put(CONTENU, "Bye");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
         row.put(CONTENU, "Hello");
         row.put(ID_LANGUE, 2 );
-        row.put(CATEGORIE, "Mot Usuel" );
+        row.put(CATEGORIE, "Eat" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Hello");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Drink" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Hello");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Commun" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
 
@@ -279,9 +315,25 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         res = bd.insertOrThrow(TABLE_TRAD, null, row);
 
         row = new ContentValues();
-        row.put(CONTENU, "voiture");
-        row.put(ID_TRAD, 3 );
-        res = bd.insertOrThrow(TABLE_IMAGE, null, row);
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Au revoir" );
+        row.put("mot_reponse", "Bye" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Manger" );
+        row.put("mot_reponse", "Eat" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Boire" );
+        row.put("mot_reponse", "Drink" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
 
 
         affiche_res_requette(new String []{"*"}, new String[]{TABLE_LANGUE},null);

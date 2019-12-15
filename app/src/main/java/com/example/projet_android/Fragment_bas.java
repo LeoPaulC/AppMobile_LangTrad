@@ -1,24 +1,28 @@
 package com.example.projet_android;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 
-import android.text.Editable;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import static com.example.projet_android.Base_de_donnee.TAG;
 
 
 /**
@@ -89,6 +93,10 @@ public class Fragment_bas extends Fragment {
     static Button trad ;
     TextView ed ;
 
+    Button del_cat ;
+    Button del_langue ;
+    Button del_trad ;
+
     private OnFragmentInteractionListener mListener;
     private View vue_du_fragment;
 
@@ -139,6 +147,9 @@ public class Fragment_bas extends Fragment {
 
     }
 
+    static Cursor c ;
+    static Cursor c_cat ;
+    static Cursor res ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
@@ -149,8 +160,18 @@ public class Fragment_bas extends Fragment {
         trad = vue_du_fragment.findViewById(R.id.button_valider);
         ed = vue_du_fragment.findViewById(R.id.textView_reponse) ;
 
+        del_cat = vue_du_fragment.findViewById(R.id.button_del_cat);
+        del_langue = vue_du_fragment.findViewById(R.id.button_del_langue);
+        del_trad = vue_du_fragment.findViewById(R.id.button_del_trad);
+
         button_valider.setVisibility(View.INVISIBLE);
         button_effacer.setVisibility(View.INVISIBLE);
+        del_langue.setVisibility(View.INVISIBLE);
+        del_trad.setVisibility(View.INVISIBLE);
+        del_cat.setVisibility(View.INVISIBLE);
+
+
+
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -171,7 +192,7 @@ public class Fragment_bas extends Fragment {
 
             button_valider.setVisibility(View.VISIBLE);
             button_effacer.setVisibility(View.VISIBLE);
-            button_valider.setText("Initialisation de la Base de donnée ( sans remplissage )");
+            button_valider.setText("Initialisation de la Base de donnée");
             button_valider.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -188,6 +209,270 @@ public class Fragment_bas extends Fragment {
                     MainActivity.bdd.effacer_bdd();
                 }
             });
+
+            del_cat.setVisibility(View.VISIBLE);
+            del_cat.setOnClickListener(new View.OnClickListener() {
+                private SimpleCursorAdapter sca;
+
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                    View view = getLayoutInflater().inflate(R.layout.layout_del_cat, null);
+
+
+                    final Spinner sp= view.findViewById(R.id.spinner_del_cat);
+                    Button button= view.findViewById(R.id.del_categ);
+
+                    Uri.Builder builder = new Uri.Builder();
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
+                    Uri uri = builder.build();
+                    final Cursor c = moncontentprovider.query(uri,
+                            null
+                            ,null,
+                            null,
+                            null);
+                    //Log.d(TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+                    c.moveToFirst();
+                    String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE , Base_de_donnee.ID_CATEGORIE};
+                    int[] toControlIDs = new int[] {android.R.id.text2};
+                    sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , c,
+                            fromColumns,
+                            toControlIDs);
+                    sca.setDropDownViewResource(android.R.layout.simple_list_item_2);
+                    sp.setAdapter(sca);
+
+                    mBuilder.setView(view);
+                    final AlertDialog dialog = mBuilder.create();
+
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d(TAG, "onClick: del cat , position :: " + sp.getSelectedItemPosition());
+                            c.moveToFirst();
+                            c.move(sp.getSelectedItemPosition()) ;
+                            String nom_cat = c.getString(1) ;
+                            Uri.Builder builder = new Uri.Builder();
+                            builder.scheme("content").authority(Base_de_donnee.authority).appendPath("del_cat").appendPath(nom_cat) ;
+                            Uri uri = builder.build();
+                            Log.d(TAG, "onClick: Uri == " + uri);
+                            long res = moncontentprovider.delete(uri,
+                                    null,null
+                            );
+                            Toast.makeText(getActivity(),"Categorie supprimée ! res== " + res, Toast.LENGTH_LONG) ;
+
+
+                            dialog.dismiss();
+
+                        }
+                    });
+
+                    dialog.show();
+
+                }
+            });
+            del_langue.setVisibility(View.VISIBLE);
+            del_langue.setOnClickListener(new View.OnClickListener() {
+                private SimpleCursorAdapter sca;
+
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                    View view = getLayoutInflater().inflate(R.layout.layout_del_langue, null);
+
+
+                    final Spinner sp= view.findViewById(R.id.spinner_del_langue);
+                    Button button= view.findViewById(R.id.button_del_langue);
+
+                    Uri.Builder builder = new Uri.Builder();
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_LANGUE);
+                    Uri uri = builder.build();
+                    final Cursor c = moncontentprovider.query(uri,
+                            null
+                            ,null,
+                            null,
+                            null);
+                    //Log.d(TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+                    c.moveToFirst();
+                    String[] fromColumns = new String[] {Base_de_donnee.LANGUE_NOM };
+                    int[] toControlIDs = new int[] {android.R.id.text2};
+                    sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , c,
+                            fromColumns,
+                            toControlIDs);
+                    sca.setDropDownViewResource(android.R.layout.simple_list_item_2);
+                    sp.setAdapter(sca);
+
+                    mBuilder.setView(view);
+                    final AlertDialog dialog = mBuilder.create();
+
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Log.d(TAG, "onClick: del langue , position :: " + sp.getSelectedItemPosition());
+                            String id_langue = String.valueOf(sp.getSelectedItemPosition()+1);
+                            Uri.Builder builder = new Uri.Builder();
+                            builder.scheme("content").authority(Base_de_donnee.authority).appendPath("del_langue").appendPath(id_langue) ;
+                            Uri uri = builder.build();
+                            Log.d(TAG, "onClick: Uri == " + uri);
+                            long res = moncontentprovider.delete(uri,
+                                    null,null
+                            );
+                            Toast.makeText(getActivity(),"Langue supprimée ! res== " + res, Toast.LENGTH_LONG) ;
+
+
+                            dialog.dismiss();
+
+                        }
+                    });
+
+                    dialog.show();
+
+                }
+            });
+
+            // todo : del trad dynamique
+            del_trad.setVisibility(View.VISIBLE);
+            del_trad.setOnClickListener(new View.OnClickListener() {
+                private SimpleCursorAdapter sca;
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                    View view = getLayoutInflater().inflate(R.layout.layout_del_trad, null);
+                    final Spinner sp_langue_base = view.findViewById(R.id.spinner_langue_de_base);
+                    final Spinner sp_langue_dst = view.findViewById(R.id.spinner_langue_dst);
+                    final Spinner sp_categorie_select = view.findViewById(R.id.spinner_categorie_select);
+                    final ListView lv = view.findViewById(R.id.liste_view_del_trad);
+
+                    Uri.Builder builder = new Uri.Builder();
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_LANGUE);
+                    Uri uri = builder.build();
+                    c = moncontentprovider.query(uri,
+                            null
+                            , null,
+                            null,
+                            null);
+                    //Log.d(TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+                    c.moveToFirst();
+                    String[] fromColumns = new String[]{Base_de_donnee.LANGUE_NOM};
+                    int[] toControlIDs = new int[]{android.R.id.text2};
+                    SimpleCursorAdapter sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2, c,
+                            fromColumns,
+                            toControlIDs);
+                    sca.setDropDownViewResource(android.R.layout.simple_list_item_2);
+
+                    sp_langue_base.setAdapter(sca);
+                    sp_langue_dst.setAdapter(sca);
+
+                    builder = new Uri.Builder();
+                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
+                    uri = builder.build();
+                    c_cat = moncontentprovider.query(uri,
+                            null
+                            , null,
+                            null,
+                            null);
+                    //Log.d(TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+                    c_cat.moveToFirst();
+                    fromColumns = new String[]{Base_de_donnee.NOM_CATGEORIE};
+                    toControlIDs = new int[]{android.R.id.text2};
+                    sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2, c_cat,
+                            fromColumns,
+                            toControlIDs);
+                    sca.setDropDownViewResource(android.R.layout.simple_list_item_2);
+                    sp_categorie_select.setAdapter(sca);
+
+                    // todo : .......
+                    /**
+                     public static final String liste_trad_langueBase_categorie = Base_de_donnee.TABLE_TRAD +  langue1/langue2/catgeorie
+                     **/
+
+                    // recup de la langue seletionnée de base et de dst
+                    AdapterView.OnItemSelectedListener event = new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            if ( c == null || c.getCount() == 0 ) return;
+                            int langue_de_base = sp_langue_base.getSelectedItemPosition();
+                            c.moveToFirst();
+                            c.move(langue_de_base);
+                            langue_de_base = Integer.parseInt(c.getString(0));
+
+                            // dst
+                            int langue_dst = sp_langue_dst.getSelectedItemPosition();
+                            c.moveToFirst();
+                            c.move(langue_dst);
+                            langue_dst = Integer.parseInt(c.getString(0));
+
+                            // catgeorie
+                            c_cat.moveToFirst();
+                            c_cat.move(sp_categorie_select.getSelectedItemPosition());
+                            String nom_cat = c_cat.getString(1);
+
+
+                            Uri.Builder builder = new Uri.Builder();
+
+                            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_TRAD).appendPath(String.valueOf(langue_de_base)).appendPath(String.valueOf(langue_dst))
+                                    .appendPath(nom_cat);
+                            Uri uri = builder.build();
+                            res = moncontentprovider.query(uri,
+                                    null
+                                    , null,
+                                    null,
+                                    null);
+                            res.moveToFirst();
+                            String[] fromColumns = new String[]{"mot_question", "mot_reponse"};
+                            int[] toControlIDs = new int[]{R.id.mot_question, R.id.mot_reponse};
+                            SimpleCursorAdapter sca_res = new SimpleCursorAdapter(getContext(), R.layout.layout_liste_mot_apprentissage_categorie, res,
+                                    fromColumns,
+                                    toControlIDs);
+                            lv.setAdapter(sca_res);
+
+                            lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+                                @Override
+                                public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                                    res.moveToFirst();
+                                    Log.d(TAG, "onItemLongClick: position dans la liste =" + position);
+                                    res.move(position);
+                                    Log.d(TAG, "onItemLongClick: res :: " + res.getString(1));
+
+
+                                    Uri.Builder builder = new Uri.Builder();
+                                    builder.scheme("content").authority(Base_de_donnee.authority).appendPath("del_trad").appendPath(res.getString(1))
+                                    .appendPath(res.getString(2)).appendPath(res.getString(3)).appendPath(res.getString(4));
+                                    Uri uri = builder.build();
+                                    Log.d(TAG, "onClick: Uri == " + uri);
+                                    long resu = moncontentprovider.delete(uri,
+                                            null,null
+                                    );
+                                    Log.d(TAG, "onItemLongClick: res ::::::: " +resu);
+                                    lv.getChildAt(position).setBackgroundColor(Color.RED);
+
+                                    return false;
+                                }
+                            });
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+
+                        }
+
+                    };
+
+                    sp_langue_base.setOnItemSelectedListener(event);
+                    sp_langue_dst.setOnItemSelectedListener(event);
+                    sp_categorie_select.setOnItemSelectedListener(event);
+
+
+
+                    mBuilder.setView(view);
+                    final AlertDialog dialog = mBuilder.create();
+
+                    dialog.show();
+
+
+
+                }
+            });
+
         }
 
 
@@ -216,7 +501,7 @@ public class Fragment_bas extends Fragment {
                             null,
                             null);
 
-                    if ( cursor != null ) {
+                    if ( cursor != null && cursor.getCount() != 0) {
                         Log.d(Base_de_donnee.TAG, "Dans Fragment_bas , on a la trad : : " + cursor.getColumnName(0) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2));
                         Log.d("d", "Fragment BAS : cursor  " + cursor.getCount());
                         Log.d("d", "BundleMotChoisi  " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION));

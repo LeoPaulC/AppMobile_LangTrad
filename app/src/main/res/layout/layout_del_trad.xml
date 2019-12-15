@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:background="@drawable/side_nav_bar"
+        android:fontFamily="@font/bilbo"
+        android:text="Choisir la Langue la Traduction \nà Effacer"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="244dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="\nLangue de Base"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/spinner_langue_de_base"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:text="Langue de Destination"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/spinner_langue_dst"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="244dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="\n Catégorie"
+            android:textAlignment="center" />
+
+        <Spinner
+            android:id="@+id/spinner_categorie_select"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:text="\nListe des Traductions Trouvées :"
+        android:textAlignment="center" />
+
+    <ListView
+        android:id="@+id/liste_view_del_trad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

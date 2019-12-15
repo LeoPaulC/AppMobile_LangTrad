@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static com.example.projet_android.Base_de_donnee.TAG;
 
@@ -136,6 +137,7 @@ public class Fragment_question extends Fragment {
         }
         moncontentprovider = new MyContentProvider();
     }
+    static int en_cours ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -171,24 +173,45 @@ public class Fragment_question extends Fragment {
                     null,
                     null);
             texview_question = vue_du_frag.findViewById(R.id.Textview_question);
-            texview_question.setText("Traduire ce mot : ");
-            Log.d(TAG,"Dans Fragment Question : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3)) ;
+            //texview_question.setText("Traduire ce mot : \n");
+            //Log.d(TAG,"Dans Fragment Question : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) + " | " + cursor.getColumnName(2) + " | " + cursor.getColumnName(3)) ;
+
+            final ArrayList<Integer> liste_de_mot_deja_etudie = new ArrayList<>();
+            en_cours = 0 ;
+            Random rd = new Random(cursor.getCount());
+            en_cours = rd.nextInt(cursor.getCount());
+            for (int i = 0; i < cursor.getCount(); i++) {
+                while ( liste_de_mot_deja_etudie.contains(en_cours)){
+                    en_cours = rd.nextInt(cursor.getCount());
+                }
+                liste_de_mot_deja_etudie.add(en_cours);
+            }
+            Log.d(TAG, "onCreateView: liste == " + liste_de_mot_deja_etudie.toString());
 
             cursor.moveToFirst();
+            cursor.move(liste_de_mot_deja_etudie.get(0));
+            liste_de_mot_deja_etudie.remove(0);
             MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
-            texview_question.setText("Traduire ce mot : " + cursor.getString(2));
+            texview_question.setText("Traduire ce mot : \n" + cursor.getString(2));
+            Fragment_bas.trad.setBackgroundColor(Color.rgb(255 , 235 , 59));
 
             button_passer_la_question = vue_du_frag.findViewById(R.id.button_passer_question);
             button_passer_la_question.setVisibility(View.VISIBLE);
             button_passer_la_question.setText("Passer cette Question");
+
+
+
             button_passer_la_question.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ( cursor.moveToNext() ){
+                    if ( cursor.moveToFirst() && liste_de_mot_deja_etudie.size() >= 1){
+                        cursor.move(liste_de_mot_deja_etudie.get(0));
+                        liste_de_mot_deja_etudie.remove(0);
                         MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
-                        texview_question.setText("Traduire ce mot : " + cursor.getString(2));
+                        texview_question.setText("Traduire ce mot : \n" + cursor.getString(2));
                         Fragment_bas.trad.setBackgroundColor(Color.rgb(255 , 235 , 59));
                         // 255 , 235 , 59
+
 
                     }
                 }
@@ -527,11 +550,16 @@ public class Fragment_question extends Fragment {
                     String categorie = cursor.getString(1);
                     //view.toString()
 
+                    MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE1, String.valueOf(Integer.parseInt(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1))));
+                    MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE2, String.valueOf(Integer.parseInt(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2))));
+                    //MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1);
+
                     builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_TRAD).
                             appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1)).
                             appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)).
                             appendPath(categorie);
                     Uri uri = builder.build();
+
                     cursor2 = moncontentprovider.query(uri,
                             null
                             , null,

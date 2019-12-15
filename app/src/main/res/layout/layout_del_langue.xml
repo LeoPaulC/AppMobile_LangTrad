@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_weight="1"
+        android:background="@drawable/side_nav_bar"
+        android:fontFamily="@font/bilbo"
+        android:text="Choisir la Langue a Effacer"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/spinner_del_langue"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/button_del_langue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Effacer" />
+
+</LinearLayout>

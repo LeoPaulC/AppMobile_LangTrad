@@ -13,8 +13,9 @@
         <TextView
             android:id="@+id/textView_en_tete_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="67dp"
             android:autoText="true"
+            android:background="@drawable/side_nav_bar"
             android:elegantTextHeight="true"
             android:fontFamily="serif-monospace"
             android:forceDarkAllowed="true"
@@ -23,16 +24,16 @@
             android:singleLine="true"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textSize="18sp"
+            android:textSize="24sp"
             app:autoSizeTextType="none" />
 
         <ListView
             android:id="@+id/ma_liste_view"
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            style="@style/Widget.AppCompat.ListView.Menu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/textView_en_tete_list"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="10dp"
             android:background="#7E888383"
             android:backgroundTint="#009688"
             android:cacheColorHint="#03A9F4"

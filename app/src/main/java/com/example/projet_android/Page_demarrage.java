@@ -206,10 +206,16 @@ public class Page_demarrage extends Fragment {
                 public void onClick(View v) {
 
                     // recuperation des langues choisies :
-                    int langue_de_base = liste_langue.getSelectedItemPosition()+1 ;
+                    int langue_de_base = liste_langue.getSelectedItemPosition() ;
+                    cursor.moveToFirst();
+                    cursor.move(langue_de_base);
+                    langue_de_base = Integer.parseInt(cursor.getString(0));
                     MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE1 , String.valueOf(langue_de_base));
 
-                    int langue_a_apprendre = liste_langue2.getSelectedItemPosition()+1 ;
+                    int langue_a_apprendre = liste_langue2.getSelectedItemPosition() ;
+                    cursor.moveToFirst();
+                    cursor.move(langue_a_apprendre);
+                    langue_a_apprendre = Integer.parseInt(cursor.getString(0));
                     MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_LANGUE2 , String.valueOf(langue_a_apprendre));
 
                     if ( !editText_nom.getText().toString().equals("") )

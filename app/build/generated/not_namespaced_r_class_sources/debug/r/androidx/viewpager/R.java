@@ -85,27 +85,27 @@ public final class R {
         public static final int actions = 0x7f0a0020;
         public static final int async = 0x7f0a0032;
         public static final int blocking = 0x7f0a0038;
-        public static final int chronometer = 0x7f0a0049;
-        public static final int forever = 0x7f0a0076;
-        public static final int icon = 0x7f0a007f;
-        public static final int icon_group = 0x7f0a0080;
-        public static final int info = 0x7f0a0089;
-        public static final int italic = 0x7f0a008b;
-        public static final int line1 = 0x7f0a0099;
-        public static final int line3 = 0x7f0a009a;
-        public static final int normal = 0x7f0a00ba;
-        public static final int notification_background = 0x7f0a00bb;
-        public static final int notification_main_column = 0x7f0a00bc;
-        public static final int notification_main_column_container = 0x7f0a00bd;
-        public static final int right_icon = 0x7f0a00d0;
-        public static final int right_side = 0x7f0a00d1;
-        public static final int tag_transition_group = 0x7f0a0101;
-        public static final int tag_unhandled_key_event_manager = 0x7f0a0102;
-        public static final int tag_unhandled_key_listeners = 0x7f0a0103;
-        public static final int text = 0x7f0a0104;
-        public static final int text2 = 0x7f0a0105;
-        public static final int time = 0x7f0a011d;
-        public static final int title = 0x7f0a011e;
+        public static final int chronometer = 0x7f0a004c;
+        public static final int forever = 0x7f0a007a;
+        public static final int icon = 0x7f0a0083;
+        public static final int icon_group = 0x7f0a0084;
+        public static final int info = 0x7f0a008d;
+        public static final int italic = 0x7f0a008f;
+        public static final int line1 = 0x7f0a009d;
+        public static final int line3 = 0x7f0a009e;
+        public static final int normal = 0x7f0a00bf;
+        public static final int notification_background = 0x7f0a00c0;
+        public static final int notification_main_column = 0x7f0a00c1;
+        public static final int notification_main_column_container = 0x7f0a00c2;
+        public static final int right_icon = 0x7f0a00d5;
+        public static final int right_side = 0x7f0a00d6;
+        public static final int tag_transition_group = 0x7f0a010b;
+        public static final int tag_unhandled_key_event_manager = 0x7f0a010c;
+        public static final int tag_unhandled_key_listeners = 0x7f0a010d;
+        public static final int text = 0x7f0a010e;
+        public static final int text2 = 0x7f0a010f;
+        public static final int time = 0x7f0a012d;
+        public static final int title = 0x7f0a012e;
     }
     public static final class integer {
         private integer() {}
@@ -115,12 +115,12 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int notification_action = 0x7f0d0044;
-        public static final int notification_action_tombstone = 0x7f0d0045;
-        public static final int notification_template_custom_big = 0x7f0d004c;
-        public static final int notification_template_icon_group = 0x7f0d004d;
-        public static final int notification_template_part_chronometer = 0x7f0d0051;
-        public static final int notification_template_part_time = 0x7f0d0052;
+        public static final int notification_action = 0x7f0d0047;
+        public static final int notification_action_tombstone = 0x7f0d0048;
+        public static final int notification_template_custom_big = 0x7f0d004f;
+        public static final int notification_template_icon_group = 0x7f0d0050;
+        public static final int notification_template_part_chronometer = 0x7f0d0054;
+        public static final int notification_template_part_time = 0x7f0d0055;
     }
     public static final class string {
         private string() {}
