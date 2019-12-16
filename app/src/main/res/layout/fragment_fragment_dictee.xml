@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment_dictee">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button_mot_suivant_dictee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+            android:text="Mot suivant"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <Button
+            android:id="@+id/button_image_dictee"
+            android:layout_width="98dp"
+            android:layout_height="75dp"
+            android:layout_below="@id/button_mot_suivant_dictee"
+            android:layout_toRightOf="@id/button_lire_son"
+            android:background="@android:drawable/ic_menu_camera"
+            android:backgroundTint="#009688" />
+
+        <Button
+            android:id="@+id/button_lire_son"
+            style="@android:style/Widget.Material.Button.Toggle"
+            android:layout_width="313dp"
+            android:layout_height="77dp"
+            android:layout_below="@id/button_mot_suivant_dictee"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+            android:text="Lire le fichier Son"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editText_reponse_dictee"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_below="@id/divider5"
+            android:hint="Votre réponse"
+            android:inputType="textPersonName" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_below="@id/button_lire_son"
+            android:background="@drawable/side_nav_bar" />
+    </RelativeLayout>
+
+</FrameLayout>

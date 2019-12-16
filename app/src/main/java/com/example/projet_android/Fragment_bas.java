@@ -23,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.zip.Inflater;
+
 import static com.example.projet_android.Base_de_donnee.TAG;
 
 
@@ -529,6 +531,41 @@ public class Fragment_bas extends Fragment {
                 }
             });
         }
+        if ( mParam1 != null && mParam1.equals("dictee") ){
+
+                button_valider.setVisibility(View.INVISIBLE);
+
+                button_effacer.setVisibility(View.INVISIBLE);
+                String mot = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_MOT_QUESTION) ;
+                final String rep = mParam2.toString() ;
+
+                final View view = getLayoutInflater().inflate(R.layout.fragment_fragment_dictee, null);
+
+
+                trad.setVisibility(View.VISIBLE);
+                trad.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Log.d(TAG, "onCreateView: Nous somme bien dans fragment bas " + Fragment_dictee.rep.getText().toString() + " " + mParam2);
+                    if ( Fragment_dictee.rep.getText().toString().equals(mParam2)){
+                        Fragment_dictee.rep.setBackgroundColor(Color.GREEN);
+
+                        Fragment_dictee.suivant.callOnClick();
+                    }
+                    else {
+                        Fragment_dictee.rep.setBackgroundColor(Color.RED);
+                        Toast.makeText(getContext(),"Réponse incorect , ré-ecouté le fichier Audio ( ou passer a la question suivante ) !", Toast.LENGTH_LONG) ;
+                    }
+                }
+
+            });
+
+
+
+
+
+        }
 
 
         if ( mParam1 != null && mParam1.equals("valide") && mParam2.equals("traduction")){ // partie correpsondant a l'initailisation de la base de donnée
@@ -653,6 +690,13 @@ public class Fragment_bas extends Fragment {
 
             MainActivity.fm.popBackStack();
 
+            MainActivity.fm.popBackStack();
+            MainActivity.layout_question.setVisibility(View.GONE);
+            MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
+            MainActivity.layout_reponse.setVisibility(View.GONE);
+        }
+        if ( mParam1 != null && mParam1.equals("dictee") ) {
+            MainActivity.fm.popBackStack();
             MainActivity.fm.popBackStack();
             MainActivity.layout_question.setVisibility(View.GONE);
             MainActivity.layout_demarrage.setVisibility(View.VISIBLE);

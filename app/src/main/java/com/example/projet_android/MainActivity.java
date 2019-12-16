@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener , fragment_ma_liste_perso.OnFragmentInteractionListener , fragment_acces_memoire_tel.OnFragmentInteractionListener , ajout_BDD_trad.OnFragmentInteractionListener , Fragment_apprentissage_liste.OnFragmentInteractionListener{
+public class MainActivity extends AppCompatActivity implements Fragment_menu.OnFragmentInteractionListener , Fragment_question.OnFragmentInteractionListener , Fragment_reponse.OnFragmentInteractionListener, Fragment_bas.OnFragmentInteractionListener , AccesDonneesBDD.OnFragmentInteractionListener , Page_demarrage.OnFragmentInteractionListener , fragment_ma_liste_perso.OnFragmentInteractionListener , fragment_acces_memoire_tel.OnFragmentInteractionListener , ajout_BDD_trad.OnFragmentInteractionListener , Fragment_apprentissage_liste.OnFragmentInteractionListener, Fragment_dictee.OnFragmentInteractionListener{
 
     /**
      * Attributs :
@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {Snackbar.make(v, "Votre Score précedent : " + Fragment_bas.bonne_reps, Snackbar.LENGTH_LONG)
+            public void onClick(View v) {Snackbar.make(v, "Votre Score précedent : " + Fragment_bas.bonne_rep, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             }
         });

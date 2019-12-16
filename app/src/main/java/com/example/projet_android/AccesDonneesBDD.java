@@ -149,6 +149,54 @@ public class AccesDonneesBDD extends Fragment {
 
 
         }
+        if ( mParam1 != null && mParam1 == "dictee" && mParam2 == Base_de_donnee.CATEGORIE){
+            /**
+             * on va construire l'URI pour recuperer les categories .
+             */
+
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
+            Uri uri = builder.build();
+            cursor = moncontentprovider.query(uri,
+                    null
+                    ,null,
+                    null,
+                    null);
+            en_tete_list = vue_du_fragment.findViewById(R.id.textView_en_tete_list);
+            en_tete_list.setText("Choisir Votre Categorie : ");
+            Log.d(Base_de_donnee.TAG,"Dans L'acces au données : " + cursor.getColumnName(0 ) + " | " + cursor.getColumnName(1) ) ;
+            lv = vue_du_fragment.findViewById(R.id.ma_liste_view);
+            cursor.moveToFirst();
+            String[] fromColumns = new String[] {Base_de_donnee.NOM_CATGEORIE , Base_de_donnee.ID_CATEGORIE};
+            int[] toControlIDs = new int[] {android.R.id.text2};
+            sca = new SimpleCursorAdapter(getContext(), android.R.layout.simple_list_item_2 , cursor,
+                    fromColumns,
+                    toControlIDs);
+            sca.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            lv.setAdapter(sca);
+            Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnCreateView terminé , liste en place .");
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(parent.getContext(),
+                            ">> : " + ((Cursor) parent.getItemAtPosition(position)).getString(1),
+                            Toast.LENGTH_SHORT).show();
+                    // on met la categorie choisie dans le bundle de session
+                    MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_CATEGORIE,((Cursor) parent.getItemAtPosition(position)).getString(1));
+
+                    //MainActivity.frag_accesBDD = AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+                    Log.d(Base_de_donnee.TAG, "Fragment Acces Donnees : OnClickListener Categorie.");
+                    MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
+                    MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_dictee.newInstance("dictee",null));
+
+
+
+                }
+            });
+
+
+        }
         if ( mParam1 != null && mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_LANGUE){
             /**
              * on va construire l'URI pour recuperer les Langues .

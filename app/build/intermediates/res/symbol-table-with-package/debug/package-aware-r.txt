@@ -1192,6 +1192,9 @@ id button_del_cat
 id button_del_langue
 id button_del_trad
 id button_effacer
+id button_image_dictee
+id button_lire_son
+id button_mot_suivant_dictee
 id button_passer_question
 id button_valider
 id cancel_action
@@ -1227,8 +1230,10 @@ id divider
 id divider2
 id divider3
 id divider4
+id divider5
 id drawer_layout
 id editText_choix_nom
+id editText_reponse_dictee
 id editText_trad
 id edit_query
 id emplacement_fragment_bar_du_haut
@@ -1536,6 +1541,7 @@ layout fragment_ajout__bdd_trad
 layout fragment_fragment_acces_memoire_tel
 layout fragment_fragment_apprentissage_liste
 layout fragment_fragment_bas
+layout fragment_fragment_dictee
 layout fragment_fragment_ma_liste_perso
 layout fragment_fragment_menu
 layout fragment_gallery

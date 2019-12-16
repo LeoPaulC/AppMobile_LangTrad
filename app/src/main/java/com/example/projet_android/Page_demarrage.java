@@ -289,6 +289,18 @@ public class Page_demarrage extends Fragment {
                         //MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE)); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
                         MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_apprentissage_liste.newInstance("affiche","liste"));
                     }
+                    if ( quizz.isChecked() && type_quizz.equals("dictee")){
+                        /**
+                         * Si aucun des 2 radio boutton d'apprentissage n'est selectionné , on lance le quizz par catgeroie
+                         */
+                        MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
+                        MainActivity.layout_question.setVisibility(View.VISIBLE);
+                        MainActivity.layout_haut.setVisibility(View.VISIBLE);
+                        //Toast.makeText(getContext(),"Spinner res : " + langue_de_base + "/ nom : " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM), Toast.LENGTH_SHORT).show();
+                        //MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE)); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+                        MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("dictee",Base_de_donnee.TABLE_CATGEORIE));
+                        //MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_dictee.newInstance("dictee",null));
+                    }
 
 
                     if ( quizz.isChecked() && type_quizz.equals("motamot")){
