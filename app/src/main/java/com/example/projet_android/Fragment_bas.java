@@ -152,6 +152,7 @@ public class Fragment_bas extends Fragment {
     static Cursor c_cat ;
     static Cursor res ;
     Button toute_trad ;
+    static int bonne_rep = 0 ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
@@ -483,13 +484,14 @@ public class Fragment_bas extends Fragment {
             button_valider.setVisibility(View.INVISIBLE);
             button_effacer.setVisibility(View.INVISIBLE);
             toute_trad.setVisibility(View.VISIBLE);
+            MainActivity.layout_bas.setVisibility(View.VISIBLE);
             Log.d(TAG, "onCreateView: Dans le cas valide toutes les trad");
             toute_trad.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Cursor c = Fragment_apprentissage_liste.cursor ;
                     c.moveToFirst();
-                    int bonne_rep = 0 ;
+                    bonne_rep = 0 ;
 
                     ListView lv = Fragment_apprentissage_liste.ma_liste ;
 
@@ -645,6 +647,16 @@ public class Fragment_bas extends Fragment {
         super.onDetach();
         if ( mParam1 != null && mParam1 == "valide" && mParam2 == "traduction"){
             MainActivity.fm.popBackStack();
+        }
+        if ( mParam1 != null && mParam1.equals("validetrad") && mParam2.equals("liste") ){
+
+
+            MainActivity.fm.popBackStack();
+
+            MainActivity.fm.popBackStack();
+            MainActivity.layout_question.setVisibility(View.GONE);
+            MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
+            MainActivity.layout_reponse.setVisibility(View.GONE);
         }
         mListener = null;
     }
