@@ -156,12 +156,14 @@ public class fragment_ma_liste_perso extends Fragment {
 
                     Log.d(TAG, "onItemLongClick: position " + position);
                     Log.d(TAG, "onItemLongClick: cursor :" + cursor.getCount());
-
                     ArrayList<String> notre_liste_a_effacer;
                     notre_liste_a_effacer = new ArrayList<>();
-                    notre_liste_a_effacer.add(cursor.getString(1));
-                    notre_liste_a_effacer.add(cursor.getString(2));
-                    notre_liste_a_effacer.add(cursor.getString(3));
+                    try {
+                        notre_liste_a_effacer.add(cursor.getString(1));
+                        notre_liste_a_effacer.add(cursor.getString(2));
+                        notre_liste_a_effacer.add(cursor.getString(3));
+
+
 
                     Log.d(TAG, "onItemLongClick: " + notre_liste_a_effacer.toString());
 
@@ -175,8 +177,12 @@ public class fragment_ma_liste_perso extends Fragment {
                             null
                             , null);
                     ma_listeview_liste_mot.getChildAt(position).setBackgroundColor(Color.RED);
+                    }
+                    catch (Exception e){
+                        Log.d(TAG, "onItemLongClick: "+ e);
+                    }
 
-                    return false;
+                    return true;
                 }
             });
 
@@ -185,7 +191,7 @@ public class fragment_ma_liste_perso extends Fragment {
             ma_listeview_liste_mot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                public void onItemClick(AdapterView<?> parent, final View view, int position, long id) {
                     
                      final ImageView image = new ImageView(getContext());
                     //FileInputStream f =  new FileInputStream(String.format("%s/downloadfile-6.jpg", getContext().getFilesDir().toString())) ;
@@ -231,11 +237,25 @@ public class fragment_ma_liste_perso extends Fragment {
                                 image.setImageBitmap(bitmap);
                                 new AlertDialog.Builder(getContext())
                                         .setTitle("Image associée ( interne ) :")
-                                        .setPositiveButton("Fermer", new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                dialog.dismiss();
+                                        .setPositiveButton("Lecture Son", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        mtts = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
+                                            @Override
+                                            public void onInit(int status) {
+                                                if (status == TextToSpeech.SUCCESS) {
+                                                    int res = mtts.setLanguage(Locale.FRANCE);
+                                                    if (res == TextToSpeech.LANG_MISSING_DATA) {
+                                                        Log.d(TAG, "onInit: OUps , langue non prise en compte...");
+                                                    }
+                                                    TextView tv = vue_du_fragment.findViewById(R.id.trad);
+                                                    String mot = tv.getText().toString();
+                                                    mtts.speak(mot, TextToSpeech.QUEUE_FLUSH, null);
+                                                }
                                             }
-                                        }).setNegativeButton("Supprimer Image interne ?", new DialogInterface.OnClickListener() {
+                                        });
+                                    }
+                                }).setNegativeButton("Supprimer Image interne ?", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         File file = new File(cursor.getString(5));
@@ -308,11 +328,11 @@ public class fragment_ma_liste_perso extends Fragment {
                                                 @Override
                                                 public void onInit(int status) {
                                                     if (status == TextToSpeech.SUCCESS) {
-                                                        int res = mtts.setLanguage(Locale.JAPAN);
+                                                        int res = mtts.setLanguage(Locale.FRANCE);
                                                         if (res == TextToSpeech.LANG_MISSING_DATA) {
                                                             Log.d(TAG, "onInit: OUps , langue non prise en compte...");
                                                         }
-                                                        TextView tv = vue_du_fragment.findViewById(R.id.trad);
+                                                        TextView tv = view.findViewById(R.id.trad);
                                                         String mot = tv.getText().toString();
                                                         mtts.speak(mot, TextToSpeech.QUEUE_FLUSH, null);
                                                     }
@@ -327,11 +347,29 @@ public class fragment_ma_liste_perso extends Fragment {
                                 else {
                                     new AlertDialog.Builder(getContext())
                                             .setTitle("Image associée : Aucune image trouvée ...")
-                                            .setPositiveButton("Aller dans la gestion de BDD pour ajouter une image ( else )", new DialogInterface.OnClickListener() {
+                                            .setNegativeButton("Aller dans la gestion de BDD pour ajouter une image ( else )", new DialogInterface.OnClickListener() {
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     dialog.dismiss();
                                                 }
-                                            }).show();
+                                            }).setPositiveButton("Lecture Son", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            mtts = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
+                                                @Override
+                                                public void onInit(int status) {
+                                                    if (status == TextToSpeech.SUCCESS) {
+                                                        int res = mtts.setLanguage(Locale.FRANCE);
+                                                        if (res == TextToSpeech.LANG_MISSING_DATA) {
+                                                            Log.d(TAG, "onInit: OUps , langue non prise en compte...");
+                                                        }
+                                                        TextView tv = view.findViewById(R.id.trad);
+                                                        String mot = tv.getText().toString();
+                                                        mtts.speak(mot, TextToSpeech.QUEUE_FLUSH, null);
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    }).show();
                                 }
                             }
 
@@ -343,12 +381,30 @@ public class fragment_ma_liste_perso extends Fragment {
                         e.printStackTrace();
                         new AlertDialog.Builder(getContext())
                                 .setTitle("Image associée : Aucune image trouvée ...")
-                                .setPositiveButton("Aller dans la gestion de BDD pour ajouter une image", new DialogInterface.OnClickListener() {
+                                .setNegativeButton("Aller dans la gestion de BDD pour ajouter une image", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
 
                                         dialog.dismiss();
                                     }
-                                }).show();
+                                }).setPositiveButton("Lecture Son", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                mtts = new TextToSpeech(getContext(), new TextToSpeech.OnInitListener() {
+                                    @Override
+                                    public void onInit(int status) {
+                                        if (status == TextToSpeech.SUCCESS) {
+                                            int res = mtts.setLanguage(Locale.FRANCE);
+                                            if (res == TextToSpeech.LANG_MISSING_DATA) {
+                                                Log.d(TAG, "onInit: OUps , langue non prise en compte...");
+                                            }
+                                            TextView tv = view.findViewById(R.id.trad);
+                                            String mot = tv.getText().toString();
+                                            mtts.speak(mot, TextToSpeech.QUEUE_FLUSH, null);
+                                        }
+                                    }
+                                });
+                            }
+                        }).show();
 
                     }
 

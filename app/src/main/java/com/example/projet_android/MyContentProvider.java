@@ -49,6 +49,9 @@ public class MyContentProvider extends ContentProvider {
     public static final String Delete_langue ="del_langue/*" ;
     public static final String Delete_trad ="del_trad/*/*/*/*" ;
                                         // mot1 / mot2 / l1 / l2
+    public static final String langue_dapres_mot = "langue_mot/*";
+    public static final String del_mot_liste  = "liste_del_mot/*/*";
+                    // del mot1 / trad
 
 
 
@@ -74,6 +77,8 @@ public class MyContentProvider extends ContentProvider {
         matcher.addURI(authority, Delete_categorie, 18);
         matcher.addURI(authority, Delete_langue, 19);
         matcher.addURI(authority, Delete_trad, 20);
+        matcher.addURI(authority, langue_dapres_mot, 21);
+        matcher.addURI(authority, del_mot_liste, 22);
 
     }
 
@@ -271,6 +276,11 @@ public class MyContentProvider extends ContentProvider {
                 Log.d(TAG, "query: Cas 17 : " + cursor.getCount());
 
                 break ;
+            case 21 :
+                String m = uri.getPathSegments().get(uri.getPathSegments().size() - 1) ;
+                cursor= db.rawQuery("Select "+Base_de_donnee.ID_LANGUE+" , rowid as _id from " + Base_de_donnee.TABLE_MOT + " Where contenu = ? " , new String[]{m});
+                cursor.moveToFirst();
+                break;
 
 
 
@@ -450,6 +460,18 @@ public class MyContentProvider extends ContentProvider {
                         new String[]{mot1,mot_trad,mot_trad,mot1,l,lbis,lbis,l});
                 Log.d(TAG, "delete: trad , mot = " + mot1 + " , trad = " + mot_trad + " , l1 = " + l + " , l2 = " + lbis + " ,,, res  = " + t);
                 break ;
+
+            case 22:
+                String mot_l;
+                mot_l = uri.getPathSegments().get(uri.getPathSegments().size() - 1);
+                String trad_l;
+                trad_l = uri.getPathSegments().get(uri.getPathSegments().size() - 2);
+
+                long y = db.delete(Base_de_donnee.TABLE_LISTE, "mot = ? AND trad = ?", new String[]{mot_l, trad_l});
+                Log.d(TAG, "delete check : " + y);
+                y = db.delete(Base_de_donnee.TABLE_LISTE, "mot = ? AND trad = ?", new String[]{trad_l, mot_l});
+                Log.d(TAG, "delete check : " + y);
+                break;
 
             default:
                 break;

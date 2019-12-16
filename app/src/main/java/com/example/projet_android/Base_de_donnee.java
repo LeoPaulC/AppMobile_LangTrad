@@ -278,15 +278,15 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
         row = new ContentValues();
-        row.put(CONTENU, "Hello");
+        row.put(CONTENU, "Eat");
         row.put(ID_LANGUE, 2 );
-        row.put(CATEGORIE, "Eat" );
+        row.put(CATEGORIE, "Commun" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
         row = new ContentValues();
-        row.put(CONTENU, "Hello");
+        row.put(CONTENU, "Drink");
         row.put(ID_LANGUE, 2 );
-        row.put(CATEGORIE, "Drink" );
+        row.put(CATEGORIE, "Commun" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
         row = new ContentValues();
