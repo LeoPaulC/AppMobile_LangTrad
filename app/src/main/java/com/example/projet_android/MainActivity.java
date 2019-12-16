@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {Snackbar.make(v, "Votre Score précedent : " + Fragment_bas.bonne_rep, Snackbar.LENGTH_LONG)
+            public void onClick(View v) {Snackbar.make(v, "Votre Score précedent sur votre Liste : " + Fragment_bas.bonne_rep, Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             }
         });
