@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@drawable/side_nav_bar"
+            android:text="\nChoisir Votre type de Quizz"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <RadioGroup
+            android:id="@+id/group_radio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textView9"
+            android:layout_marginTop="5dp">
+
+            <RadioButton
+                android:id="@+id/radioButton_choix_mot_a_mot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mot à Mot" />
+
+            <RadioButton
+                android:id="@+id/radioButton_dictee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dictée" />
+
+            <RadioButton
+                android:id="@+id/radioButton_liste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Avec Votre Liste Personnelle" />
+        </RadioGroup>
+    </RelativeLayout>
+
+</LinearLayout>

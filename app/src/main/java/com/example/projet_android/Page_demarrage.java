@@ -1,5 +1,6 @@
 package com.example.projet_android;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -13,9 +14,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -95,6 +98,9 @@ public class Page_demarrage extends Fragment {
         plusieurs_mot_par_catgeorie = new RadioButton(getContext());
         quizz = new RadioButton(getContext());
     }
+
+    static String type_quizz ;
+    static View view ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -198,6 +204,51 @@ public class Page_demarrage extends Fragment {
             });
 
 
+            quizz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final AlertDialog.Builder mBuilder = new AlertDialog.Builder(getContext());
+                    view = getLayoutInflater().inflate(R.layout.layout_choix_quizz, null);
+
+
+                    final RadioButton mot= view.findViewById(R.id.radioButton_choix_mot_a_mot);
+                    final RadioButton dictee= view.findViewById(R.id.radioButton_dictee);
+                    final RadioButton liste_perso= view.findViewById(R.id.radioButton_liste);
+                    final RadioGroup liste_radioBoutton= view.findViewById(R.id.group_radio);
+
+                    mBuilder.setView(view);
+                    final AlertDialog dialog = mBuilder.create();
+
+                    liste_radioBoutton.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                        @Override
+                        public void onCheckedChanged(RadioGroup group, int checkedId) {
+                            Log.d(TAG, "onCheckedChanged: checkedid = " + checkedId);
+                            if ( view.findViewById(checkedId) == view.findViewById(R.id.radioButton_choix_mot_a_mot) ){
+                                type_quizz = "motamot";
+                                Log.d(TAG, "onCheckedChanged: type = " + type_quizz);
+                            }
+                            if ( view.findViewById(checkedId) == view.findViewById(R.id.radioButton_dictee)){
+                                type_quizz = "dictee";
+                                Log.d(TAG, "onCheckedChanged: type = " + type_quizz);
+                            }
+                            if ( view.findViewById(checkedId) == view.findViewById(R.id.radioButton_liste)){
+                                type_quizz = "liste";
+                                Log.d(TAG, "onCheckedChanged: type = " + type_quizz);
+                            }
+                            // 2131362004 // dictée
+                            // 2131362003 // mot a mot
+                            // 2131362005  // liste perso
+                            //dialog.dismiss();
+                        }
+                    });
+
+
+
+                    dialog.show();
+                }
+            });
+
+
 
 
 
@@ -227,12 +278,20 @@ public class Page_demarrage extends Fragment {
                     MainActivity.layout_demarrage = vue_du_fragment.findViewById(R.id.layout_demarrage);
 
 
+                    if ( quizz.isChecked() && type_quizz.equals("liste")){
+                        /**
+                         * Si aucun des 2 radio boutton d'apprentissage n'est selectionné , on lance le quizz par catgeroie
+                         */
+                        MainActivity.layout_demarrage.setVisibility(View.INVISIBLE);
+                        MainActivity.layout_question.setVisibility(View.VISIBLE);
+                        MainActivity.layout_haut.setVisibility(View.VISIBLE);
+                        //Toast.makeText(getContext(),"Spinner res : " + langue_de_base + "/ nom : " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_NOM), Toast.LENGTH_SHORT).show();
+                        //MainActivity.ChargeFragmentDansEmplacement_Question(AccesDonneesBDD.newInstance("affiche",Base_de_donnee.TABLE_LANGUE)); // pour l'instant paramettre vide à a voir pour permettre de creer le menu avec .
+                        MainActivity.ChargeFragmentDansEmplacement_Question(Fragment_apprentissage_liste.newInstance("affiche","liste"));
+                    }
 
 
-
-
-
-                    if ( quizz.isChecked() ){
+                    if ( quizz.isChecked() && type_quizz.equals("motamot")){
                         /**
                          * Si aucun des 2 radio boutton d'apprentissage n'est selectionné , on lance le quizz par catgeroie
                          */

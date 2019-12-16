@@ -1229,6 +1229,7 @@ id divider3
 id divider4
 id drawer_layout
 id editText_choix_nom
+id editText_trad
 id edit_query
 id emplacement_fragment_bar_du_haut
 id emplacement_fragment_bas
@@ -1252,6 +1253,7 @@ id ghost_view
 id gone
 id gridview_liste_mot
 id group_divider
+id group_radio
 id groups
 id home
 id homeAsUp
@@ -1263,6 +1265,7 @@ id ifRoom
 id image
 id imageButton2
 id imageView
+id imageView2
 id imageView2_liste
 id imageView3
 id imageView4
@@ -1271,6 +1274,7 @@ id invisible
 id italic
 id item_touch_helper_previous_elevation
 id labeled
+id langue
 id langue_nom
 id largeLabel
 id layout
@@ -1288,6 +1292,7 @@ id listMode
 id list_item
 id liste_view_del_trad
 id liste_view_liste_mot
+id listeview_liste
 id listeview_mot_perso
 id ma_liste_view
 id masked
@@ -1297,6 +1302,7 @@ id middle
 id mini
 id mobile_navigation
 id mot
+id mot_base
 id mot_question
 id mot_reponse
 id mtrl_child_content_container
@@ -1335,6 +1341,9 @@ id quitter
 id radio
 id radioButton_apprentissage_mot_a_mot
 id radioButton_apprentissage_plusieurs_mot
+id radioButton_choix_mot_a_mot
+id radioButton_dictee
+id radioButton_liste
 id radioButton_quizz
 id radio_group
 id right
@@ -1413,6 +1422,7 @@ id textView5
 id textView6
 id textView7
 id textView8
+id textView9
 id textView_en_tete_list
 id textView_reponse
 id textView_tite_liste
@@ -1446,6 +1456,7 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id valide_toute_trad
 id valider_choix_mot_image
 id vertical
 id view_offset_helper
@@ -1523,6 +1534,7 @@ layout design_text_input_password_icon
 layout fragment_acces_donnees_bdd
 layout fragment_ajout__bdd_trad
 layout fragment_fragment_acces_memoire_tel
+layout fragment_fragment_apprentissage_liste
 layout fragment_fragment_bas
 layout fragment_fragment_ma_liste_perso
 layout fragment_fragment_menu
@@ -1536,12 +1548,14 @@ layout fragment_share
 layout fragment_slideshow
 layout fragment_tools
 layout layout_ajout_categorie
+layout layout_choix_quizz
 layout layout_del_cat
 layout layout_del_langue
 layout layout_del_trad
 layout layout_liste_mot_apprentissage_categorie
 layout layout_liste_view_liste
 layout layout_perso
+layout layout_quizz_liste
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main

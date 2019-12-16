@@ -481,8 +481,8 @@ public class MyContentProvider extends ContentProvider {
                 Uri urii = uri_tmp.build() ;
                 Cursor tmp = this.query(urii,null,null,null,null) ;
                 tmp.moveToFirst();
-                for ( String s : tmp.getColumnNames())
-                    Log.d(TAG, "update: " + s);
+                //for ( String s : tmp.getColumnNames())
+                //    Log.d(TAG, "update: " + s);
                 Log.d(TAG, "update: " + values.getAsString("mot"));
                 Log.d(TAG, "update: " + values.getAsString("img_interne"));
 
@@ -510,7 +510,7 @@ public class MyContentProvider extends ContentProvider {
                 }
 
                 // on met à jour la ou les trad qui comporte le mot "mot" dans la question ou la réponse
-                int res = db.update(Base_de_donnee.TABLE_TRAD,cv,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot").toLowerCase(),values.getAsString("mot").toLowerCase()});
+                int res = db.update(Base_de_donnee.TABLE_TRAD,cv,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot"),values.getAsString("mot")});
                 Log.d(TAG, "update interne : RES : " + res);
                 break;
             case 13 :
@@ -535,7 +535,7 @@ public class MyContentProvider extends ContentProvider {
                 cv2.put("img_externe" , values.getAsString("img_externe"));
 
                 // on met à jour la ou les trad qui comporte le mot "mot" dans la question ou la réponse
-                int res2 = db.update(Base_de_donnee.TABLE_TRAD,cv2,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot").toLowerCase(),values.getAsString("mot").toLowerCase()});
+                int res2 = db.update(Base_de_donnee.TABLE_TRAD,cv2,"mot_question = ? or mot_reponse = ?" , new String[]{values.getAsString("mot"),values.getAsString("mot")});
                 Log.d(TAG, "update externe :  RES : " + res2);
                 break;
 

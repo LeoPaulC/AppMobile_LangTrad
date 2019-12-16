@@ -70,5 +70,12 @@
             android:layout_toRightOf="@id/button_del_langue"
             android:text="Effacer une \n Traduction" />
 
+        <Button
+            android:id="@+id/valide_toute_trad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Valider toutes les traductions ?"
+            android:visibility="invisible" />
+
     </RelativeLayout>
 </FrameLayout>

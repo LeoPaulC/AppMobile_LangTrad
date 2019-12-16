@@ -24,6 +24,7 @@
             android:layout_width="69dp"
             android:layout_height="70dp"
             android:layout_toRightOf="@id/textView_reponse"
+            android:background="@android:drawable/ic_menu_camera"
             android:visibility="invisible" />
 
         <Button

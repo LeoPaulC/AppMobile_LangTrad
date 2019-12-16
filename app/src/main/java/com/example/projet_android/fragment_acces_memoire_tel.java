@@ -194,7 +194,7 @@ public class fragment_acces_memoire_tel extends Fragment {
                     //You'll need this menu to choose an action on long press
                     registerForContextMenu(webview_image);
                     //webview_image.loadUrl(HTTP_URL);
-                    String url = "https://www.google.com/search?hl=fr&biw=1870&bih=919&tbm=isch&sxsrf=ACYBGNQevJnnHnyN_4qXYAPXdH1p4cqxIg%3A1574949813744&sa=1&ei=tdPfXbGLLYTnxgOQh6vwDw&q="+chemin.getText()+"+http&oq="+chemin.getText()+"+http&gs_l=img.3..0i67l6j0j0i67j0l2.1461.2033..2141...2.0..0.68.257.5......0....1..gws-wiz-img.....10..35i362i39j35i39.Q2ovIvlBHrk&ved=0ahUKEwjxub-hiY3mAhWEs3EKHZDDCv4Q4dUDCAY&uact=5#imgrc=gzJYbbw5cVkXPM:" ;
+                    String url = "https://www.google.com/search?hl=fr&biw=1870&bih=919&tbm=isch&sxsrf=ACYBGNQevJnnHnyN_4qXYAPXdH1p4cqxIg%3A1574949813744&sa=1&ei=tdPfXbGLLYTnxgOQh6vwDw&q="+chemin.getText()+"+&oq="+chemin.getText()+"+&gs_l=img.3..0i67l6j0j0i67j0l2.1461.2033..2141...2.0..0.68.257.5......0....1..gws-wiz-img.....10..35i362i39j35i39.Q2ovIvlBHrk&ved=0ahUKEwjxub-hiY3mAhWEs3EKHZDDCv4Q4dUDCAY&uact=5#imgrc=gzJYbbw5cVkXPM:" ;
                     webview_image.loadUrl(url);
                     // url google image recherche de fraise
                     webview_image.canGoBackOrForward(0) ;
@@ -266,6 +266,7 @@ public class fragment_acces_memoire_tel extends Fragment {
                                 ContentValues cv = new ContentValues();
 
                                 cv.put("mot", chemin.getText().toString());
+                                Log.d(TAG, "onMenuItemClick: mot :: " + chemin.getText().toString());
 
                                 //String lien = Environment.getExternalStorageDirectory() + "/Images/" + chemin.getText() + String.valueOf(ajout_fin_img) + ".jpg";
 

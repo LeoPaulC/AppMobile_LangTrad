@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -150,6 +151,7 @@ public class Fragment_bas extends Fragment {
     static Cursor c ;
     static Cursor c_cat ;
     static Cursor res ;
+    Button toute_trad ;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
@@ -163,12 +165,14 @@ public class Fragment_bas extends Fragment {
         del_cat = vue_du_fragment.findViewById(R.id.button_del_cat);
         del_langue = vue_du_fragment.findViewById(R.id.button_del_langue);
         del_trad = vue_du_fragment.findViewById(R.id.button_del_trad);
+        toute_trad = vue_du_fragment.findViewById(R.id.valide_toute_trad);
 
         button_valider.setVisibility(View.INVISIBLE);
         button_effacer.setVisibility(View.INVISIBLE);
         del_langue.setVisibility(View.INVISIBLE);
         del_trad.setVisibility(View.INVISIBLE);
         del_cat.setVisibility(View.INVISIBLE);
+        toute_trad.setVisibility(View.INVISIBLE);
 
 
 
@@ -473,6 +477,55 @@ public class Fragment_bas extends Fragment {
                 }
             });
 
+        }
+
+        if ( mParam1 != null && mParam1.equals("validetrad") && mParam2.equals("liste")){
+            button_valider.setVisibility(View.INVISIBLE);
+            button_effacer.setVisibility(View.INVISIBLE);
+            toute_trad.setVisibility(View.VISIBLE);
+            Log.d(TAG, "onCreateView: Dans le cas valide toutes les trad");
+            toute_trad.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Cursor c = Fragment_apprentissage_liste.cursor ;
+                    c.moveToFirst();
+                    int bonne_rep = 0 ;
+
+                    ListView lv = Fragment_apprentissage_liste.ma_liste ;
+
+                    for (int i = 0; i < lv.getCount() ; i++) {
+                        TextView langue = lv.getChildAt(i).findViewById(R.id.langue) ;
+                        TextView mot_base = lv.getChildAt(i).findViewById(R.id.mot_base) ;
+                        EditText editext_trad = lv.getChildAt(i).findViewById(R.id.editText_trad) ;
+                        Log.d(TAG, "onClick: 1 ; " + c.getString(1));
+                        Log.d(TAG, "onClick: 2 ; " + c.getString(2));
+                        Log.d(TAG, "onClick: 3 ; " + c.getString(3));
+                        Log.d(TAG, "onClick: 4 ; " + c.getString(4));
+                        Log.d(TAG, "onClick: mot ; " + mot_base.getText().toString());
+                        Log.d(TAG, "onClick: trad ; " + editext_trad.getText().toString());
+
+                        if ( mot_base.getText().toString().equals(c.getString(2)) && editext_trad.getText().toString().equals(c.getString(3))){
+                            lv.getChildAt(i).setBackgroundColor(Color.GREEN);
+                            bonne_rep += 1 ;
+
+                        }
+                        else {
+                            lv.getChildAt(i).setBackgroundColor(Color.RED);
+                        }
+                        if ( !c.moveToNext() ) break ;
+
+
+                    }
+
+                    if ( bonne_rep == lv.getCount()){
+                        Toast.makeText(getContext(),"Toutes les réponses sont correctes !",Toast.LENGTH_LONG);
+                    }
+
+
+
+
+                }
+            });
         }
 
 

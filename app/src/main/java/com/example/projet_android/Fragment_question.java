@@ -106,6 +106,7 @@ public class Fragment_question extends Fragment {
     public static ListView mon_recycler_view ;
     static ArrayList listtmp ;
     static String nom_langue ;
+    static String mot_en_cours ;
     public Fragment_question() {
         // Required empty public constructor
     }
@@ -185,6 +186,7 @@ public class Fragment_question extends Fragment {
                     en_cours = rd.nextInt(cursor.getCount());
                 }
                 liste_de_mot_deja_etudie.add(en_cours);
+                en_cours = rd.nextInt(cursor.getCount());
             }
             Log.d(TAG, "onCreateView: liste == " + liste_de_mot_deja_etudie.toString());
 
@@ -193,6 +195,7 @@ public class Fragment_question extends Fragment {
             liste_de_mot_deja_etudie.remove(0);
             MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
             texview_question.setText("Traduire ce mot : \n" + cursor.getString(2));
+            mot_en_cours = cursor.getString(2);
             Fragment_bas.trad.setBackgroundColor(Color.rgb(255 , 235 , 59));
 
             button_passer_la_question = vue_du_frag.findViewById(R.id.button_passer_question);
@@ -209,6 +212,7 @@ public class Fragment_question extends Fragment {
                         liste_de_mot_deja_etudie.remove(0);
                         MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
                         texview_question.setText("Traduire ce mot : \n" + cursor.getString(2));
+                        mot_en_cours = cursor.getString(2);
                         Fragment_bas.trad.setBackgroundColor(Color.rgb(255 , 235 , 59));
                         // 255 , 235 , 59
 
