@@ -38,6 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:backgroundTint="#C3009688"
+        app:rippleColor="@color/common_google_signin_btn_text_dark_disabled"
+        app:srcCompat="@android:drawable/ic_menu_compass" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

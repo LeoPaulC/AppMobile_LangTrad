@@ -139,11 +139,12 @@
         <Button
             android:id="@+id/button_aj_cat"
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_height="64dp"
             android:layout_below="@id/add_tv_choix_categorie"
             android:layout_toRightOf="@id/add_categorie"
-            android:backgroundTint="#E2009688"
-            android:drawableBottom="@android:drawable/ic_menu_add"
+            android:autoText="false"
+            android:background="@android:drawable/ic_input_add"
+            android:backgroundTint="@color/colorPrimary"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     </RelativeLayout>

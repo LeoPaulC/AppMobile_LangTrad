@@ -2,29 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+    android:backgroundTint="#5C3A3A3A"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="95dp"
         android:layout_weight="1"
         android:background="@drawable/side_nav_bar"
         android:fontFamily="@font/bilbo"
-        android:text="Choisir la Categorie a Effacer"
+        android:text="\nChoisir la Categorie a Effacer"
         android:textAlignment="center"
         android:textSize="24sp" />
 
     <Spinner
         android:id="@+id/spinner_del_cat"
         android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_weight="1" />
+        android:layout_height="67dp"
+        android:layout_weight="1"
+        android:background="?attr/listChoiceBackgroundIndicator" />
+
+    <View
+        android:id="@+id/divider6"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1"
+        android:background="?android:attr/listDivider" />
 
     <Button
         android:id="@+id/del_categ"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="62dp"
         android:layout_weight="1"
-        android:text="Effacer" />
+        android:backgroundTint="@color/common_google_signin_btn_text_dark"
+        android:text="Effacer cette Catgeorie" />
 </LinearLayout>

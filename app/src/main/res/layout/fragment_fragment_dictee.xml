@@ -13,10 +13,11 @@
         <Button
             android:id="@+id/button_mot_suivant_dictee"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="68dp"
             android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+            android:backgroundTint="@color/common_google_signin_btn_text_light_disabled"
             android:text="Mot suivant"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <Button
             android:id="@+id/button_image_dictee"
@@ -25,7 +26,7 @@
             android:layout_below="@id/button_mot_suivant_dictee"
             android:layout_toRightOf="@id/button_lire_son"
             android:background="@android:drawable/ic_menu_camera"
-            android:backgroundTint="#009688" />
+            android:backgroundTint="@color/design_default_color_primary" />
 
         <Button
             android:id="@+id/button_lire_son"
@@ -51,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_below="@id/button_lire_son"
-            android:background="@drawable/side_nav_bar" />
+            android:background="@color/design_default_color_primary" />
     </RelativeLayout>
 
 </FrameLayout>

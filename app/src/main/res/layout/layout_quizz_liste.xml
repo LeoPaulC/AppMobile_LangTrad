@@ -9,8 +9,14 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/trad_masque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible" />
+
+        <TextView
             android:id="@+id/mot_base"
-            android:layout_width="118dp"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_toRightOf="@id/langue"
@@ -33,24 +39,16 @@
 
         <EditText
             android:id="@+id/editText_trad"
-            android:layout_width="128dp"
+            android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_toRightOf="@id/imageView2"
             android:hint="Traduction"
             android:textAlignment="center" />
 
-        <Button
-            android:id="@+id/audio"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/editText_trad"
-            android:background="@android:drawable/ic_lock_silent_mode_off"
-            android:backgroundTint="#03A9F4" />
-
         <TextView
             android:id="@+id/langue"
-            android:layout_width="86dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="2dp"

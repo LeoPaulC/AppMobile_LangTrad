@@ -2,30 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
+    android:backgroundTint="@color/common_google_signin_btn_text_dark"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
-        android:layout_height="59dp"
+        android:layout_height="104dp"
         android:layout_weight="1"
         android:background="@drawable/side_nav_bar"
         android:fontFamily="@font/bilbo"
-        android:text="Choisir la Langue a Effacer"
+        android:text="\nChoisir la Langue a Effacer"
         android:textAlignment="center"
         android:textSize="24sp" />
 
     <Spinner
         android:id="@+id/spinner_del_langue"
-        android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:layout_weight="1" />
+        android:layout_width="395dp"
+        android:layout_height="85dp"
+        android:layout_weight="1"
+        android:background="?attr/listChoiceBackgroundIndicator" />
 
     <Button
         android:id="@+id/button_del_langue"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_weight="1"
-        android:text="Effacer" />
+        android:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
+        android:text="Effacer Cette Langue" />
 
 </LinearLayout>

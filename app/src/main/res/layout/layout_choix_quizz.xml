@@ -27,20 +27,35 @@
             <RadioButton
                 android:id="@+id/radioButton_choix_mot_a_mot"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Mot à Mot" />
+                android:layout_height="52dp"
+                android:text="Mot à Mot"
+                android:textSize="24sp" />
+
+            <View
+                android:id="@+id/divider8"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?android:attr/listDivider" />
 
             <RadioButton
                 android:id="@+id/radioButton_dictee"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dictée" />
+                android:layout_height="52dp"
+                android:text="Dictée"
+                android:textSize="24sp" />
+
+            <View
+                android:id="@+id/divider9"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="?android:attr/listDivider" />
 
             <RadioButton
                 android:id="@+id/radioButton_liste"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Avec Votre Liste Personnelle" />
+                android:layout_height="52dp"
+                android:text="Avec Votre Liste Personnelle"
+                android:textSize="24sp" />
         </RadioGroup>
     </RelativeLayout>
 

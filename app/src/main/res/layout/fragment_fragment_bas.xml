@@ -49,32 +49,37 @@
 
         <Button
             android:id="@+id/button_del_cat"
-            android:layout_width="141dp"
-            android:layout_height="wrap_content"
+            android:layout_width="137dp"
+            android:layout_height="74dp"
             android:layout_below="@id/button_effacer"
+            android:background="@drawable/side_nav_bar"
             android:text="Effacer une \nCatégorie" />
 
         <Button
             android:id="@+id/button_del_langue"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_width="135dp"
+            android:layout_height="74dp"
             android:layout_below="@id/button_effacer"
             android:layout_toRightOf="@id/button_del_cat"
+            android:background="@drawable/side_nav_bar"
             android:text="Effacer une \n Langue" />
 
         <Button
             android:id="@+id/button_del_trad"
-            android:layout_width="127dp"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="74dp"
             android:layout_below="@id/button_effacer"
             android:layout_toRightOf="@id/button_del_langue"
+            android:background="@drawable/side_nav_bar"
             android:text="Effacer une \n Traduction" />
 
         <Button
             android:id="@+id/valide_toute_trad"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="91dp"
+            android:background="@drawable/side_nav_bar"
             android:text="Valider toutes les traductions ?"
+            android:textStyle="bold"
             android:visibility="invisible" />
 
     </RelativeLayout>

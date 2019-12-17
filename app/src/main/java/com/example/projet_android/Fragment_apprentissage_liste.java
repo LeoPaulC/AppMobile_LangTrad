@@ -5,9 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
+
+import static com.example.projet_android.Base_de_donnee.TAG;
 
 
 /**
@@ -91,6 +95,8 @@ public class Fragment_apprentissage_liste extends Fragment {
             ma_liste = vue_du_fragment.findViewById(R.id.listeview_liste);
             mot = vue_layout.findViewById(R.id.mot_base);
             trad = vue_layout.findViewById(R.id.editText_trad);
+            TextView masque = vue_layout.findViewById(R.id.trad_masque);
+            Button audiob = vue_layout.findViewById(R.id.audio);
 
             MyContentProvider myContentProvider = new MyContentProvider();
             Uri.Builder builder_liste = new Uri.Builder();
@@ -103,14 +109,18 @@ public class Fragment_apprentissage_liste extends Fragment {
                     null);
 
             cursor.moveToFirst();
-            String[] fromColumns = new String[]{ "mot","langue_nom"};
-            int[] toControlIDs = new int[]{R.id.mot_base,R.id.langue};
+            String[] fromColumns = new String[]{ "mot","langue_nom","trad"};
+            int[] toControlIDs = new int[]{R.id.mot_base,R.id.langue,R.id.trad_masque};
             SimpleCursorAdapter sca;
             sca = new SimpleCursorAdapter(getContext(), R.layout.layout_quizz_liste, cursor,
                     fromColumns,
                     toControlIDs);
 
             ma_liste.setAdapter(sca);
+
+
+
+            
             MainActivity.ChargeFragmentDansEmplacement_Bas(Fragment_bas.newInstance("validetrad","liste"),"valide_liste");
 
         }

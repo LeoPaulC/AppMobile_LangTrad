@@ -19,6 +19,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -279,7 +280,22 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {Snackbar.make(v, "Votre Score précedent sur votre Liste : " + Fragment_bas.bonne_rep, Snackbar.LENGTH_LONG)
+            public void onClick(View v) {
+                MyContentProvider myContentProvider = new MyContentProvider();
+                Uri.Builder builder_liste = new Uri.Builder();
+                builder_liste.scheme("content").authority(Base_de_donnee.authority).appendPath("liste");
+                Uri uri_liste = builder_liste.build();
+                Cursor cursor = myContentProvider.query(uri_liste,
+                        null
+                        , null,
+                        null,
+                        null);
+                double pourcent ;
+                if ( cursor.getCount() != 0 )
+                    pourcent = (double)( (double)Fragment_bas.bonne_rep / (double)cursor.getCount() ) *100 ;
+                else pourcent = 0 ;
+
+                Snackbar.make(v, "Votre Score précedent ( " + pourcent + " % de reussite ) sur votre Liste : " + Fragment_bas.bonne_rep + " bonne réponse sur un total de " + cursor.getCount() + " mots .", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
             }
         });

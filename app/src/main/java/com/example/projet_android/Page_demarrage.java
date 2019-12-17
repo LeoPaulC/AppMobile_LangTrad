@@ -202,6 +202,7 @@ public class Page_demarrage extends Fragment {
 
                 }
             });
+            type_quizz = "motamot";
 
 
             quizz.setOnClickListener(new View.OnClickListener() {
@@ -227,13 +228,16 @@ public class Page_demarrage extends Fragment {
                                 type_quizz = "motamot";
                                 Log.d(TAG, "onCheckedChanged: type = " + type_quizz);
                             }
-                            if ( view.findViewById(checkedId) == view.findViewById(R.id.radioButton_dictee)){
+                            else if ( view.findViewById(checkedId) == view.findViewById(R.id.radioButton_dictee)){
                                 type_quizz = "dictee";
                                 Log.d(TAG, "onCheckedChanged: type = " + type_quizz);
                             }
-                            if ( view.findViewById(checkedId) == view.findViewById(R.id.radioButton_liste)){
+                            else if ( view.findViewById(checkedId) == view.findViewById(R.id.radioButton_liste)){
                                 type_quizz = "liste";
                                 Log.d(TAG, "onCheckedChanged: type = " + type_quizz);
+                            }
+                            else {
+                                type_quizz = "motamot";
                             }
                             // 2131362004 // dictée
                             // 2131362003 // mot a mot
@@ -352,6 +356,7 @@ public class Page_demarrage extends Fragment {
 
 
                     }
+
 
                 }
             });

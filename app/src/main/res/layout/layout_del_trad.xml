@@ -12,11 +12,11 @@
         android:fontFamily="@font/bilbo"
         android:text="Choisir la Langue la Traduction \nà Effacer"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="75dp"
         android:orientation="horizontal">
 
         <TextView
@@ -24,39 +24,46 @@
             android:layout_width="244dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
             android:text="\nLangue de Base"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <Spinner
             android:id="@+id/spinner_langue_de_base"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:drawable/spinner_background" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="75dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/textView15"
-            android:layout_width="250dp"
-            android:layout_height="70dp"
+            android:layout_width="243dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Langue de Destination"
-            android:textAlignment="center" />
+            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+            android:text="\nLangue de Destination"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <Spinner
             android:id="@+id/spinner_langue_dst"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_marginLeft="1dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/spinner_background" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="58dp"
+        android:layout_height="75dp"
         android:orientation="horizontal">
 
         <TextView
@@ -64,22 +71,34 @@
             android:layout_width="244dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="\n Catégorie"
-            android:textAlignment="center" />
+            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+            android:text="\nCatégorie"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
         <Spinner
             android:id="@+id/spinner_categorie_select"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="@android:drawable/spinner_background" />
     </LinearLayout>
+
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/side_nav_bar" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="match_parent"
         android:layout_height="58dp"
-        android:text="\nListe des Traductions Trouvées :"
-        android:textAlignment="center" />
+        android:background="@drawable/common_google_signin_btn_text_light_normal_background"
+        android:text="Liste des Traductions Trouvées :"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/liste_view_del_trad"

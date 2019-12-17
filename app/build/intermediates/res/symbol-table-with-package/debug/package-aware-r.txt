@@ -1231,6 +1231,10 @@ id divider2
 id divider3
 id divider4
 id divider5
+id divider6
+id divider7
+id divider8
+id divider9
 id drawer_layout
 id editText_choix_nom
 id editText_reponse_dictee
@@ -1450,6 +1454,7 @@ id top
 id topPanel
 id touch_outside
 id trad
+id trad_masque
 id transition_current_scene
 id transition_layout_save
 id transition_position

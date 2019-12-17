@@ -1,5 +1,6 @@
 package com.example.projet_android;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.hardware.camera2.TotalCaptureResult;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import androidx.loader.content.CursorLoader;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.speech.tts.TextToSpeech;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -158,6 +161,7 @@ public class Fragment_question extends Fragment {
     }
     static int en_cours ;
 
+    @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -179,12 +183,12 @@ public class Fragment_question extends Fragment {
         if ( mParam1 != null && mParam1 == "affiche" && mParam2 == Base_de_donnee.TABLE_MOT){
 
             String catgeorie_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE) ;
-            String langue_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2) ;
+            String langue_en_cours = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1) ;
 
             MainActivity.layout_reponse.setVisibility(View.VISIBLE);
 
             Uri.Builder builder = new Uri.Builder();
-            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT);
+            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(langue_en_cours).appendPath(catgeorie_en_cours);
             Uri uri = builder.build();
             cursor = moncontentprovider.query(uri,
                     null
@@ -208,10 +212,14 @@ public class Fragment_question extends Fragment {
             }
             Log.d(TAG, "onCreateView: liste == " + liste_de_mot_deja_etudie.toString());
 
+
+            // todo , regarder pourquoi y a tous le smots qui sortes
             cursor.moveToFirst();
             cursor.move(liste_de_mot_deja_etudie.get(0));
             liste_de_mot_deja_etudie.remove(0);
             MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
+            texview_question.setTextSize(24);
+            texview_question.setTextAlignment(0);
             texview_question.setText("Traduire ce mot : \n" + cursor.getString(2));
             mot_en_cours = cursor.getString(2);
             Fragment_bas.trad.setBackgroundColor(Color.rgb(255 , 235 , 59));
@@ -225,7 +233,7 @@ public class Fragment_question extends Fragment {
             button_passer_la_question.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ( cursor.moveToFirst() && liste_de_mot_deja_etudie.size() >= 1){
+                    if ( cursor.moveToFirst() && liste_de_mot_deja_etudie.size() > 0){
                         cursor.move(liste_de_mot_deja_etudie.get(0));
                         liste_de_mot_deja_etudie.remove(0);
                         MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
@@ -235,6 +243,9 @@ public class Fragment_question extends Fragment {
                         // 255 , 235 , 59
 
 
+                    }
+                    else {
+                        Toast.makeText(getContext(),"Il ne reste plus de mot de disponible. Recommencer si vous voulez , ou ajouter des traductions .", Toast.LENGTH_LONG);
                     }
                 }
             });
@@ -536,6 +547,8 @@ public class Fragment_question extends Fragment {
             spinner_de_choix_categorie = vue_du_frag.findViewById(R.id.spinner_liste_categorie) ;
             liste_view_de_la_liste_de_mot = new ListView(getContext());
             liste_view_de_la_liste_de_mot = vue_du_frag.findViewById(R.id.liste_view_liste_mot);
+
+            text_view_de_la_question.setText("Choisir une Catégorie qui vous inetresse :");
 
             // todo debut
 

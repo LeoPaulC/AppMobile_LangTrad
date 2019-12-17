@@ -1,8 +1,12 @@
 package com.example.projet_android;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,22 +14,33 @@ import android.os.Bundle;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 import androidx.fragment.app.Fragment;
 
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Locale;
 import java.util.zip.Inflater;
 
 import static com.example.projet_android.Base_de_donnee.TAG;
+import static com.example.projet_android.Fragment_reponse.mtts;
 
 
 /**
@@ -233,7 +248,7 @@ public class Fragment_bas extends Fragment {
                     Uri.Builder builder = new Uri.Builder();
                     builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);
                     Uri uri = builder.build();
-                    final Cursor c = moncontentprovider.query(uri,
+                    c = moncontentprovider.query(uri,
                             null
                             ,null,
                             null,
@@ -482,16 +497,17 @@ public class Fragment_bas extends Fragment {
 
         }
 
-        if ( mParam1 != null && mParam1.equals("validetrad") && mParam2.equals("liste")){
+        if ( mParam1 != null && mParam1.equals("validetrad") && mParam2.equals("liste")   ){
             button_valider.setVisibility(View.INVISIBLE);
             button_effacer.setVisibility(View.INVISIBLE);
             toute_trad.setVisibility(View.VISIBLE);
             MainActivity.layout_bas.setVisibility(View.VISIBLE);
             Log.d(TAG, "onCreateView: Dans le cas valide toutes les trad");
+
             toute_trad.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Cursor c = Fragment_apprentissage_liste.cursor ;
+                    final Cursor c = Fragment_apprentissage_liste.cursor ;
                     c.moveToFirst();
                     bonne_rep = 0 ;
 
@@ -501,12 +517,15 @@ public class Fragment_bas extends Fragment {
                         TextView langue = lv.getChildAt(i).findViewById(R.id.langue) ;
                         TextView mot_base = lv.getChildAt(i).findViewById(R.id.mot_base) ;
                         EditText editext_trad = lv.getChildAt(i).findViewById(R.id.editText_trad) ;
+
+
                         Log.d(TAG, "onClick: 1 ; " + c.getString(1));
                         Log.d(TAG, "onClick: 2 ; " + c.getString(2));
                         Log.d(TAG, "onClick: 3 ; " + c.getString(3));
                         Log.d(TAG, "onClick: 4 ; " + c.getString(4));
                         Log.d(TAG, "onClick: mot ; " + mot_base.getText().toString());
                         Log.d(TAG, "onClick: trad ; " + editext_trad.getText().toString());
+
 
                         if ( mot_base.getText().toString().equals(c.getString(2)) && editext_trad.getText().toString().equals(c.getString(3))){
                             lv.getChildAt(i).setBackgroundColor(Color.GREEN);
@@ -530,6 +549,7 @@ public class Fragment_bas extends Fragment {
 
                 }
             });
+
         }
         if ( mParam1 != null && mParam1.equals("dictee") ){
 
@@ -722,7 +742,7 @@ public class Fragment_bas extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
