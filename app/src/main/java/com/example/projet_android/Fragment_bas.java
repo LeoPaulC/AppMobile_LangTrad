@@ -202,6 +202,7 @@ public class Fragment_bas extends Fragment {
          * Verifie si les options choisies correpondents a une Init BDD :
          */
         if ( mParam1 != null && mParam1.equals("init") && mParam2.equals("bdd")){ // partie correpsondant a l'initailisation de la base de donnée
+
             /*
             On va masquer les autres fragments
             */
@@ -498,6 +499,9 @@ public class Fragment_bas extends Fragment {
         }
 
         if ( mParam1 != null && mParam1.equals("validetrad") && mParam2.equals("liste")   ){
+
+
+            MainActivity.layout_bas.setVisibility(View.VISIBLE);
             button_valider.setVisibility(View.INVISIBLE);
             button_effacer.setVisibility(View.INVISIBLE);
             toute_trad.setVisibility(View.VISIBLE);
@@ -553,6 +557,9 @@ public class Fragment_bas extends Fragment {
         }
         if ( mParam1 != null && mParam1.equals("dictee") ){
 
+
+            MainActivity.layout_bas.setVisibility(View.VISIBLE);
+
                 button_valider.setVisibility(View.INVISIBLE);
 
                 button_effacer.setVisibility(View.INVISIBLE);
@@ -589,6 +596,9 @@ public class Fragment_bas extends Fragment {
 
 
         if ( mParam1 != null && mParam1.equals("valide") && mParam2.equals("traduction")){ // partie correpsondant a l'initailisation de la base de donnée
+
+
+            MainActivity.layout_bas.setVisibility(View.VISIBLE);
             Log.d("d" ,"Fragment BAS : valide - trad" ); // creation Table OK
 
             button_valider.setVisibility(View.INVISIBLE);
@@ -596,6 +606,7 @@ public class Fragment_bas extends Fragment {
             button_effacer.setVisibility(View.INVISIBLE);
 
             trad.setVisibility(View.VISIBLE);
+
             trad.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

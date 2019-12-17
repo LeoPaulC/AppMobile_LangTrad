@@ -295,6 +295,23 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(CATEGORIE, "Commun" );
         res = bd.insertOrThrow(TABLE_MOT, null, row);
 
+        row = new ContentValues();
+        row.put(CONTENU, "Buenos dias");
+        row.put(ID_LANGUE, 3 );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Comer");
+        row.put(ID_LANGUE, 3 );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+
+
+
 
 
         /**
@@ -305,6 +322,20 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put(TABLE_LANGUE+"2", "Anglais");
         row.put("mot_question", "Bonjour" );
         row.put("mot_reponse", "Hello" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Espagnol");
+        row.put("mot_question", "Manger" );
+        row.put("mot_reponse", "Comer" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Espagnol");
+        row.put("mot_question", "Bonjour" );
+        row.put("mot_reponse", "Buenos dias" );
         res = bd.insertOrThrow(TABLE_TRAD, null, row);
 
         row = new ContentValues();
@@ -333,6 +364,343 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row.put("mot_question", "Boire" );
         row.put("mot_reponse", "Drink" );
         res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Avion");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Plane");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Avion" );
+        row.put("mot_reponse", "Plane" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Moto");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Bike");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Moto" );
+        row.put("mot_reponse", "Bike" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "helicoptere");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "helicopter");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Vehicule" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "helicoptere" );
+        row.put("mot_reponse", "helicopter" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Arbre");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Nature" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Tree");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Nature" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Arbre" );
+        row.put("mot_reponse", "Tree" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Liberte");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Nature" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Freedom");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Nature" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Liberte" );
+        row.put("mot_reponse", "Freedom" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Pomme");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Nature" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Apple");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Nature" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Pomme" );
+        row.put("mot_reponse", "Apple" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Feu");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Fire");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Feu" );
+        row.put("mot_reponse", "Fire" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Vent");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Wind");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Vent" );
+        row.put("mot_reponse", "Wind" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Eau");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Water");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Eau" );
+        row.put("mot_reponse", "Water" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Terre");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Earth");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Elements" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Terre" );
+        row.put("mot_reponse", "Earth" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Parler");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Social" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Speak");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Social" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Parler" );
+        row.put("mot_reponse", "Speak" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Pleurer");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Social" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Cry");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Social" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Pleurer" );
+        row.put("mot_reponse", "Cry" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Chien");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Animaux" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Dog");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Animaux" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Chien" );
+        row.put("mot_reponse", "Dog" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Chat");
+        row.put(ID_LANGUE, 1 );
+        row.put(CATEGORIE, "Animaux" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+
+        row = new ContentValues();
+        row.put(CONTENU, "Cat");
+        row.put(ID_LANGUE, 2 );
+        row.put(CATEGORIE, "Animaux" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Anglais");
+        row.put("mot_question", "Chat" );
+        row.put("mot_reponse", "Cat" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Gato");
+        row.put(ID_LANGUE, 3 );
+        row.put(CATEGORIE, "Animaux" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Espagnol");
+        row.put("mot_question", "Chat" );
+        row.put("mot_reponse", "Gato" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Perro");
+        row.put(ID_LANGUE, 3 );
+        row.put(CATEGORIE, "Animaux" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Espagnol");
+        row.put("mot_question", "Chien" );
+        row.put("mot_reponse", "Perro" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Adios");
+        row.put(ID_LANGUE, 3 );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Espagnol");
+        row.put("mot_question", "Au revoir" );
+        row.put("mot_reponse", "Adios" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+        row = new ContentValues();
+        row.put(CONTENU, "Beber");
+        row.put(ID_LANGUE, 3 );
+        row.put(CATEGORIE, "Commun" );
+        res = bd.insertOrThrow(TABLE_MOT, null, row);
+
+        row = new ContentValues();
+        row.put(TABLE_LANGUE+"1", "Francais");
+        row.put(TABLE_LANGUE+"2", "Espagnol");
+        row.put("mot_question", "Boire" );
+        row.put("mot_reponse", "Beber" );
+        res = bd.insertOrThrow(TABLE_TRAD, null, row);
+
+
+
+
 
 
 
