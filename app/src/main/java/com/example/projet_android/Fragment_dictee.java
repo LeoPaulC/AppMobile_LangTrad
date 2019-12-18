@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.hardware.camera2.TotalCaptureResult;
 import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -21,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -109,6 +111,8 @@ public class Fragment_dictee extends Fragment {
         vue_du_frag = inflater.inflate(R.layout.fragment_fragment_dictee, container, false);
 
         if ( mParam1 != null && mParam1.equals("dictee")){
+
+            MainActivity.layout_reponse.setVisibility(View.VISIBLE);
             suivant = vue_du_frag.findViewById(R.id.button_mot_suivant_dictee);
             son = vue_du_frag.findViewById(R.id.button_lire_son);
             imageb = vue_du_frag.findViewById(R.id.button_image_dictee);
@@ -116,15 +120,22 @@ public class Fragment_dictee extends Fragment {
 
 
             MainActivity.layout_reponse.setVisibility(View.VISIBLE);
+            String categorie = MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_CATEGORIE);
 
-            Uri.Builder builder = new Uri.Builder();
-            builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT);
+            Uri.Builder builder = new Uri.Builder();builder.scheme("content").authority(Base_de_donnee.authority)
+                    .appendPath(Base_de_donnee.TABLE_TRAD)
+                    .appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1))
+                    .appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2))
+                    .appendPath(categorie);
+
             Uri uri = builder.build();
             cursor = moncontentprovider.query(uri,
                     null
                     ,null,
                     null,
                     null);
+
+            final Cursor tmp = cursor ;
 
             final ArrayList<Integer> liste_de_mot_deja_etudie = new ArrayList<>();
             en_cours = 0 ;
@@ -190,18 +201,22 @@ public class Fragment_dictee extends Fragment {
             suivant.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if ( cursor.moveToFirst() && liste_de_mot_deja_etudie.size() >= 1){
-                        cursor.move(liste_de_mot_deja_etudie.get(0));
+                    if ( cursor.moveToFirst() && liste_de_mot_deja_etudie.size() > 1){
+                        tmp.move(liste_de_mot_deja_etudie.get(0));
                         liste_de_mot_deja_etudie.remove(0);
-                        MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, cursor.getString(2));
+                        MainActivity.bundle_de_la_session_en_cours.putString(MainActivity.BUNDLE_MOT_QUESTION, tmp.getString(2));
                         //texview_question.setText("Traduire ce mot : \n" + cursor.getString(2));
-                        mot_en_cours = cursor.getString(2);
+                        mot_en_cours = tmp.getString(2);
                         //Fragment_bas.trad.setBackgroundColor(Color.rgb(255 , 235 , 59));
                         //rep.setBackgroundColor(Color.WHITE);
 
                         Uri.Builder builder2 = new Uri.Builder();
-                        builder2.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(cursor.getString(2));
+                        builder2.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_MOT).appendPath(tmp.getString(2));
                         Uri uri2 = builder2.build();
+
+                        rep.setText("");
+                        rep.setHint("Bonne réponse ! ");
+                        rep.setBackgroundColor(Color.WHITE);
                         Cursor cursor2 = moncontentprovider.query(uri2,
                                 null
                                 ,null,
@@ -210,13 +225,18 @@ public class Fragment_dictee extends Fragment {
 
                         if ( cursor2 != null ){
                             cursor2.moveToFirst();
-                            if ( cursor.getString(2).equals(cursor2.getString(2))){
+                            if ( tmp.getString(2).equals(cursor2.getString(2))){
                                 MainActivity.ChargeFragmentDansEmplacement_Bas(Fragment_bas.newInstance("dictee",cursor2.getString(1).toString()),"valider dictee");
                             }
                             else {
                                 MainActivity.ChargeFragmentDansEmplacement_Bas(Fragment_bas.newInstance("dictee",cursor2.getString(2).toString()),"valider dictee");
                             }
                         }
+
+                    }
+                    else {
+                        MainActivity.fm.popBackStack();
+                        MainActivity.fm.popBackStack();
 
                     }
 
@@ -468,6 +488,11 @@ public class Fragment_dictee extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+        MainActivity.layout_question.setVisibility(View.GONE);
+        MainActivity.layout_demarrage.setVisibility(View.VISIBLE);
+        MainActivity.layout_bas.setVisibility(View.GONE);
+
+        MainActivity.layout_reponse.setVisibility(View.GONE);
         mListener = null;
     }
 

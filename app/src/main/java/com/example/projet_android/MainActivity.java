@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         Toast annonce = Toast.makeText(this, message, Toast.LENGTH_LONG);
         annonce.show();
     }
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -262,7 +263,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools , R.id.nav_share)
+                R.id.nav_tools )
                 .setDrawerLayout(drawer)
                 .build();
 

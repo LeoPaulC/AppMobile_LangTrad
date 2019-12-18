@@ -577,7 +577,6 @@ public class Fragment_bas extends Fragment {
                     Log.d(TAG, "onCreateView: Nous somme bien dans fragment bas " + Fragment_dictee.rep.getText().toString() + " " + mParam2);
                     if ( Fragment_dictee.rep.getText().toString().equals(mParam2)){
                         Fragment_dictee.rep.setBackgroundColor(Color.GREEN);
-
                         Fragment_dictee.suivant.callOnClick();
                     }
                     else {

@@ -384,7 +384,6 @@ public class Fragment_question extends Fragment {
                             listtmp = new ArrayList<String>() ;
                             listtmp.add(id_langue); // on ajoute la langue
                             listtmp.add(mot_selectionne_long); // on ajoute le mot
-
                             if ( cursor_tmp != null ){
                                 if ( cursor_tmp.getString(1).equals(mot_selectionne_long)){
                                     // cas ou la traduction colle avec le mot choisi
@@ -396,6 +395,7 @@ public class Fragment_question extends Fragment {
                                 }
 
                             }
+
 
                             Uri.Builder builder_req = new Uri.Builder();
                             builder_req.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.ID_LANGUE).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
@@ -441,10 +441,32 @@ public class Fragment_question extends Fragment {
                                 builder_liste.scheme("content").authority(Base_de_donnee.authority).appendPath("liste");
                                 Uri uri_liste = builder_liste.build();
                                 ContentValues cv = new ContentValues();
-                                cv.put("langue_nom",id_langue);
-                                cv.put("mot",mot_selectionne_long);
-                                cv.put("trad",listtmp.get(2).toString());
-                                myContentProvider.insert(uri_liste,cv);
+                                /*cv.put("langue_nom",id_langue);
+                                cv.put("trad",mot_selectionne_long);
+                                cv.put("mot",listtmp.get(2).toString());
+                                myContentProvider.insert(uri_liste,cv);*/
+                                Uri.Builder b = new Uri.Builder();
+                                b.scheme("content").authority(Base_de_donnee.authority).appendPath("langue_mot").appendPath(mot_selectionne_long);
+                                Uri u = b.build();
+                                Cursor cu = myContentProvider.query(u, null, null, null, null);
+                                cu.moveToFirst();
+                                String langueMot = cu.getString(0);
+                                Log.d(TAG, "onItemLongClick: LangueMot sleect : " + langueMot + " / " + MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
+
+                                if (MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2).equals(langueMot)) {
+                                    // cursor2
+                                    Log.d(TAG, "onItemLongClick: CAS 1:::::");
+                                    cv.put("langue_nom", id_langue);
+                                    cv.put("mot", listtmp.get(2).toString());
+                                    cv.put("trad", mot_selectionne_long);
+                                    myContentProvider.insert(uri_liste, cv);
+                                } else {
+                                    Log.d(TAG, "onItemLongClick: CAS 2:::::");
+                                    cv.put("langue_nom", id_langue);
+                                    cv.put("mot", mot_selectionne_long);
+                                    cv.put("trad", listtmp.get(2).toString());
+                                    myContentProvider.insert(uri_liste, cv);
+                                }
 
                                 Log.d(TAG, "onItemLongClick: add = " + add);
                                 grid_view_de_la_liste_de_mot.getChildAt(position).setBackgroundColor(Color.GREEN);
@@ -491,17 +513,13 @@ public class Fragment_question extends Fragment {
                             for (int i = 0; i < grid_view_de_la_liste_de_mot.getCount(); i++) {
                                 cursor2.moveToFirst();
                                 cursor2.move(i);
-                                String mot_a_remplir = cursor2.getString(2) ;
-                                /**
-                                 * faire une requete avec la langue et le mot
-                                 */
-                                /*
-                                if ( listtmp != null && listtmp.contains(mot_a_remplir)) {
-                                    grid_view_de_la_liste_de_mot.getChildAt(i).setBackgroundColor(Color.GREEN);
-                                }
+                                String mot_a_remplir ;
 
-                                 */
-                                /** On va recuperer le nom_de_la_langue en cours d'apprentisasge */
+                                if ( Integer.parseInt(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2)) > Integer.parseInt(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE1) ) )
+                                    mot_a_remplir = cursor2.getString(1) ;
+                                else
+                                    mot_a_remplir = cursor2.getString(2) ;
+
                                 Uri.Builder builder = new Uri.Builder();
                                 builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.ID_LANGUE).appendPath(MainActivity.bundle_de_la_session_en_cours.getString(MainActivity.BUNDLE_LANGUE2));
                                 Uri uri = builder.build();
@@ -566,6 +584,8 @@ public class Fragment_question extends Fragment {
             liste_view_de_la_liste_de_mot = new ListView(getContext());
             liste_view_de_la_liste_de_mot = vue_du_frag.findViewById(R.id.liste_view_liste_mot);
 
+            MainActivity.layout_reponse.setVisibility(View.INVISIBLE);
+
             text_view_de_la_question.setText("Choisir une Catégorie qui vous interresse :");
 
             // todo debut
@@ -589,6 +609,7 @@ public class Fragment_question extends Fragment {
                     fromColumns,
                     toControlIDs);
             spinner_de_choix_categorie.setAdapter(sca);
+            final Cursor tmp = cursor ;
 
             spinner_de_choix_categorie.setVisibility(View.VISIBLE);
             spinner_de_choix_categorie.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -598,9 +619,9 @@ public class Fragment_question extends Fragment {
                     MainActivity.layout_reponse.setVisibility(View.VISIBLE);
 
                     Uri.Builder builder = new Uri.Builder();
-                    cursor.moveToFirst();
-                    cursor.move(position);
-                    String categorie = cursor.getString(1);
+                    tmp.moveToFirst();
+                    tmp.move(position);
+                    String categorie = tmp.getString(1);
                     //view.toString()
 
                     /**

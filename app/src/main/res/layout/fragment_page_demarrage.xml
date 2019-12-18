@@ -15,9 +15,10 @@
         <Spinner
             android:id="@+id/spinner_choix_langue_de_base2"
             android:layout_width="match_parent"
-            android:layout_height="34dp"
+            android:layout_height="60dp"
             android:layout_below="@id/textView3"
-            android:layout_marginTop="19dp" />
+            android:layout_marginTop="19dp"
+            android:background="@android:drawable/spinner_dropdown_background" />
 
         <EditText
             android:id="@+id/editText_choix_nom"
@@ -31,9 +32,10 @@
         <Spinner
             android:id="@+id/spinner_choix_langue_de_base"
             android:layout_width="match_parent"
-            android:layout_height="34dp"
+            android:layout_height="62dp"
             android:layout_below="@id/textView2"
-            android:layout_marginTop="18dp" />
+            android:layout_marginTop="18dp"
+            android:background="@android:drawable/spinner_dropdown_background" />
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -54,7 +56,8 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Choix de la méthode d'apprentissage :"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -65,7 +68,8 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Choix de votre langue de base :"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -76,7 +80,8 @@
             android:fontFamily="@font/alfa_slab_one"
             android:text="Choix de la langue à etudier  :"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp" />
 
         <View
             android:id="@+id/divider"

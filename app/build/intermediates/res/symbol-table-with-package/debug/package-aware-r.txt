@@ -1322,7 +1322,6 @@ id nav_gallery
 id nav_home
 id nav_host_fragment
 id nav_host_fragment2
-id nav_send
 id nav_share
 id nav_slideshow
 id nav_tools

@@ -153,6 +153,7 @@ public class AccesDonneesBDD extends Fragment {
             /**
              * on va construire l'URI pour recuperer les categories .
              */
+            MainActivity.layout_reponse.setVisibility(View.INVISIBLE);
 
             Uri.Builder builder = new Uri.Builder();
             builder.scheme("content").authority(Base_de_donnee.authority).appendPath(Base_de_donnee.TABLE_CATGEORIE);

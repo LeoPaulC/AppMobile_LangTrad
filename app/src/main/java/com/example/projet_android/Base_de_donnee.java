@@ -422,8 +422,8 @@ public class Base_de_donnee extends SQLiteOpenHelper {
         row = new ContentValues();
         row.put(TABLE_LANGUE+"1", "Francais");
         row.put(TABLE_LANGUE+"2", "Anglais");
-        row.put("mot_question", "helicoptere" );
-        row.put("mot_reponse", "helicopter" );
+        row.put("mot_question", "Helicoptere" );
+        row.put("mot_reponse", "Helicopter" );
         res = bd.insertOrThrow(TABLE_TRAD, null, row);
 
         row = new ContentValues();

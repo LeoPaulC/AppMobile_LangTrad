@@ -48,7 +48,7 @@
             android:layout_height="558dp"
             android:layout_below="@id/spinner_liste_categorie"
             android:layout_marginTop="10dp"
-            android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
             android:choiceMode="singleChoice"
             android:gravity="center"
             android:longClickable="true"
@@ -61,6 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/spinner_liste_categorie"
             android:layout_marginTop="8dp"
+            android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
             android:visibility="invisible" />
 
     </RelativeLayout>
