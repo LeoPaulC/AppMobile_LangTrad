@@ -4995,9 +4995,10 @@ public final class R {
     public static final int notification_tile_bg=0x7f080094;
     public static final int notify_panel_notification_icon_bg=0x7f080095;
     public static final int side_nav_bar=0x7f080096;
-    public static final int tooltip_frame_dark=0x7f080097;
-    public static final int tooltip_frame_light=0x7f080098;
-    public static final int voiture=0x7f080099;
+    public static final int snk=0x7f080097;
+    public static final int tooltip_frame_dark=0x7f080098;
+    public static final int tooltip_frame_light=0x7f080099;
+    public static final int voiture=0x7f08009a;
   }
   public static final class font {
     public static final int alfa_slab_one=0x7f090000;

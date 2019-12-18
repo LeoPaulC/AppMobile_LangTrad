@@ -31,10 +31,10 @@
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 19-->[androidx.core:core:1.0.1] /home/cadiou/.gradle/caches/transforms-2/files-2.1/c0a39027978b83a483a047f5c31d0c4e/core-1.0.1/AndroidManifest.xml:22:18-86
 20        android:debuggable="true"
-21        android:icon="@mipmap/ic_launcher"
-21-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:13:9-43
-22        android:roundIcon="@mipmap/ic_launcher_round"
-22-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:14:9-54
+21        android:icon="@drawable/snk"
+21-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:13:9-37
+22        android:roundIcon="@drawable/snk"
+22-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:14:9-42
 23        android:supportsRtl="true"
 23-->/home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:15:9-35
 24        android:testOnly="true"

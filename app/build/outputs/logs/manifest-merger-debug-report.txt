@@ -112,9 +112,9 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/cadiou/.gradle/ca
 	android:supportsRtl
 		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:15:9-35
 	android:roundIcon
-		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:14:9-54
+		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:14:9-42
 	android:icon
-		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:13:9-43
+		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:13:9-37
 	android:allowBackup
 		ADDED from /home/cadiou/Documents/Android/projetMobile_git/mobile/app/src/main/AndroidManifest.xml:12:9-35
 	android:theme

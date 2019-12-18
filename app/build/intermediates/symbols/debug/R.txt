@@ -1119,9 +1119,10 @@ int drawable notification_template_icon_low_bg 0x7f080093
 int drawable notification_tile_bg 0x7f080094
 int drawable notify_panel_notification_icon_bg 0x7f080095
 int drawable side_nav_bar 0x7f080096
-int drawable tooltip_frame_dark 0x7f080097
-int drawable tooltip_frame_light 0x7f080098
-int drawable voiture 0x7f080099
+int drawable snk 0x7f080097
+int drawable tooltip_frame_dark 0x7f080098
+int drawable tooltip_frame_light 0x7f080099
+int drawable voiture 0x7f08009a
 int font alfa_slab_one 0x7f090000
 int font bilbo 0x7f090001
 int id ALT 0x7f0a0000
