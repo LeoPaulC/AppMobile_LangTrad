@@ -60,36 +60,18 @@
         <LinearLayout
             android:id="@+id/layout_question"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layout_bar_du_haut"
+            android:layout_height="466dp"
             android:orientation="vertical">
 
             <fragment
                 android:id="@+id/emplacement_fragment_question"
                 android:name="com.example.projet_android.Fragment_question"
                 android:layout_width="match_parent"
-                android:layout_height="340dp"
+                android:layout_height="478dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="106dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_bar_du_haut"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <fragment
-                android:id="@+id/emplacement_fragment_bar_du_haut"
-                android:name="com.example.projet_android.Fragment_menu"
-                android:layout_width="match_parent"
-                android:layout_height="92dp"
-                android:layout_marginTop="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
 
 

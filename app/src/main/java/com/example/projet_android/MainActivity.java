@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity implements Fragment_menu.OnF
         layout_haut = new LinearLayout(this) ;
         layout_demarrage = new FrameLayout(this);
 
-        layout_haut = findViewById(R.id.layout_bar_du_haut);
+        //layout_haut = findViewById(R.id.layout_bar_du_haut);
         layout_question = findViewById(R.id.layout_question );
         layout_reponse = findViewById(R.id.layout_reponse );
         layout_bas = findViewById(R.id.layout_bas) ;

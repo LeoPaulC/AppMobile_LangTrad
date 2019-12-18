@@ -1288,7 +1288,6 @@ id langue
 id langue_nom
 id largeLabel
 id layout
-id layout_bar_du_haut
 id layout_bas
 id layout_demarrage
 id layout_page_acces_ma_liste_perso
